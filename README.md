@@ -1,4 +1,4 @@
-# AMG — studio site
+# Apex Agents — studio site
 
 Agency site: websites, software, design and targeted ads. The hero is a scroll journey through screenshots of our real
 projects (engine `js/scroll.js` from the `site-scroll-infinito` skill), then the work, services, numbers, process and a

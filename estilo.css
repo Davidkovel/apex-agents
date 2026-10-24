@@ -446,3 +446,5 @@ img, svg, canvas { display: block; max-width: 100%; }
 .projeto__img--foto { aspect-ratio: 1536 / 1032; }
 .projeto__img--foto .caso__pc { box-shadow: none; }
 .caso figure:has(img[src*="/m-"]) { aspect-ratio: 1536 / 1032; background: #0b0b0c; }
+.marca em { font-style: normal; font-weight: 500; opacity: .7; letter-spacing: .02em; }
+.caso figure > a, .projeto__img > a { display: block; height: 100%; }

@@ -56,7 +56,7 @@ const CONTACTO = {
     const falta = [...f.querySelectorAll('[required]')].filter((i) => { const v = !i.value.trim(); i.setAttribute('aria-invalid', String(v)); return v; });
     if (falta.length) { estado.textContent = 'Fill in the marked fields so we can answer you.'; falta[0].focus(); return; }
     const d = new FormData(f);
-    const linhas = [f.dataset.assunto || 'New project request — AMG'];
+    const linhas = [f.dataset.assunto || 'New project request — Apex Agents'];
     for (const [k, r] of Object.entries(ROTULOS)) if (d.get(k)) linhas.push(r + ': ' + d.get(k).trim());
     if (d.getAll('servico').length) linhas.push((f.dataset.rotulo || 'Needs') + ': ' + d.getAll('servico').join(', '));
     if ((d.get('mensagem') || '').trim()) linhas.push('', d.get('mensagem').trim());
