@@ -374,23 +374,34 @@ img, svg, canvas { display: block; max-width: 100%; }
 .fazemos__nota { margin-top: 2.4rem; max-width: 60ch; opacity: .78; }
 .fazemos__nota b { display: block; margin-top: .4rem; color: var(--acento); font-weight: 600; opacity: 1; }
 
-.oferta { padding: 4svh var(--g) 10svh; }
-.oferta__cartao {
-  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+
+/* ---------- 89 clear hero line and the full cycle ---------- */
+.beat--hero h1 { font-size: clamp(2.6rem, 1.2rem + 6vw, 7rem); max-width: 14ch; }
+.beat--hero h1 em { display: block; }
+.linha--larga { max-width: 52ch; }
+.heroi__servicos { list-style: none; padding: 0; margin: 1.6rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .45rem; }
+.heroi__servicos li { padding: .4em .95em; border-radius: 99px; font-size: var(--t-1); font-weight: 600; background: rgb(242 241 236 / .08); box-shadow: inset 0 0 0 1px rgb(242 241 236 / .2); backdrop-filter: blur(6px); }
+.ciclo { padding: 14svh var(--g) 10svh; }
+.ciclo .titulo-secao { max-width: 20ch; }
+.ciclo .linha { max-width: 56ch; }
+.ciclo__passos { list-style: none; counter-reset: c; margin: 6svh 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); gap: 1rem; }
+.ciclo__passos li { counter-increment: c; display: flex; flex-direction: column; gap: .6rem; padding: 1.5rem; border-radius: 22px; background: #12141a; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .07); }
+.ciclo__passos li::before { content: "0" counter(c); font: 800 var(--t-1)/1 var(--letra); letter-spacing: .14em; color: var(--acento); }
+.ciclo__passos b { font: 700 var(--t-3)/1.1 var(--letra-titulo); letter-spacing: -.02em; }
+.ciclo__passos p { opacity: .75; }
+.ciclo__passos small { margin-top: auto; padding-top: .6rem; border-top: 1px solid rgb(255 255 255 / .08); color: var(--acento); font-size: var(--t-1); font-weight: 600; }
+
+/* ---------- 90b free audit ---------- */
+.auditoria { padding: 4svh var(--g) 10svh; }
+.auditoria__cartao {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center;
   padding: clamp(1.6rem, 4.5vw, 3.6rem); border-radius: 32px; color: var(--escuro);
   background: radial-gradient(70% 120% at 0% 0%, #f0ff9a, transparent 60%), radial-gradient(60% 120% at 100% 100%, #9fe870, transparent 60%), var(--acento);
 }
-.oferta h2 { font-size: var(--t-4); max-width: 16ch; }
-.oferta ul { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: .5rem; }
-.oferta li { position: relative; padding-left: 1.6rem; }
-.oferta li::before { content: "✦"; position: absolute; left: 0; }
-.cupao {
-  position: relative; display: grid; justify-items: center; gap: .3rem; padding: 2.2rem 1.5rem; border-radius: 22px; text-align: center;
-  background: var(--escuro); color: var(--claro); rotate: 3deg; box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6);
-  -webkit-mask: radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
-          mask: radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
-}
-.cupao__tag { font-size: var(--t-1); letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
-.cupao b { font: 800 clamp(3.4rem, 2.4rem + 4vw, 6rem)/1 var(--letra-titulo); letter-spacing: -.05em; color: var(--acento); }
-.cupao span:last-child { opacity: .8; }
-@media (max-width: 760px) { .oferta__cartao { grid-template-columns: 1fr; } .cupao { rotate: -2deg; } }
+.auditoria h2 { font-size: var(--t-4); max-width: 18ch; }
+.auditoria__txt > p:not(.chapeu) { margin-top: 1.2rem; max-width: 46ch; opacity: .8; }
+.pedido--claro { background: rgb(255 255 255 / .55); box-shadow: inset 0 0 0 1px rgb(13 14 18 / .08); color: var(--escuro); }
+.pedido--claro .campo input { background: #fff; color: var(--escuro); color-scheme: light; box-shadow: inset 0 0 0 1px rgb(13 14 18 / .1); }
+.pedido--claro .campo input:focus { box-shadow: inset 0 0 0 1.5px var(--escuro); }
+.pedido--claro .campo > span { opacity: .75; }
+@media (max-width: 860px) { .auditoria__cartao { grid-template-columns: 1fr; } }

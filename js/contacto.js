@@ -52,55 +52,39 @@ const CONTACTO = {
   }));
   const primeiro = $('[data-painel]:not([hidden])'); if (primeiro && frase) frase.textContent = primeiro.dataset.frase;
 
-  // ---- first-project offer: open the chat with the text ready, or fill the form ----
-  const promo = 'Hi! I would like the −10% on my first project.';
-  $$('[data-promo]').forEach((a) => {
-    if (CONTACTO.telegram) { a.href = `https://t.me/${CONTACTO.telegram}?text=${encodeURIComponent(promo)}`; a.target = '_blank'; a.rel = 'noopener'; return; }
-    a.addEventListener('click', () => { const m = document.querySelector('#pedido textarea[name="mensagem"]'); if (m && !m.value.includes(promo)) m.value = (promo + '\n' + m.value).trim(); });
-  });
-
-  // ---- buttons that pre-pick a service in the form ----
+  // ---- buttons that pre-pick a service in the request form ----
   const form = $('#pedido');
   $$('[data-servico]').forEach((a) => a.addEventListener('click', () => {
     const c = form && form.querySelector(`input[name="servico"][value="${a.dataset.servico}"]`);
     if (c) c.checked = true;
   }));
-  const fig = document.querySelector('.ano-fim'); if (fig) fig.textContent = new Date().getFullYear();
 
-  // ---- the request form ----
-  if (!form) return;
-  const estado = $('#estado');
-  form.addEventListener('submit', (e) => {
+  // ---- every form.pedido (project request, free audit, job application): the text goes to the chat or email ----
+  const ROTULOS = { nome: 'Name', empresa: 'Company', site: 'Website / Instagram', contacto: 'Contact', orcamento: 'Budget', portfolio: 'Portfolio' };
+  $$('form.pedido').forEach((f) => f.addEventListener('submit', (e) => {
     e.preventDefault();
-    const d = new FormData(form);
-    const nome = (d.get('nome') || '').trim();
-    const contacto = (d.get('contacto') || '').trim();
-    form.nome.setAttribute('aria-invalid', String(!nome));
-    form.contacto.setAttribute('aria-invalid', String(!contacto));
-    if (!nome || !contacto) { estado.textContent = 'Add your name and how we can reach you.'; return; }
-
-    const texto = [
-      form.dataset.assunto || 'New project request — AMG',
-      'Name: ' + nome,
-      'Contact: ' + contacto,
-      (form.dataset.rotulo || 'Needs') + ': ' + (d.getAll('servico').join(', ') || 'not chosen'),
-      d.has('orcamento') ? 'Budget: ' + (d.get('orcamento') || 'not sure yet') : '',
-      d.get('portfolio') ? 'Portfolio: ' + d.get('portfolio') : '',
-      '',
-      (d.get('mensagem') || '').trim(),
-    ].join('\n');
+    const estado = f.querySelector('.pedido__estado');
+    const falta = [...f.querySelectorAll('[required]')].filter((i) => { const v = !i.value.trim(); i.setAttribute('aria-invalid', String(v)); return v; });
+    if (falta.length) { estado.textContent = 'Fill in the marked fields so we can answer you.'; falta[0].focus(); return; }
+    const d = new FormData(f);
+    const linhas = [f.dataset.assunto || 'New project request — AMG'];
+    for (const [k, r] of Object.entries(ROTULOS)) if (d.get(k)) linhas.push(r + ': ' + d.get(k).trim());
+    if (d.getAll('servico').length) linhas.push((f.dataset.rotulo || 'Needs') + ': ' + d.getAll('servico').join(', '));
+    if ((d.get('mensagem') || '').trim()) linhas.push('', d.get('mensagem').trim());
+    const texto = linhas.join('\n');
+    const quem = (d.get('nome') || d.get('empresa') || d.get('site') || '').trim();
 
     if (CONTACTO.telegram) {
       window.open(`https://t.me/${CONTACTO.telegram}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
-      estado.textContent = 'Telegram opened with the request ready — just press send.';
+      estado.textContent = 'Telegram opened with your message ready — just press send.';
     } else if (CONTACTO.whatsapp) {
       window.open(`https://wa.me/${CONTACTO.whatsapp}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
-      estado.textContent = 'WhatsApp opened with the request ready — just press send.';
+      estado.textContent = 'WhatsApp opened with your message ready — just press send.';
     } else if (CONTACTO.email && !CONTACTO.email.endsWith('.example')) {
-      location.href = `mailto:${CONTACTO.email}?subject=${encodeURIComponent((form.dataset.assunto || 'Project request') + ' — ' + nome)}&body=${encodeURIComponent(texto)}`;
-      estado.textContent = 'Your email app opened with the request ready — just press send.';
+      location.href = `mailto:${CONTACTO.email}?subject=${encodeURIComponent((f.dataset.assunto || 'Project request') + ' — ' + quem)}&body=${encodeURIComponent(texto)}`;
+      estado.textContent = 'Your email app opened with the message ready — just press send.';
     } else {
       estado.textContent = 'Thanks! Our contact channels are being set up — please come back soon.';
     }
-  });
+  }));
 })();
