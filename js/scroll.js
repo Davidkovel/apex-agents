@@ -262,7 +262,7 @@
     const fim = num(el.dataset.conta), casas = num(el.dataset.casas), dur = num(el.dataset.dur, 1600);
     const fmt = (v) => {
       const [i, d] = v.toFixed(casas).split('.');
-      return i.replace(/(\d)(?=(\d{3})+$)/g, '$1 ') + (d ? ',' + d : '');
+      return i.replace(/(\d)(?=(\d{3})+$)/g, '$1,') + (d ? '.' + d : '');
     };
     if (reduz) { el.textContent = fmt(fim); return; }
     el.textContent = fmt(0);
