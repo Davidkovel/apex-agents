@@ -442,3 +442,7 @@ img, svg, canvas { display: block; max-width: 100%; }
 .numeros b { font: 800 clamp(2.8rem, 1.9rem + 3.2vw, 5rem)/1 var(--letra); letter-spacing: -.045em; white-space: nowrap; }
 .numeros li { min-width: 0; }
 .numeros b.numeros__texto { font-size: clamp(2.2rem, 1.6rem + 2.2vw, 3.6rem); line-height: 1.15; }
+/* laptop photos of our sites: the photo is the frame, no extra shadow or phone on top */
+.projeto__img--foto { aspect-ratio: 1536 / 1032; }
+.projeto__img--foto .caso__pc { box-shadow: none; }
+.caso figure:has(img[src*="/m-"]) { aspect-ratio: 1536 / 1032; background: #0b0b0c; }
