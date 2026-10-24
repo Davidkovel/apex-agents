@@ -12,24 +12,6 @@ const CONTACTO = {
   onde: 'Ukraine & EU · working worldwide, remotely',
 };
 
-/* Starting prices for the estimator (EUR) — placeholders, set the real ones. dias = typical days. */
-const PRECOS = {
-  servicos: [
-    { id: 'landing', nome: 'Landing page', de: 450, dias: '7–10 days' },
-    { id: 'site', nome: 'Company website', de: 900, dias: '2–3 weeks' },
-    { id: 'loja', nome: 'Online store', de: 1500, dias: '3–5 weeks' },
-    { id: 'app', nome: 'Web app / bot / AI agent', de: 2500, dias: '4–8 weeks' },
-    { id: 'marca', nome: 'Logo & brand design', de: 500, dias: '1–2 weeks' },
-    { id: 'ads', nome: 'Targeted ads setup', de: 350, dias: '5–7 days' },
-  ],
-  extras: [
-    { id: 'idiomas', nome: 'Extra language', de: 150 },
-    { id: 'textos', nome: 'Copywriting & photos', de: 250 },
-    { id: 'urgente', nome: 'Urgent (×1.3)', fator: 1.3 },
-    { id: 'suporte', nome: 'Monthly support', de: 150, mes: true },
-  ],
-};
-
 (() => {
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => [...document.querySelectorAll(s)];
@@ -59,31 +41,23 @@ const PRECOS = {
   const trilho = $('.marcas__trilho');
   if (trilho) [...trilho.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelectorAll('a').forEach((a) => a.tabIndex = -1); trilho.append(c); });
 
-  // ---- estimator ----
-  const caixa = (tipo, o) => `<label class="opcao"><input type="${tipo}" name="${tipo === 'radio' ? 'servico' : 'extra'}" value="${o.id}">
-    <span><b>${o.nome}</b><small>${o.fator ? '×' + o.fator : 'from €' + o.de.toLocaleString('en') + (o.mes ? '/mo' : '')}</small></span></label>`;
-  const calc = $('#calc');
-  if (calc) {
-    $('#calc-servicos').innerHTML = PRECOS.servicos.map((o) => caixa('radio', o)).join('');
-    $('#calc-extras').innerHTML = PRECOS.extras.map((o) => caixa('checkbox', o)).join('');
-    const total = $('#calc-total'), prazo = $('#calc-prazo');
-    const conta = () => {
-      const s = PRECOS.servicos.find((o) => o.id === calc.servico.value);
-      const ex = $$('#calc-extras input:checked').map((i) => PRECOS.extras.find((o) => o.id === i.value));
-      if (!s) { total.textContent = '€0'; prazo.textContent = 'Choose a service'; return; }
-      let v = s.de + ex.filter((o) => o.de && !o.mes).reduce((a, o) => a + o.de, 0);
-      ex.filter((o) => o.fator).forEach((o) => { v *= o.fator; });
-      const mes = ex.find((o) => o.mes);
-      total.textContent = '€' + (Math.round(v / 10) * 10).toLocaleString('en');
-      prazo.textContent = s.dias + (mes ? ` · + €${mes.de}/mo support` : '');
-      calc.dataset.resumo = `${s.nome}${ex.length ? ' + ' + ex.map((o) => o.nome).join(', ') : ''} — estimate from ${total.textContent}`;
-    };
-    calc.addEventListener('change', conta);
-    $('#calc-pedir').addEventListener('click', () => {
-      const m = form && form.mensagem;
-      if (m && calc.dataset.resumo && !m.value.includes(calc.dataset.resumo)) m.value = (calc.dataset.resumo + '\n' + m.value).trim();
+  // ---- what we do: tabs; the big sentence above follows the open tab ----
+  const frase = $('#fazemos-frase');
+  $$('[data-aba]').forEach((b) => b.addEventListener('click', () => {
+    $$('[data-aba]').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+    $$('[data-painel]').forEach((p) => {
+      p.hidden = p.dataset.painel !== b.dataset.aba;
+      if (!p.hidden && frase) { frase.classList.remove('troca'); void frase.offsetWidth; frase.textContent = p.dataset.frase; frase.classList.add('troca'); }
     });
-  }
+  }));
+  const primeiro = $('[data-painel]:not([hidden])'); if (primeiro && frase) frase.textContent = primeiro.dataset.frase;
+
+  // ---- first-project offer: open the chat with the text ready, or fill the form ----
+  const promo = 'Hi! I would like the −10% on my first project.';
+  $$('[data-promo]').forEach((a) => {
+    if (CONTACTO.telegram) { a.href = `https://t.me/${CONTACTO.telegram}?text=${encodeURIComponent(promo)}`; a.target = '_blank'; a.rel = 'noopener'; return; }
+    a.addEventListener('click', () => { const m = document.querySelector('#pedido textarea[name="mensagem"]'); if (m && !m.value.includes(promo)) m.value = (promo + '\n' + m.value).trim(); });
+  });
 
   // ---- buttons that pre-pick a service in the form ----
   const form = $('#pedido');

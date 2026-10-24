@@ -217,96 +217,96 @@
     </div>
   </section>
 
-  <!-- 4. SERVICES: the cards fall in one by one -->
-  <section class="servicos" id="servicos" data-cor="#d6ff3d" data-tinta="#0d0e12" aria-label="Services">
-    <p class="chapeu">What you can order</p>
-    <h2 class="titulo-secao">One team for the whole way to a sale.</h2>
-    <ul class="cartas" data-cai>
-      <li style="--r:-4deg;--c:#0d0e12;--t:#f2f1ec">
-        <b>01</b><h3>Websites</h3>
-        <p>Landing pages, company sites, stores. Fast, on the phone first, built to turn a visit into a message.</p>
-      </li>
-      <li style="--r:3deg;--c:#f2f1ec;--t:#0d0e12">
-        <b>02</b><h3>Software</h3>
-        <p>Web apps, dashboards, bots, automations and AI agents that do the boring part of the job.</p>
-      </li>
-      <li style="--r:-2deg;--c:#ffffff;--t:#0d0e12">
-        <b>03</b><h3>Design</h3>
-        <p>Logo, brand, interfaces, ad creatives. One look from the first post to the checkout.</p>
-      </li>
-      <li style="--r:5deg;--c:#0d0e12;--t:#d6ff3d">
-        <b>04</b><h3>Targeted ads</h3>
-        <p>Meta, TikTok and Google campaigns pointed at the people who buy — with the page they land on.</p>
-      </li>
-    </ul>
-    <div class="faixa faixa--c" data-faixa><div class="faixa__trilho">
-      <span>Site + ads + software</span><i>✦</i><span>One team</span><i>✦</i><span>One chat</span><i>✦</i>
-    </div></div>
-  </section>
+  <!-- 4. WHAT WE DO: pick a tab, see the result you get. One panel per tab (data-aba / data-painel). -->
+  <section class="fazemos" id="servicos" data-cor="#08090c" data-tinta="#f2f1ec" aria-label="What we do">
+    <p class="chapeu">What we do</p>
+    <h2 class="fazemos__frase" id="fazemos-frase">Clients see your business at its best — before they ever call.</h2>
+    <div class="abas" role="tablist" aria-label="Services">
+      <button role="tab" aria-selected="true" data-aba="landing">Landing pages</button>
+      <button role="tab" aria-selected="false" data-aba="site">Company websites</button>
+      <button role="tab" aria-selected="false" data-aba="loja">Online stores</button>
+      <button role="tab" aria-selected="false" data-aba="marca">Branding</button>
+      <button role="tab" aria-selected="false" data-aba="design">UI/UX &amp; creatives</button>
+      <button role="tab" aria-selected="false" data-aba="bots">Bots &amp; automation</button>
+      <button role="tab" aria-selected="false" data-aba="ia">AI agents</button>
+      <button role="tab" aria-selected="false" data-aba="plataforma">Internal platform</button>
+      <button role="tab" aria-selected="false" data-aba="ads">Targeted ads</button>
+      <button role="tab" aria-selected="false" data-aba="dados">Analytics</button>
+    </div>
 
-  <!-- 4b. WHO WE WORK WITH: three ways in -->
-  <section class="publicos" id="cooperacao" data-cor="#f2f1ec" data-tinta="#0d0e12" aria-label="Who we work with">
-    <p class="chapeu">Cooperation</p>
-    <h2 class="titulo-secao">Pick how you want to work with us.</h2>
-    <div class="publicos__grelha">
-      <article class="publico">
-        <p class="publico__tag">Startups &amp; small business</p>
-        <h3>Launch and start selling</h3>
-        <ul>
-          <li>Landing page or store in weeks, not months</li>
-          <li>Logo, brand and the first ad campaign</li>
-          <li>Fixed price agreed before we start</li>
-          <li>Pay in stages, as the work is delivered</li>
-        </ul>
-        <a class="botao botao--vazio" href="#calculadora">Estimate my project</a>
+    <div class="paineis">
+      <article class="painel" role="tabpanel" data-painel="landing" data-frase="Ads stop burning money — every visit has one way to become a request.">
+        <div><h3>Landing pages</h3><p>One page, one offer, one button. Written from your real clients, designed for the phone first and connected to your ads.</p>
+        <ul><li>Offer, texts and structure</li><li>Requests straight to Telegram, email or CRM</li><li>Pixel and conversion goals for the ads</li><li>Ready in 7–10 days</li></ul></div>
+        <a class="painel__ex" href="projects.html#firstminute"><img src="img/firstminute-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: First Minute →</span></a>
       </article>
-      <article class="publico publico--destaque">
-        <p class="publico__tag">Companies &amp; corporations</p>
-        <h3>A team that plugs into yours</h3>
-        <ul>
-          <li>Dedicated project manager and one shared chat</li>
-          <li>NDA, contract and invoices for your accounting</li>
-          <li>Internal software: dashboards, bots, AI agents, integrations</li>
-          <li>Support and new features after launch, monthly</li>
-        </ul>
-        <a class="botao" href="#contacto" data-servico="Corporate">Discuss cooperation</a>
+      <article class="painel" role="tabpanel" data-painel="site" data-frase="Clients check you before they call — and trust what they see." hidden>
+        <div><h3>Company websites</h3><p>Services, cases, team, careers and contacts: the site a client opens before signing. Fast, clear, in several languages.</p>
+        <ul><li>Pages planned around your clients’ questions</li><li>Multi-language versions</li><li>Edit texts and cases yourself</li><li>Old site moved without losing Google</li></ul></div>
+        <a class="painel__ex" href="projects.html#ferreras"><img src="img/ferreras-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: Ferreras →</span></a>
       </article>
-      <article class="publico">
-        <p class="publico__tag">Agencies &amp; partners</p>
-        <h3>Extra hands, your brand</h3>
-        <ul>
-          <li>White-label development and design for your clients</li>
-          <li>Outsourcing or outstaff: a developer, a designer or the whole team</li>
-          <li>Your process, your tools, your deadlines</li>
-          <li>Referral fee for clients you bring</li>
-        </ul>
-        <a class="botao botao--vazio" href="#contacto" data-servico="Partnership">Become a partner</a>
+      <article class="painel" role="tabpanel" data-painel="loja" data-frase="People buy without having to ask you a single question." hidden>
+        <div><h3>Online stores</h3><p>Shopify or custom. Product pages that answer every doubt, bundles that raise the order, payments and delivery set up.</p>
+        <ul><li>Catalogue, bundles and upsells</li><li>Payments, delivery and taxes</li><li>Abandoned-cart emails</li><li>Product catalogue for the ads</li></ul></div>
+        <a class="painel__ex" href="projects.html#baredesk"><img src="img/baredesk-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: BareDesk →</span></a>
+      </article>
+      <article class="painel" role="tabpanel" data-painel="marca" data-frase="One look, and they remember you — on Instagram, on the box, on the invoice." hidden>
+        <div><h3>Branding</h3><p>We start from what makes you different, then build the logo, colours, fonts and the rules that keep everything looking like one company.</p>
+        <ul><li>Logo in 2–3 directions, one refined</li><li>Colours, fonts, graphic elements</li><li>Social media and presentation templates</li><li>Brand guide and all source files</li></ul></div>
+        <a class="painel__ex" href="projects.html#baredesk"><img src="img/baredesk-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: BareDesk brand →</span></a>
+      </article>
+      <article class="painel" role="tabpanel" data-painel="design" data-frase="Screens people understand without instructions, ads they stop scrolling for." hidden>
+        <div><h3>UI/UX &amp; creatives</h3><p>Interfaces for apps and sites, presentations, packaging and ad creatives — all in your brand and made to be clicked.</p>
+        <ul><li>App and website interfaces in Figma</li><li>Static, carousel and short-video ads</li><li>Pitch decks and presentations</li><li>Packaging and print</li></ul></div>
+        <a class="painel__ex" href="projects.html#dipfare"><img src="img/dipfare-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: Dipfare →</span></a>
+      </article>
+      <article class="painel" role="tabpanel" data-painel="bots" data-frase="Orders and bookings come in while you sleep." hidden>
+        <div><h3>Bots &amp; automation</h3><p>Telegram and WhatsApp bots that take orders, book clients and answer questions; automations that move data so nobody copies it by hand.</p>
+        <ul><li>Order, booking and payment flows</li><li>Alerts and reports to your phone</li><li>Google Sheets, CRM and site integrations</li><li>Admin panel to manage it</li></ul></div>
+        <a class="painel__ex" href="projects.html#hub-trading"><img src="img/hub-trading-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: alerts in our trading room →</span></a>
+      </article>
+      <article class="painel" role="tabpanel" data-painel="ia" data-frase="AI does the routine. Your team does the work that pays." hidden>
+        <div><h3>AI agents</h3><p>We run our own company with AI agents. We build the same for you: support and sales assistants, research, reports and content pipelines.</p>
+        <ul><li>Which tasks AI can take over — an honest audit</li><li>Agents connected to your data and tools</li><li>Support and sales assistants</li><li>A panel showing what each agent did</li></ul></div>
+        <a class="painel__ex" href="projects.html#hub-empresa"><img src="img/hub-empresa-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: AMG Hub →</span></a>
+      </article>
+      <article class="painel" role="tabpanel" data-painel="plataforma" data-frase="The whole company in one screen — no more spreadsheets lost in chats." hidden>
+        <div><h3>Internal platform</h3><p>CRMs, client portals, dashboards and booking systems built around how you already work, with the services you already use.</p>
+        <ul><li>Process analysis and a clear plan</li><li>Web app for desktop and phone</li><li>Roles, access and backups</li><li>The code and accounts are yours</li></ul></div>
+        <a class="painel__ex" href="projects.html#hub-trading"><img src="img/hub-trading-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: Trading room →</span></a>
+      </article>
+      <article class="painel" role="tabpanel" data-painel="ads" data-frase="Ads that are paid for by the requests they bring." hidden>
+        <div><h3>Targeted ads</h3><p>Meta, TikTok and Google campaigns with the creatives and the page they land on — reported in money, not in likes.</p>
+        <ul><li>Audience and competitor research</li><li>Creatives and ad texts</li><li>Daily optimisation</li><li>Weekly report: spend, requests, cost per request</li></ul></div>
+        <a class="painel__ex" href="projects.html#firstminute"><img src="img/firstminute-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: First Minute →</span></a>
+      </article>
+      <article class="painel" role="tabpanel" data-painel="dados" data-frase="You see which euro brought which client." hidden>
+        <div><h3>Analytics</h3><p>Google Analytics, pixels, call and form tracking, and one simple dashboard with the numbers that matter for your business.</p>
+        <ul><li>Tracking of every request and sale</li><li>Ads, site and CRM in one report</li><li>Dashboard you can open on the phone</li><li>Monthly review with what to change</li></ul></div>
+        <a class="painel__ex" href="projects.html#hub-trading"><img src="img/hub-trading-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: live dashboards →</span></a>
       </article>
     </div>
+
+    <p class="fazemos__nota">Every project includes the domain, hosting, basic SEO, a Google Maps listing, maintenance and support.<br><b>Prices once we understand what you need.</b></p>
+    <p class="acoes"><a class="botao" href="#contacto">Tell us what you need</a></p>
   </section>
 
-  <!-- 4c. ESTIMATOR: a rough price in two clicks (prices in js/contacto.js, PRECOS) -->
-  <section class="calculadora" id="calculadora" data-cor="#f2f1ec" data-tinta="#0d0e12" aria-label="Project cost estimator">
-    <div class="calc">
-      <div class="calc__esq">
-        <p class="chapeu">Estimator</p>
-        <h2>What will it cost?</h2>
-        <p class="linha">Choose what you need. You get a starting price now; the exact one comes after a short brief.</p>
-        <div class="calc__total" aria-live="polite">
-          <span>from</span><b id="calc-total">€0</b><small id="calc-prazo">Choose a service</small>
-        </div>
-        <a class="botao" href="#contacto" id="calc-pedir">Get the exact price</a>
+  <!-- 4b. FIRST-ORDER OFFER (idea from mk-translations: discount through the chat) -->
+  <section class="oferta" id="oferta" data-cor="#08090c" data-tinta="#f2f1ec" aria-label="First project offer">
+    <div class="oferta__cartao">
+      <div class="oferta__txt">
+        <h2>−10% on your first project through our chat</h2>
+        <ul>
+          <li>Write to us in Telegram — the first brief takes a couple of minutes</li>
+          <li>The discount is applied automatically — no promo code</li>
+        </ul>
+        <p class="acoes"><a class="botao botao--escuro" href="#contacto" data-promo>Write in the chat</a></p>
       </div>
-      <form class="calc__opcoes" id="calc" aria-label="Estimator options">
-        <fieldset>
-          <legend>Service</legend>
-          <div class="calc__lista" id="calc-servicos"></div>
-        </fieldset>
-        <fieldset>
-          <legend>Extras</legend>
-          <div class="calc__lista" id="calc-extras"></div>
-        </fieldset>
-      </form>
+      <div class="cupao" aria-hidden="true">
+        <span class="cupao__tag">Coupon</span>
+        <b>−10%</b>
+        <span>for the first project<br>via chat</span>
+      </div>
     </div>
   </section>
 
@@ -394,7 +394,7 @@
       <p class="rodape__redes" data-redes></p>
     </div>
     <nav aria-label="Services"><b>Services</b><a href="#servicos">Websites</a><a href="#servicos">Software &amp; AI agents</a><a href="#servicos">Design</a><a href="#servicos">Targeted ads</a></nav>
-    <nav aria-label="Company"><b>Company</b><a href="projects.html">Projects</a><a href="career.html">Career</a><a href="#cooperacao">Cooperation</a><a href="#calculadora">Estimator</a><a href="#processo">Process</a></nav>
+    <nav aria-label="Company"><b>Company</b><a href="projects.html">Projects</a><a href="career.html">Career</a><a href="#servicos">Services</a><a href="#oferta">−10% first project</a><a href="#processo">Process</a></nav>
     <div class="rodape__contactos"><b>Contacts</b><a data-tel href="#">+380 (00) 000 00 00</a><a data-email href="#">hello@amg.example</a><span data-horas>Mon–Fri, 9:00–19:00 (Kyiv)</span></div>
   </div>
   <div class="rodape__fim">
