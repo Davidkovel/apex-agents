@@ -23,7 +23,9 @@
 (() => {
   'use strict';
   const doc = document.documentElement;
-  const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // The OS "reduce motion" setting is NOT followed here: Windows with animation effects off froze the whole journey
+  // for the owner. The still version stays available with ?quieto=1 (for testing and screenshots).
+  const reduz = /[?&]quieto=1(&|$)/.test(location.search);
   const tactil = matchMedia('(hover: none)').matches;
   doc.classList.add('js');
   if (reduz) doc.classList.add('quieto');

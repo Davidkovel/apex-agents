@@ -282,8 +282,8 @@ img, svg, canvas { display: block; max-width: 100%; }
 .marcas { padding: 9svh 0 4svh; overflow: hidden; }
 .marcas__titulo { text-align: center; font-size: var(--t-1); letter-spacing: .2em; text-transform: uppercase; opacity: .5; margin-bottom: 2.2rem; }
 .marcas__faixa { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
-.marcas__trilho { list-style: none; margin: 0; padding: 0; display: flex; width: max-content; gap: 1rem; animation: faixa 40s linear infinite; }
-.marcas__trilho li { flex: none; }
+.marcas__trilho { list-style: none; margin: 0; padding: 0; display: flex; width: max-content; animation: faixa 40s linear infinite; }
+.marcas__trilho li { flex: none; padding-right: 1rem; } /* not gap: with gap the -50% loop jumps by half a gap */
 .wm {
   display: grid; place-items: center; min-width: 12.5rem; height: 5.2rem; padding: 0 1.8rem; border-radius: 18px;
   background: #12141a; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .07); white-space: nowrap; text-decoration: none;
@@ -297,27 +297,13 @@ img, svg, canvas { display: block; max-width: 100%; }
 .wm--dip b { color: #ffd23d; }
 .wm--fm { font: 800 1.05rem/1 var(--letra); letter-spacing: .26em; }
 .wm--cap { font: 700 1.25rem/1 var(--letra-titulo); }
-.wm--uber { font: 700 1.55rem/1 var(--letra); letter-spacing: -.03em; }
-.wm--bnb { font: 800 1.15rem/1 var(--letra); letter-spacing: .14em; display: flex; gap: .4rem; }
-.wm--bnb b { color: #f0b90b; }
-.wm--wb { font: 400 1.35rem/1 var(--letra); letter-spacing: -.01em; }
-.wm--wb b { font-weight: 800; }
-.wm--bingx { font: 700 1.45rem/1 var(--letra); letter-spacing: -.02em; }
-.wm--bingx b { color: #2a6cff; }
-.wm--scroll { font: italic 600 1.5rem/1 Georgia, serif; letter-spacing: -.01em; }
 .wm--cap i { font: italic 400 1.2rem/1 Georgia, serif; color: #e8c66a; }
 .wm--hub { font: 800 1.3rem/1 var(--letra-titulo); letter-spacing: .08em; }
 .wm--tu { font: 600 1.05rem/1 var(--letra); color: var(--acento); background: transparent; box-shadow: inset 0 0 0 1.5px rgb(214 255 61 / .55); border-style: dashed; }
 
 
 /* ---------- 99 reduced motion: everything in its final state, the journey becomes still pages ---------- */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .faixa__trilho, .marcas__trilho { animation: none; }
-  .marcas__trilho { flex-wrap: wrap; justify-content: center; width: auto; padding: 0 var(--g); }
-  .marcas__trilho [aria-hidden] { display: none; }
-  .cartas li { transform: rotate(var(--r)); opacity: 1; transition: none; }
-}
+/* the OS "reduce motion" setting is not followed (see js/scroll.js): the bands and the journey always move */
 .quieto .cena { height: auto; }
 .quieto .palco { position: relative; height: auto; min-height: 100svh; display: grid; gap: 24svh; padding: 22svh 0; }
 .quieto .mundo { display: none; }
