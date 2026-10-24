@@ -279,7 +279,9 @@ img, svg, canvas { display: block; max-width: 100%; }
 /* ---------- 87 brands, cooperation, estimator ---------- */
 .topo__tel { font-variant-numeric: tabular-nums; }
 @media (max-width: 900px) { .topo__tel { display: none; } }
-.marcas { padding: 9svh 0 4svh; overflow: hidden; }
+.marcas { padding: 6svh 0 4svh; overflow: hidden; position: relative; margin-top: -24svh; padding-bottom: 12svh; background: linear-gradient(transparent, #08090c 45%); }
+/* margin-top: the flight's last screen is half empty under the «your project» card; the strip comes up into it */
+.quieto .marcas { margin-top: 0; }
 .marcas__titulo { text-align: center; font-size: var(--t-1); letter-spacing: .2em; text-transform: uppercase; opacity: .5; margin-bottom: 2.2rem; }
 .marcas__faixa { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
 .marcas__trilho { list-style: none; margin: 0; padding: 0; display: flex; width: max-content; animation: faixa 40s linear infinite; }
@@ -353,6 +355,7 @@ img, svg, canvas { display: block; max-width: 100%; }
 .heroi__servicos { list-style: none; padding: 0; margin: 1.6rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .45rem; }
 .heroi__servicos li { padding: .4em .95em; border-radius: 99px; font-size: var(--t-1); font-weight: 600; background: rgb(242 241 236 / .08); box-shadow: inset 0 0 0 1px rgb(242 241 236 / .2); backdrop-filter: blur(6px); }
 .ciclo { padding: 14svh var(--g) 10svh; }
+.marcas + .ciclo { padding-top: 4svh; } /* the strip already ends in 12svh of dark */
 .ciclo .titulo-secao { max-width: 20ch; }
 .ciclo .linha { max-width: 56ch; }
 .ciclo__passos { list-style: none; counter-reset: c; margin: 6svh 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr)); gap: 1rem; }
@@ -418,6 +421,7 @@ img, svg, canvas { display: block; max-width: 100%; }
 .wm--logo { display: flex; align-items: center; gap: .6rem; font: 700 1.5rem/1 var(--letra); letter-spacing: -.03em; }
 .wm--logo img { height: 40px; width: auto; filter: grayscale(1) brightness(0) invert(.92); }
 .wm--logo img.wm__largo { height: 18px; }
+.wm--logo img.wm__uber { height: 30px; }
 .outro__img { margin: -.5rem -.5rem .4rem; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden; background: #0b0c10; }
 .outro--grande .outro__img { margin: -1rem -1rem .6rem; }
 .outro__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
