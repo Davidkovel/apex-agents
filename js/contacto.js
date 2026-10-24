@@ -41,14 +41,6 @@ const CONTACTO = {
   const trilho = $('.marcas__trilho');
   if (trilho) [...trilho.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelectorAll('a').forEach((a) => a.tabIndex = -1); trilho.append(c); });
 
-  // ---- what we do: tabs ----
-  $$('[data-aba]').forEach((b) => b.addEventListener('click', () => {
-    $$('[data-aba]').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
-    $$('[data-painel]').forEach((p) => {
-      p.hidden = p.dataset.painel !== b.dataset.aba;
-    });
-  }));
-
   // ---- buttons that pre-pick a service in the request form ----
   const form = $('#pedido');
   $$('[data-servico]').forEach((a) => a.addEventListener('click', () => {

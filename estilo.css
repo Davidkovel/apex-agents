@@ -348,29 +348,6 @@ img, svg, canvas { display: block; max-width: 100%; }
 
 /* ---------- 88 what we do (tabs) and the first-project offer ---------- */
 .fazemos { padding: 16svh var(--g) 12svh; }
-.fazemos__frase { font-size: var(--t-4); max-width: 22ch; min-height: 2.1em; }
-.fazemos__frase.troca { animation: frase var(--t-entra) var(--curva); }
-@keyframes frase { from { opacity: 0; translate: 0 .4em; } }
-.abas { display: flex; flex-wrap: wrap; gap: .5rem; margin: 3.2rem 0 1.4rem; }
-.abas button {
-  min-height: 44px; padding: 0 1.1rem; border: 0; border-radius: 99px; cursor: pointer;
-  background: transparent; color: inherit; font: 500 var(--t-1)/1 var(--letra); box-shadow: inset 0 0 0 1px rgb(242 241 236 / .22);
-  transition: background-color var(--t-toque) var(--curva), color var(--t-toque) var(--curva), box-shadow var(--t-toque) var(--curva);
-}
-.abas button:hover { box-shadow: inset 0 0 0 1px rgb(242 241 236 / .6); }
-.abas button[aria-selected="true"] { background: var(--acento); color: var(--escuro); box-shadow: none; font-weight: 600; }
-.painel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; padding: clamp(1.4rem, 3.5vw, 3rem); border-radius: 28px; background: #12141a; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .07); animation: frase var(--t-entra) var(--curva); }
-.painel h3 { font-size: var(--t-3); letter-spacing: -.02em; margin-bottom: .8rem; }
-.painel p { opacity: .78; max-width: 46ch; }
-.painel ul { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: .6rem; }
-.painel li { position: relative; padding-left: 1.6rem; }
-.painel li::before { content: ""; position: absolute; left: 0; top: .5em; width: .75rem; height: .4rem; border-left: 2px solid var(--acento); border-bottom: 2px solid var(--acento); rotate: -45deg; }
-.painel__ex { position: relative; display: block; border-radius: 18px; overflow: hidden; text-decoration: none; aspect-ratio: 16 / 10; }
-.painel__ex img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform var(--t-cena) var(--curva); }
-.painel__ex span { position: absolute; left: .8rem; bottom: .8rem; padding: .45em .9em; border-radius: 99px; background: rgb(8 9 12 / .82); backdrop-filter: blur(6px); font-size: var(--t-1); font-weight: 600; }
-.painel__ex:hover img { transform: scale(1.03); }
-.painel__ex:hover span { color: var(--acento); }
-@media (max-width: 860px) { .painel { grid-template-columns: 1fr; } }
 .fazemos__nota { margin-top: 2.4rem; max-width: 60ch; opacity: .78; }
 .fazemos__nota b { display: block; margin-top: .4rem; color: var(--acento); font-weight: 600; opacity: 1; }
 
@@ -405,6 +382,27 @@ img, svg, canvas { display: block; max-width: 100%; }
 .pedido--claro .campo input:focus { box-shadow: inset 0 0 0 1.5px var(--escuro); }
 .pedido--claro .campo > span { opacity: .75; }
 @media (max-width: 860px) { .auditoria__cartao { grid-template-columns: 1fr; } }
-.fazemos .abas { margin-top: 2.4rem; }
-.painel__oque { font: 600 var(--t-3)/1.3 var(--letra-titulo); letter-spacing: -.01em; opacity: 1 !important; margin-bottom: 1.2rem; }
-.painel__rotulo { font-size: var(--t-1); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--acento); opacity: 1 !important; margin-bottom: .4rem; }
+
+/* ---------- 88b what we do: capability cards ---------- */
+.capacidades { list-style: none; margin: 6svh 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr)); gap: 1rem; }
+.capacidades a {
+  position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: .5rem; min-height: 11.5rem; padding: 1.5rem;
+  border-radius: 24px; background: #12141a; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .07); text-decoration: none; overflow: hidden;
+  transition: background-color var(--t-toque) var(--curva), color var(--t-toque) var(--curva), transform var(--t-toque) var(--curva);
+}
+.capacidades b { font: 700 clamp(1.35rem, 1.1rem + .9vw, 1.9rem)/1.05 var(--letra-titulo); letter-spacing: -.025em; }
+.capacidades span { opacity: .65; font-size: var(--t-1); }
+.capacidades i { position: absolute; top: 1.1rem; right: 1.2rem; font-style: normal; font-size: 1.3rem; opacity: .4; transition: opacity var(--t-toque), transform var(--t-toque) var(--curva); }
+.capacidades li:nth-child(1) a, .capacidades li:nth-child(6) a { background: var(--acento); color: var(--escuro); }
+.capacidades li:nth-child(1) a span, .capacidades li:nth-child(6) a span { opacity: .75; }
+@media (hover: hover) and (pointer: fine) {
+  .capacidades a:hover { transform: translateY(-3px); background: var(--acento); color: var(--escuro); }
+  .capacidades a:hover i { opacity: 1; transform: translate(3px, -3px); }
+}
+@media (max-width: 600px) {
+  .capacidades { grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .capacidades a { min-height: 8.5rem; padding: 1rem; border-radius: 18px; }
+  .capacidades b { font-size: 1.1rem; }
+  .capacidades span { font-size: .78rem; }
+  .capacidades i { top: .7rem; right: .8rem; font-size: 1rem; }
+}
