@@ -421,3 +421,16 @@ img, svg, canvas { display: block; max-width: 100%; }
 .outro--grande { padding: 2rem; min-height: 15rem; }
 .outro--grande h3 { font-size: clamp(2rem, 1.4rem + 2vw, 3rem); letter-spacing: -.04em; }
 .outros--empresas { grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); }
+.wm--logo { display: flex; align-items: center; gap: .6rem; font: 700 1.5rem/1 var(--letra); letter-spacing: -.03em; }
+.wm--logo img { height: 40px; width: auto; filter: grayscale(1) brightness(0) invert(.92); }
+.wm--logo img.wm__largo { height: 18px; }
+.outro__img { margin: -.5rem -.5rem .4rem; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden; background: #0b0c10; }
+.outro--grande .outro__img { margin: -1rem -1rem .6rem; }
+.outro__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.outro__img--logo { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #1d2a5a, #0b0c10 70%); }
+.outro__img--logo img { width: 34%; height: auto; }
+.outro__img--texto { display: grid; place-items: center; background: radial-gradient(circle at 50% 40%, #1f3a1a, #0b0c10 70%); }
+.outro__img--texto span { font: 800 clamp(2rem, 1.4rem + 2vw, 3rem)/1 var(--letra-titulo); letter-spacing: -.04em; display: flex; gap: .4rem; }
+.outro__img--texto i { font-style: normal; font-weight: 500; opacity: .6; }
+.wm--logo img.wm__cor { filter: none; border-radius: 10px; }
+.wm--bare { display: flex; align-items: center; justify-content: center; }
