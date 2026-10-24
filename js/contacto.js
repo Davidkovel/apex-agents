@@ -1,9 +1,9 @@
 /* Contacts, estimator and the request form (no backend: the form opens email, Telegram or WhatsApp with the text ready).
    EVERYTHING TO FILL IN IS HERE. Placeholders until the real values exist; an empty field hides that channel. */
 const CONTACTO = {
-  telefone: '+380 (00) 000 00 00',   // shown as written; the link uses only the digits
-  email: 'hello@amg.example',
-  telegram: '',      // username without @, e.g. 'amg_studio'
+  telefone: '+380 68 418 55 76',   // shown as written; the link uses only the digits
+  email: 'dkovel7@gmail.com',
+  telegram: 'David_k27',
   whatsapp: '',      // digits with country code, e.g. '380500000000'
   viber: '',         // digits with country code
   instagram: '',     // username
