@@ -297,6 +297,14 @@ img, svg, canvas { display: block; max-width: 100%; }
 .wm--dip b { color: #ffd23d; }
 .wm--fm { font: 800 1.05rem/1 var(--letra); letter-spacing: .26em; }
 .wm--cap { font: 700 1.25rem/1 var(--letra-titulo); }
+.wm--uber { font: 700 1.55rem/1 var(--letra); letter-spacing: -.03em; }
+.wm--bnb { font: 800 1.15rem/1 var(--letra); letter-spacing: .14em; display: flex; gap: .4rem; }
+.wm--bnb b { color: #f0b90b; }
+.wm--wb { font: 400 1.35rem/1 var(--letra); letter-spacing: -.01em; }
+.wm--wb b { font-weight: 800; }
+.wm--bingx { font: 700 1.45rem/1 var(--letra); letter-spacing: -.02em; }
+.wm--bingx b { color: #2a6cff; }
+.wm--scroll { font: italic 600 1.5rem/1 Georgia, serif; letter-spacing: -.01em; }
 .wm--cap i { font: italic 400 1.2rem/1 Georgia, serif; color: #e8c66a; }
 .wm--hub { font: 800 1.3rem/1 var(--letra-titulo); letter-spacing: .08em; }
 .wm--tu { font: 600 1.05rem/1 var(--letra); color: var(--acento); background: transparent; box-shadow: inset 0 0 0 1.5px rgb(214 255 61 / .55); border-style: dashed; }
