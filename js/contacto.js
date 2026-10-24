@@ -41,16 +41,13 @@ const CONTACTO = {
   const trilho = $('.marcas__trilho');
   if (trilho) [...trilho.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelectorAll('a').forEach((a) => a.tabIndex = -1); trilho.append(c); });
 
-  // ---- what we do: tabs; the big sentence above follows the open tab ----
-  const frase = $('#fazemos-frase');
+  // ---- what we do: tabs ----
   $$('[data-aba]').forEach((b) => b.addEventListener('click', () => {
     $$('[data-aba]').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
     $$('[data-painel]').forEach((p) => {
       p.hidden = p.dataset.painel !== b.dataset.aba;
-      if (!p.hidden && frase) { frase.classList.remove('troca'); void frase.offsetWidth; frase.textContent = p.dataset.frase; frase.classList.add('troca'); }
     });
   }));
-  const primeiro = $('[data-painel]:not([hidden])'); if (primeiro && frase) frase.textContent = primeiro.dataset.frase;
 
   // ---- buttons that pre-pick a service in the request form ----
   const form = $('#pedido');

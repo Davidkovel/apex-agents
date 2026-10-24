@@ -405,3 +405,6 @@ img, svg, canvas { display: block; max-width: 100%; }
 .pedido--claro .campo input:focus { box-shadow: inset 0 0 0 1.5px var(--escuro); }
 .pedido--claro .campo > span { opacity: .75; }
 @media (max-width: 860px) { .auditoria__cartao { grid-template-columns: 1fr; } }
+.fazemos .abas { margin-top: 2.4rem; }
+.painel__oque { font: 600 var(--t-3)/1.3 var(--letra-titulo); letter-spacing: -.01em; opacity: 1 !important; margin-bottom: 1.2rem; }
+.painel__rotulo { font-size: var(--t-1); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--acento); opacity: 1 !important; margin-bottom: .4rem; }

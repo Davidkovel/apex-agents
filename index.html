@@ -14,9 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=7">
-<script defer src="js/scroll.js?v=7"></script>
-<script defer src="js/contacto.js?v=7"></script>
+<link rel="stylesheet" href="estilo.css?v=8">
+<script defer src="js/scroll.js?v=8"></script>
+<script defer src="js/contacto.js?v=8"></script>
 </head>
 <body>
 <a class="saltar" href="#conteudo">Skip to content</a>
@@ -240,7 +240,8 @@
   <!-- 4. WHAT WE DO: pick a tab, see the result you get. One panel per tab (data-aba / data-painel). -->
   <section class="fazemos" id="servicos" data-cor="#08090c" data-tinta="#f2f1ec" aria-label="What we do">
     <p class="chapeu">What we do</p>
-    <h2 class="fazemos__frase" id="fazemos-frase">Clients see your business at its best — before they ever call.</h2>
+    <h2 class="titulo-secao">Our services</h2>
+    <p class="linha">Pick a service to see what it is, what we do and what you get.</p>
     <div class="abas" role="tablist" aria-label="Services">
       <button role="tab" aria-selected="true" data-aba="landing">Landing pages</button>
       <button role="tab" aria-selected="false" data-aba="site">Company websites</button>
@@ -255,53 +256,53 @@
     </div>
 
     <div class="paineis">
-      <article class="painel" role="tabpanel" data-painel="landing" data-frase="Ads stop burning money — every visit has one way to become a request.">
-        <div><h3>Landing pages</h3><p>One page, one offer, one button. Written from your real clients, designed for the phone first and connected to your ads.</p>
+      <article class="painel" role="tabpanel" data-painel="landing">
+        <div><h3>Landing pages</h3><p class="painel__oque">A one-page website for one product or offer, made to collect requests from ads.</p><p class="painel__rotulo">What we do</p><p>One page, one offer, one button. Written from your real clients, designed for the phone first and connected to your ads.</p>
         <ul><li>Offer, texts and structure</li><li>Requests straight to Telegram, email or CRM</li><li>Pixel and conversion goals for the ads</li><li>Ready in 7–10 days</li></ul></div>
         <a class="painel__ex" href="projects.html#firstminute"><img src="img/firstminute-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: First Minute →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="site" data-frase="Clients check you before they call — and trust what they see." hidden>
-        <div><h3>Company websites</h3><p>Services, cases, team, careers and contacts: the site a client opens before signing. Fast, clear, in several languages.</p>
+      <article class="painel" role="tabpanel" data-painel="site" hidden>
+        <div><h3>Company websites</h3><p class="painel__oque">A multi-page website for your company: services, projects, team and contacts.</p><p class="painel__rotulo">What we do</p><p>Services, cases, team, careers and contacts: the site a client opens before signing. Fast, clear, in several languages.</p>
         <ul><li>Pages planned around your clients’ questions</li><li>Multi-language versions</li><li>Edit texts and cases yourself</li><li>Old site moved without losing Google</li></ul></div>
         <a class="painel__ex" href="projects.html#ferreras"><img src="img/ferreras-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: Ferreras →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="loja" data-frase="People buy without having to ask you a single question." hidden>
-        <div><h3>Online stores</h3><p>Shopify or custom. Product pages that answer every doubt, bundles that raise the order, payments and delivery set up.</p>
+      <article class="painel" role="tabpanel" data-painel="loja" hidden>
+        <div><h3>Online stores</h3><p class="painel__oque">A website where people choose products, pay online and get them delivered.</p><p class="painel__rotulo">What we do</p><p>Shopify or custom. Product pages that answer every doubt, bundles that raise the order, payments and delivery set up.</p>
         <ul><li>Catalogue, bundles and upsells</li><li>Payments, delivery and taxes</li><li>Abandoned-cart emails</li><li>Product catalogue for the ads</li></ul></div>
         <a class="painel__ex" href="projects.html#baredesk"><img src="img/baredesk-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: BareDesk →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="marca" data-frase="One look, and they remember you — on Instagram, on the box, on the invoice." hidden>
-        <div><h3>Branding</h3><p>We start from what makes you different, then build the logo, colours, fonts and the rules that keep everything looking like one company.</p>
+      <article class="painel" role="tabpanel" data-painel="marca" hidden>
+        <div><h3>Branding</h3><p class="painel__oque">Your logo, colours and fonts, and the rules for using them everywhere.</p><p class="painel__rotulo">What we do</p><p>We start from what makes you different, then build the logo, colours, fonts and the rules that keep everything looking like one company.</p>
         <ul><li>Logo in 2–3 directions, one refined</li><li>Colours, fonts, graphic elements</li><li>Social media and presentation templates</li><li>Brand guide and all source files</li></ul></div>
         <a class="painel__ex" href="projects.html#baredesk"><img src="img/baredesk-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: BareDesk brand →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="design" data-frase="Screens people understand without instructions, ads they stop scrolling for." hidden>
-        <div><h3>UI/UX &amp; creatives</h3><p>Interfaces for apps and sites, presentations, packaging and ad creatives — all in your brand and made to be clicked.</p>
+      <article class="painel" role="tabpanel" data-painel="design" hidden>
+        <div><h3>UI/UX &amp; creatives</h3><p class="painel__oque">The design of app and website screens, and the images and videos for your ads.</p><p class="painel__rotulo">What we do</p><p>Interfaces for apps and sites, presentations, packaging and ad creatives — all in your brand and made to be clicked.</p>
         <ul><li>App and website interfaces in Figma</li><li>Static, carousel and short-video ads</li><li>Pitch decks and presentations</li><li>Packaging and print</li></ul></div>
         <a class="painel__ex" href="projects.html#dipfare"><img src="img/dipfare-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: Dipfare →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="bots" data-frase="Orders and bookings come in while you sleep." hidden>
-        <div><h3>Bots &amp; automation</h3><p>Telegram and WhatsApp bots that take orders, book clients and answer questions; automations that move data so nobody copies it by hand.</p>
+      <article class="painel" role="tabpanel" data-painel="bots" hidden>
+        <div><h3>Bots &amp; automation</h3><p class="painel__oque">Telegram or WhatsApp bots that take orders, bookings and questions for you.</p><p class="painel__rotulo">What we do</p><p>Telegram and WhatsApp bots that take orders, book clients and answer questions; automations that move data so nobody copies it by hand.</p>
         <ul><li>Order, booking and payment flows</li><li>Alerts and reports to your phone</li><li>Google Sheets, CRM and site integrations</li><li>Admin panel to manage it</li></ul></div>
         <a class="painel__ex" href="projects.html#hub-trading"><img src="img/hub-trading-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: alerts in our trading room →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="ia" data-frase="AI does the routine. Your team does the work that pays." hidden>
-        <div><h3>AI agents</h3><p>We run our own company with AI agents. We build the same for you: support and sales assistants, research, reports and content pipelines.</p>
+      <article class="painel" role="tabpanel" data-painel="ia" hidden>
+        <div><h3>AI agents</h3><p class="painel__oque">AI assistants that do repetitive work: answering clients, reports, research, content.</p><p class="painel__rotulo">What we do</p><p>We run our own company with AI agents. We build the same for you: support and sales assistants, research, reports and content pipelines.</p>
         <ul><li>Which tasks AI can take over — an honest audit</li><li>Agents connected to your data and tools</li><li>Support and sales assistants</li><li>A panel showing what each agent did</li></ul></div>
         <a class="painel__ex" href="projects.html#hub-empresa"><img src="img/hub-empresa-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: AMG Hub →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="plataforma" data-frase="The whole company in one screen — no more spreadsheets lost in chats." hidden>
-        <div><h3>Internal platform</h3><p>CRMs, client portals, dashboards and booking systems built around how you already work, with the services you already use.</p>
+      <article class="painel" role="tabpanel" data-painel="plataforma" hidden>
+        <div><h3>Internal platform</h3><p class="painel__oque">Your own internal system: CRM, client portal, dashboard or booking system.</p><p class="painel__rotulo">What we do</p><p>CRMs, client portals, dashboards and booking systems built around how you already work, with the services you already use.</p>
         <ul><li>Process analysis and a clear plan</li><li>Web app for desktop and phone</li><li>Roles, access and backups</li><li>The code and accounts are yours</li></ul></div>
         <a class="painel__ex" href="projects.html#hub-trading"><img src="img/hub-trading-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: Trading room →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="ads" data-frase="Ads that are paid for by the requests they bring." hidden>
-        <div><h3>Targeted ads</h3><p>Meta, TikTok and Google campaigns with the creatives and the page they land on — reported in money, not in likes.</p>
+      <article class="painel" role="tabpanel" data-painel="ads" hidden>
+        <div><h3>Targeted ads</h3><p class="painel__oque">We set up and run your ads on Instagram, Facebook, TikTok and Google.</p><p class="painel__rotulo">What we do</p><p>Meta, TikTok and Google campaigns with the creatives and the page they land on — reported in money, not in likes.</p>
         <ul><li>Audience and competitor research</li><li>Creatives and ad texts</li><li>Daily optimisation</li><li>Weekly report: spend, requests, cost per request</li></ul></div>
         <a class="painel__ex" href="projects.html#firstminute"><img src="img/firstminute-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: First Minute →</span></a>
       </article>
-      <article class="painel" role="tabpanel" data-painel="dados" data-frase="You see which euro brought which client." hidden>
-        <div><h3>Analytics</h3><p>Google Analytics, pixels, call and form tracking, and one simple dashboard with the numbers that matter for your business.</p>
+      <article class="painel" role="tabpanel" data-painel="dados" hidden>
+        <div><h3>Analytics</h3><p class="painel__oque">Tracking that shows where every request and sale came from.</p><p class="painel__rotulo">What we do</p><p>Google Analytics, pixels, call and form tracking, and one simple dashboard with the numbers that matter for your business.</p>
         <ul><li>Tracking of every request and sale</li><li>Ads, site and CRM in one report</li><li>Dashboard you can open on the phone</li><li>Monthly review with what to change</li></ul></div>
         <a class="painel__ex" href="projects.html#hub-trading"><img src="img/hub-trading-800.webp" alt="" width="800" height="500" loading="lazy"><span>Example: live dashboards →</span></a>
       </article>
