@@ -8,8 +8,8 @@ const CONTACTO = {
   viber: '',         // digits with country code
   instagram: '',     // username
   linkedin: '',      // full company page URL
-  horas: 'Mon–Fri, 9:00–19:00 (Kyiv)',
-  onde: 'Ukraine & EU · working worldwide, remotely',
+  horas: 'Mon–Fri, 9:00–19:00 (Lisbon)',
+  onde: 'Portugal · working with clients worldwide',
 };
 
 (() => {
