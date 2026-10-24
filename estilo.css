@@ -434,3 +434,9 @@ img, svg, canvas { display: block; max-width: 100%; }
 .outro__img--texto i { font-style: normal; font-weight: 500; opacity: .6; }
 .wm--logo img.wm__cor { filter: none; border-radius: 10px; }
 .wm--bare { display: flex; align-items: center; justify-content: center; }
+
+/* ---------- 85b experience: proof cards instead of counters ---------- */
+.provas { list-style: none; margin: 6svh 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: 1rem; }
+.provas li { display: flex; flex-direction: column; gap: .7rem; padding: 1.6rem; border-radius: 22px; background: #12141a; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .07); }
+.provas b { font: 700 clamp(1.4rem, 1.1rem + 1vw, 1.9rem)/1.15 var(--letra-titulo); letter-spacing: -.02em; }
+.provas span { opacity: .72; }
