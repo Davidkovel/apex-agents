@@ -13,7 +13,7 @@ const CONTACTO = {
   viber: '',         // digits with country code
   instagram: '',     // username
   linkedin: '',      // full company page URL
-  horas: 'Mon–Fri, 9:00–19:00 (Lisbon)',
+  horas: '24/7, every day',
   onde: 'Portugal · working with clients worldwide',
 };
 
@@ -66,6 +66,8 @@ const CONTACTO = {
     document.body.append(dk);
   }
 
+  $$('[data-tg-promo]').forEach((x) => { if (CONTACTO.telegram) { x.href = tgLink("Hi! I'd like −10% on my first project."); x.target = '_blank'; x.rel = 'noopener'; } });
+
   // ---- brands strip: a second copy so the -50% loop has no seam ----
   const trilho = $('.marcas__trilho');
   if (trilho) [...trilho.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelectorAll('a').forEach((a) => a.tabIndex = -1); trilho.append(c); });
@@ -100,7 +102,7 @@ const CONTACTO = {
       .then((r) => r.json()).then((j) => {
         if (String(j.success) !== 'true') throw new Error(j.message || 'not sent');
         evento('form_sent: ' + (f.id || 'form'));
-        estado.innerHTML = 'Sent! We reply within 2 hours on working days. Faster: '
+        estado.innerHTML = 'Sent! We reply within 2 hours, 24/7. Faster: '
           + (CONTACTO.telegram ? `<a href="${tgLink(texto)}" target="_blank" rel="noopener">write in Telegram</a>` : '')
           + (CONTACTO.telegram && CONTACTO.telefone ? ' or ' : '') + (CONTACTO.telefone ? `<a href="tel:${digitos}">call ${CONTACTO.telefone}</a>` : '') + '.';
         f.reset();

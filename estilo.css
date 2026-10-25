@@ -501,3 +501,25 @@ img, svg, canvas { display: block; max-width: 100%; }
 .doca__tel { background: #f2f1ec; color: #08090c; }
 .pedido__estado a { color: var(--acento); }
 @media (max-width: 600px) { .doca { flex-direction: row; } .doca a span { display: none; } .doca a { width: 54px; padding: 0; justify-content: center; } }
+
+/* −10% first project via chat (coupon) */
+.oferta { padding: 4svh var(--g) 10svh; }
+.oferta__cartao {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+  padding: clamp(1.6rem, 4.5vw, 3.6rem); border-radius: 32px; color: var(--escuro);
+  background: radial-gradient(70% 120% at 0% 0%, #c3cfff, transparent 60%), radial-gradient(60% 120% at 100% 100%, #5a73f0, transparent 60%), var(--acento);
+}
+.oferta h2 { font-size: var(--t-4); max-width: 16ch; }
+.oferta ul { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: .5rem; }
+.oferta li { position: relative; padding-left: 1.6rem; }
+.oferta li::before { content: "✦"; position: absolute; left: 0; }
+.cupao {
+  position: relative; display: grid; justify-items: center; gap: .3rem; padding: 2.2rem 1.5rem; border-radius: 22px; text-align: center;
+  background: var(--escuro); color: var(--claro); rotate: 3deg; box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6);
+  -webkit-mask: radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
+          mask: radial-gradient(circle 14px at 0 50%, transparent 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 50%, transparent 98%, #000) right / 51% 100% no-repeat;
+}
+.cupao__tag { font-size: var(--t-1); letter-spacing: .2em; text-transform: uppercase; opacity: .6; }
+.cupao b { font: 800 clamp(3.4rem, 2.4rem + 4vw, 6rem)/1 var(--letra-titulo); letter-spacing: -.05em; color: var(--acento); }
+.cupao span:last-child { opacity: .8; }
+@media (max-width: 760px) { .oferta__cartao { grid-template-columns: 1fr; } .cupao { rotate: -2deg; } }
