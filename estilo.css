@@ -629,3 +629,8 @@ img, svg, canvas { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) { .beat--vivo .vivo__pc { animation: none; } }
 /* the big logo cover is hidden behind the live hero, so the header keeps its own logo at the top */
 html.capa-no-topo .topo .marca { opacity: 1; transform: none; pointer-events: auto; }
+/* the hero clip shown as a clean picture: no laptop, a thin gold edge, never wider than its sharp size */
+.beat--vivo .vivo__pc { width: min(64vw, 900px, calc((100svh - 22rem) * 1.6)); }
+.beat--vivo .vivo__ecra { padding: 0; border-radius: 14px; background: #000; overflow: hidden; box-shadow: 0 0 0 1px rgb(212 171 67 / .45), 0 60px 110px -40px rgb(0 0 0 / .95), 0 0 140px -30px rgb(212 171 67 / .45); }
+.beat--vivo .vivo__ecra video { border-radius: 0; transform: none; }
+.beat--vivo .vivo__base { display: none; }
