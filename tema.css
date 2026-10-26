@@ -1,0 +1,55 @@
+/* TEMA: the whole site in black, with dark-brown details (leather buttons, bronze lines). Loaded last.
+   No section is ever light: the work section, the free-audit card and the last-call card were cream/gold, now black. */
+
+:root {
+  --castanho: #573620;
+  --castanho-escuro: #2a1a10;
+  --bronze-linha: rgb(176 128 84 / .28);
+}
+/* the wordmark next to the logo keeps the logo's own gold: it is the brand, not a detail */
+.marca span { background: linear-gradient(100deg, #b8892c 0%, #e9d7ab 38%, #d4ab43 62%, #9c7424 100%); -webkit-background-clip: text; background-clip: text; }
+.marca span { border-left-color: rgb(212 171 67 / .5); }
+
+/* ---------- the work: black, cases with tags, title and one button ---------- */
+.projetos .caso figure { background: #0d0b0a; box-shadow: 0 0 0 1px var(--bronze-linha), 0 40px 80px -40px rgb(0 0 0 / .9); border-radius: 18px; }
+.projetos .etiquetas span { color: #cdb79a; box-shadow: inset 0 0 0 1px var(--bronze-linha); background: rgb(87 54 32 / .18); }
+.projetos .caso h3 { color: var(--tinta); }
+.caso__acao { margin-top: .4rem; }
+.botao--peq { min-height: 42px; padding: 0 1.15rem; font-size: .88rem; }
+
+/* ---------- full cycle: title + what you get ---------- */
+.ciclo__passos li { background: linear-gradient(160deg, rgb(87 54 32 / .22), rgb(20 16 13 / .6)); box-shadow: inset 0 0 0 1px var(--bronze-linha); min-height: 0; }
+.ciclo__passos small { border-top-color: var(--bronze-linha); }
+
+/* ---------- services: the cards stay, the long note became chips ---------- */
+.capacidades li:nth-child(1) a, .capacidades li:nth-child(6) a { background: linear-gradient(160deg, #573620, #2a1a10); color: var(--tinta); }
+.capacidades a { box-shadow: inset 0 0 0 1px var(--bronze-linha); }
+@media (hover: hover) and (pointer: fine) { .capacidades a:hover { background: linear-gradient(160deg, #6a4329, #2a1a10); color: var(--tinta); } }
+.inclui { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin: 2.2rem 0 0; padding: 0; }
+.inclui li { padding: .62em 1.1em; border-radius: 999px; font-size: .86rem; font-weight: 500; color: #e4d3bb;
+  background: rgb(255 255 255 / .05); box-shadow: inset 0 0 0 1px var(--bronze-linha); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+.inclui li::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: .55em; border-radius: 50%; background: #b08054; vertical-align: .1em; }
+
+/* ---------- bands: black and brown instead of gold and cream ---------- */
+.faixa--a { background: var(--castanho); color: #f1e3cc; }
+.faixa--b { background: #15110e; color: #d8c2a3; box-shadow: inset 0 0 0 1px var(--bronze-linha); }
+.faixa--c { color: #b08054; }
+
+/* ---------- free audit and last call: black cards with a brown glow, dark fields ---------- */
+.auditoria__cartao, .chamada__cartao {
+  color: var(--tinta);
+  background: radial-gradient(70% 120% at 0% 0%, rgb(122 81 52 / .35), transparent 60%), radial-gradient(60% 120% at 100% 100%, rgb(87 54 32 / .3), transparent 60%), #120e0b;
+  box-shadow: inset 0 0 0 1px var(--bronze-linha), 0 40px 90px -40px rgb(0 0 0 / .9);
+}
+.auditoria .chapeu, .chamada .chapeu { color: #b08054; }
+.pedido--claro { background: rgb(0 0 0 / .35); box-shadow: inset 0 0 0 1px var(--bronze-linha); color: var(--tinta); }
+.pedido--claro .campo input { background: #1a1512; color: var(--tinta); color-scheme: dark; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .08); }
+.pedido--claro .campo input:focus { box-shadow: inset 0 0 0 1.5px #b08054; }
+.pedido--claro .botao--escuro, .chamada__cartao .botao--escuro { background: linear-gradient(180deg, #7a5134 0%, #573620 52%, #3a2315 100%); color: #f1e3cc; }
+.chamada__linha, .chamada__linha a { color: #d8c2a3; }
+
+/* ---------- numbers, offer, misc ---------- */
+.numeros b { background: linear-gradient(180deg, #e6cfb0, #b8895f 55%, #6f4a2e); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.oferta__faixa { border-color: var(--bronze-linha); }
+.campo input, .campo select, .campo textarea { background: #15110e; }
+.chips input:checked + span { color: #f1e3cc; }
