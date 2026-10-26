@@ -73,10 +73,9 @@
 .doca a {
   height: 52px; border-radius: 999px; font: 600 .92rem/1 var(--letra); letter-spacing: -.005em;
   transition: transform 420ms var(--mola), filter 200ms, background-color 200ms;
-  backdrop-filter: var(--vidro-blur); -webkit-backdrop-filter: var(--vidro-blur);
 }
 .doca__tg { background: linear-gradient(180deg, #7a5134, #573620 52%, #3a2315); color: #f1e3cc; box-shadow: inset 0 1px 0 rgb(255 226 190 / .28), 0 12px 30px -10px rgb(0 0 0 / .6); }
-.doca__tel { background: rgb(28 29 33 / .62); color: var(--tinta); box-shadow: inset 0 0 0 1px var(--vidro-borda), inset 0 1px 0 rgb(255 255 255 / .12), 0 12px 30px -10px rgb(0 0 0 / .6); }
+.doca__tel { background: rgb(28 29 33 / .92); color: var(--tinta); box-shadow: inset 0 0 0 1px var(--vidro-borda), inset 0 1px 0 rgb(255 255 255 / .12), 0 12px 30px -10px rgb(0 0 0 / .6); }
 .doca a.premido, .doca a:active { transform: scale(.92); filter: brightness(.95); transition-duration: 110ms; }
 
 /* ---------- small controls: chips, index links, the offer's button ---------- */
@@ -109,3 +108,6 @@
 @media (max-width: 600px) {
   .botao { min-height: 50px; padding: 0 1.35rem; font-size: .95rem; }
 }
+
+/* glass blur only where nothing moves behind it: over the scroll film it was re-blurred on every frame */
+.palco .botao--vazio { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgb(28 29 33 / .78); }

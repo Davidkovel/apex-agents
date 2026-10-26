@@ -138,8 +138,10 @@
     const viagem = num(el.dataset.viagem, 4);
     const cams = [...el.querySelectorAll('[data-z]')].map((c) => ({
       el: c, z: num(c.dataset.z, 1), fx: num(c.dataset.x), fy: num(c.dataset.y),
-      longe: num(c.dataset.longe, 3.2), perto: num(c.dataset.perto, 0.16), ant: '', viva: false,
+      longe: num(c.dataset.longe, 3.2), perto: num(c.dataset.perto, 0.4), ant: '', viva: false,
     }));
+    // decode every picture of the flight now, not when its layer first shows up (that was the blank frame and the hitch)
+    el.querySelectorAll('img').forEach((im) => { im.loading = 'eager'; if (im.decode) im.decode().catch(() => {}); });
     cams.forEach((c) => { c.el.style.zIndex = String(Math.round(100000 - c.z * 1000)); });
     let W = el.clientWidth, H = el.clientHeight;
     aoMedir.push(() => { W = el.clientWidth; H = el.clientHeight; for (const c of cams) c.ant = ''; m.sujo = true; });
@@ -150,7 +152,9 @@
       for (const c of cams) {
         const r = c.z - cam;
         const o = r <= c.perto ? 0 : clamp((r - c.perto) / 0.3) * clamp((c.longe - r) / 1.1);
-        if (o < 0.003) {
+        // a layer about to come in is already on the GPU (visible at opacity 0), so its first frame costs nothing
+        const quase = r > c.perto && r < c.longe + 1.4;
+        if (o < 0.003 && !quase) {
           if (c.viva) { c.viva = false; c.ant = ''; c.el.classList.remove('viva'); }
           continue;
         }

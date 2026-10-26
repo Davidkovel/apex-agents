@@ -93,7 +93,7 @@ img, svg, canvas { display: block; max-width: 100%; }
 .cena { position: relative; height: calc((var(--ecras, 4) + 1) * 100svh); }
 .palco { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--fundo); }
 .ceu { position: absolute; inset: 0; overflow: hidden; }
-.brilho { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .55; }
+.brilho { position: absolute; border-radius: 50%; opacity: .55; } /* the radial gradients are already soft: no blur filter (it cost every frame) */
 .brilho--a { width: 60vmax; height: 60vmax; left: -18vmax; top: -22vmax; background: radial-gradient(closest-side, rgb(176 128 84 / .28), transparent); }
 .brilho--b { width: 70vmax; height: 70vmax; right: -25vmax; bottom: -35vmax; background: radial-gradient(closest-side, rgb(110 95 71 / .32), transparent); }
 .grelha {
