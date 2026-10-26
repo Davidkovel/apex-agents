@@ -14,11 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=45">
+<link rel="stylesheet" href="estilo.css?v=46">
 <link rel="stylesheet" href="botoes.css?v=2">
 <link rel="stylesheet" href="capa.css?v=2">
-<link rel="stylesheet" href="escada.css?v=5">
-<script defer src="js/escada.js?v=3"></script>
 <script defer src="js/capa.js?v=1"></script>
 <script defer src="js/botoes.js?v=1"></script>
 <script defer src="js/scroll.js?v=21"></script>
@@ -71,13 +69,8 @@
       </div>
       <div class="veu" aria-hidden="true"></div>
 
-      <div class="beat beat--hero beat--capa beat--vivo" data-beat data-de="0" data-ate=".07">
-        <h1 class="vivo__h1">Scale your business <em>ten&nbsp;fold.</em></h1>
-        <figure class="vivo__pc">
-          <div class="vivo__ecra"><video src="img/v-cerastes.mp4" poster="img/v-cerastes.jpg" autoplay muted loop playsinline preload="auto" aria-label="Cerastes wine website: the bottle and a leather serpent move as you scroll, one of our projects"></video></div>
-          <i class="vivo__base" aria-hidden="true"></i>
-          <figcaption><b>Live project</b> · Cerastes, a wine site that moves as you scroll</figcaption>
-        </figure>
+      <div class="beat beat--hero beat--capa" data-beat data-de="0" data-ate=".07">
+        <h1 class="so-leitor">TEN FOLD — Scaling Partners</h1>
         <a class="rolar-dica" href="#ciclo" data-rolar-dica><i class="rolar-dica__rato" aria-hidden="true"></i><span>Scroll to see our work</span><i class="rolar-dica__seta" aria-hidden="true"></i></a>
       </div>
       <div class="beat beat--dir" data-beat data-de="0.127" data-ate="0.254">
@@ -133,97 +126,20 @@
     </div>
   </section>
 
-<!-- 1c. PONTE: a calm, useful stop between the two flights: what we are in one line and the four doors of the site -->
-  <section class="ponte" id="ciclo" data-cor="#0b0c0f" data-tinta="#f3ebdd" aria-label="From idea to clients">
-    <div class="ponte__txt">
-      <p class="chapeu">One team, the whole way</p>
-      <h2 class="titulo-secao">You bring the idea. You get a website that brings clients.</h2>
-      <p class="linha">Most businesses hire a designer, a developer, a copywriter and an ads agency, then spend months connecting them. With us it is one chat and one price.</p>
-      <p class="acoes"><a class="botao" href="#contacto">Start with a free brief</a><a class="botao botao--vazio" href="#metodo">See how we work</a></p>
-    </div>
-    <nav class="ponte__portas" aria-label="Where to go">
-      <a href="projects.html"><span>01</span><b>Projects</b><em>Every site, store and app we built</em><i aria-hidden="true">→</i></a>
-      <a href="#servicos"><span>02</span><b>Services</b><em>Websites, software, brand and ads</em><i aria-hidden="true">→</i></a>
-      <a href="#auditoria"><span>03</span><b>Free audit</b><em>Three changes for your site in 48 hours</em><i aria-hidden="true">→</i></a>
-      <a href="#contacto"><span>04</span><b>Book a call</b><em>We reply within 2 hours, 24/7</em><i aria-hidden="true">→</i></a>
-    </nav>
-  </section>
-
-  <!-- 1d. A ESCADA (second flight): the method as a staircase. Six floating gold steps; the TEN FOLD mark climbs them with the
-       scroll and its trail draws the growth line; the counter goes 1× → 10×. Engine: data-cena + data-beat (scroll.js);
-       the climb, the trail, the lit steps and the counter are js/escada.js. Style: escada.css. -->
-  <section class="cena escada" id="metodo" data-cena style="--ecras:6" data-cor="#0b0c0f" data-tinta="#f3ebdd" aria-label="How we work, step by step">
-    <div class="palco escada__palco">
-      <div class="escada__fundo" aria-hidden="true"></div>
-      <svg class="escada__svg" viewBox="0 0 1200 820" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-        <defs>
-          <linearGradient id="es-ouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff1c3"/><stop offset=".22" stop-color="#e9c875"/><stop offset=".5" stop-color="#b8862f"/><stop offset=".7" stop-color="#f3d991"/><stop offset="1" stop-color="#8f6522"/></linearGradient>
-          <linearGradient id="es-frente" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6a5124"/><stop offset="1" stop-color="#241c10"/></linearGradient>
-          <linearGradient id="es-apagado" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a2b30"/><stop offset="1" stop-color="#17181c"/></linearGradient>
-          <linearGradient id="es-rasto" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#9c7424"/><stop offset=".6" stop-color="#e9c875"/><stop offset="1" stop-color="#fff4cf"/></linearGradient>
-          <linearGradient id="es-barra" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4ab43" stop-opacity=".35"/><stop offset="1" stop-color="#d4ab43" stop-opacity="0"/></linearGradient>
-          <radialGradient id="es-halo"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".75"/><stop offset=".35" stop-color="#d4ab43" stop-opacity=".25"/><stop offset="1" stop-color="#d4ab43" stop-opacity="0"/></radialGradient>
-        </defs>
-        <g class="escada__grelha" data-grelha></g>
-        <g class="escada__degraus" data-degraus></g>
-        <path class="escada__rasto escada__rasto--sombra" data-rasto-sombra d=""/>
-        <path class="escada__rasto" data-rasto d=""/>
-        <g class="escada__topo-luz" data-topo-luz></g>
-        <g class="escada__alpinista" data-alpinista>
-          <circle r="70" fill="url(#es-halo)"/>
-          <image href="img/tf-mark.png" x="-17" y="-46" width="34" height="45"/>
-        </g>
-      </svg>
-
-      <div class="escada__contador" aria-hidden="true"><b data-vezes>1</b><span>×</span><small>your business, step by step</small></div>
-
-      <div class="beat escada__beat escada__beat--intro" data-beat data-de="0" data-ate=".07">
-        <p class="chapeu">How we work</p>
-        <h2>Six steps up.<br>One team the whole way.</h2>
-        <p class="linha">Scroll and climb with us: every step is something we do for you, and what you get from it.</p>
-      </div>
-      <div class="beat escada__beat" data-beat data-de="0.070" data-ate="0.215">
-        <p class="chapeu">Step 01 of 06</p>
-        <h3>Idea &amp; brand</h3>
-        <p class="linha">We find what makes you different and turn it into a name, logo and colours.</p>
-        <p class="escada__ganho"><span>You get</span>A brand people remember</p>
-      </div>
-      <div class="beat escada__beat" data-beat data-de="0.215" data-ate="0.360">
-        <p class="chapeu">Step 02 of 06</p>
-        <h3>Texts &amp; design</h3>
-        <p class="linha">We write what your clients need to read and design every screen, phone first.</p>
-        <p class="escada__ganho"><span>You get</span>A site you can see before it is built</p>
-      </div>
-      <div class="beat escada__beat" data-beat data-de="0.360" data-ate="0.505">
-        <p class="chapeu">Step 03 of 06</p>
-        <h3>Development</h3>
-        <p class="linha">We code the site, the store or the app, with forms going straight to your phone.</p>
-        <p class="escada__ganho"><span>You get</span>A fast site that works on any device</p>
-      </div>
-      <div class="beat escada__beat" data-beat data-de="0.505" data-ate="0.650">
-        <p class="chapeu">Step 04 of 06</p>
-        <h3>Launch</h3>
-        <p class="linha">Domain, hosting, basic SEO and your Google Maps listing, all set up by us.</p>
-        <p class="escada__ganho"><span>You get</span>A site live and visible on Google</p>
-      </div>
-      <div class="beat escada__beat" data-beat data-de="0.650" data-ate="0.795">
-        <p class="chapeu">Step 05 of 06</p>
-        <h3>Clients</h3>
-        <p class="linha">We run Meta, TikTok and Google ads pointed at the people who buy.</p>
-        <p class="escada__ganho"><span>You get</span>Requests, measured in money</p>
-      </div>
-      <div class="beat escada__beat" data-beat data-de="0.795" data-ate="0.940">
-        <p class="chapeu">Step 06 of 06</p>
-        <h3>Growth</h3>
-        <p class="linha">Bots that answer and book, AI agents for the routine, support every month.</p>
-        <p class="escada__ganho"><span>You get</span>A business that runs on its own</p>
-      </div>
-      <div class="beat escada__beat escada__beat--fim" data-beat data-de=".94" data-ate="1">
-        <p class="chapeu">The top</p>
-        <h2>Ready for the first step?</h2>
-        <p class="acoes"><a class="botao" href="#contacto">Start with a free brief</a><a class="botao botao--vazio" href="#auditoria">Free audit first</a></p>
-      </div>
-    </div>
+  <!-- 1c. FULL CYCLE: what "we do everything" means, step by step -->
+  <section class="ciclo" id="ciclo" data-cor="#0b0c0f" data-tinta="#f3ebdd" aria-label="From idea to clients">
+    <p class="chapeu">One team, the whole way</p>
+    <h2 class="titulo-secao">You bring the idea. You get a website that brings clients.</h2>
+    <p class="linha">Most businesses hire a designer, a developer, a copywriter and an ads agency, then spend months connecting them. With us it is one chat and one price.</p>
+    <ol class="ciclo__passos">
+      <li><b>Idea &amp; brand</b><p>We find what makes you different and turn it into a name, logo and colours.</p><small>You get: a brand people remember</small></li>
+      <li><b>Texts &amp; design</b><p>We write what your clients need to read and design every screen, phone first.</p><small>You get: a site you can see before it is built</small></li>
+      <li><b>Development</b><p>We code the site, the store or the app, with forms going straight to your phone.</p><small>You get: a fast site that works on any device</small></li>
+      <li><b>Launch</b><p>Domain, hosting, basic SEO and your Google Maps listing, all set up by us.</p><small>You get: a site live and visible on Google</small></li>
+      <li><b>Clients</b><p>We run Meta, TikTok and Google ads pointed at the people who buy.</p><small>You get: requests, measured in money</small></li>
+      <li><b>Growth</b><p>Bots that answer and book, AI agents for the routine, support every month.</p><small>You get: a business that runs on its own</small></li>
+    </ol>
+    <p class="acoes"><a class="botao" href="#contacto">Start with a free brief</a><a class="botao botao--vazio" href="#servicos">Only need one part?</a></p>
   </section>
 
   <!-- 2. SERVICES IN WORDS: two crossing bands -->
@@ -246,38 +162,6 @@
     </div>
 
     <div class="casos">
-      <article class="caso caso--largo">
-        <figure class="caso--video">
-          <a href="projects.html#sites"><video class="caso__pc" src="img/v-jacket.mp4" poster="img/v-jacket.jpg" muted loop playsinline preload="none" data-auto aria-label="Outerwear store with 3D jackets turning"></video></a>
-        </figure>
-        <div class="caso__txt">
-          <p class="etiquetas"><span>3D</span><span>E-commerce</span><span>Motion</span></p>
-          <h3>Engineered outerwear store</h3>
-          <p>3D jackets turn on the hero, then the collections and the technology inside each one. <a href="projects.html#sites">More of our sites →</a></p>
-        </div>
-      </article>
-      <article class="caso">
-        <figure class="caso--clip">
-          <a href="projects.html#sites"><video class="caso__pc" src="img/pv-lesia.mp4" poster="img/p-lesia.webp" muted loop playsinline preload="none" data-auto aria-label="VELLÉ store: evening dresses hanging on the brand name"></video></a>
-        </figure>
-        <div class="caso__txt">
-          <p class="etiquetas"><span>E-commerce</span><span>Fashion</span><span>Motion</span></p>
-          <h3>VELLÉ — evening wear store</h3>
-          <p>The dresses hang on the giant brand name and swing as you scroll. <a href="projects.html#sites">More of our sites →</a></p>
-        </div>
-      </article>
-
-      <article class="caso">
-        <figure class="caso--clip">
-          <a href="projects.html#sites"><video class="caso__pc" src="img/pv-ronliner.mp4" poster="img/p-ronliner.webp" muted loop playsinline preload="none" data-auto aria-label="Live Above residences: a tower rising out of the clouds"></video></a>
-        </figure>
-        <div class="caso__txt">
-          <p class="etiquetas"><span>Real estate</span><span>Video</span><span>Editorial</span></p>
-          <h3>Live Above — luxury residences</h3>
-          <p>The tower rises out of the clouds, then the apartments, the interiors and the view. <a href="projects.html#sites">More of our sites →</a></p>
-        </div>
-      </article>
-
       <article class="caso caso--largo">
         <figure>
           <a href="work/maison-verde/" target="_blank" rel="noopener"><img class="caso__pc" src="img/m-maisonverde.webp" alt="Maison Verde jewellery website on a laptop" width="1536" height="1032" loading="lazy"></a>
@@ -319,28 +203,6 @@
           <p class="etiquetas"><span>WebGL</span><span>Particles</span><span>B2B</span></p>
           <h3>Nfinite — paper instead of plastic</h3>
           <p>An atomic-layer coating explained with particles that build up as you scroll. <a href="projects.html#nfinite">See the moments →</a></p>
-        </div>
-      </article>
-
-      <article class="caso">
-        <figure class="caso--clip">
-          <a href="projects.html#sites"><video class="caso__pc" src="img/pv-alesya.mp4" poster="img/p-alesya.webp" muted loop playsinline preload="none" data-auto aria-label="Cerastes wine site: bottle and serpent"></video></a>
-        </figure>
-        <div class="caso__txt">
-          <p class="etiquetas"><span>Scroll animation</span><span>AI video</span><span>Wine brand</span></p>
-          <h3>Cerastes — temptation in every drop</h3>
-          <p>The page is a film: as you scroll, the bottle, the glass and a leather serpent come alive. <a href="projects.html#sites">More of our sites →</a></p>
-        </div>
-      </article>
-
-      <article class="caso">
-        <figure class="caso--clip">
-          <a href="projects.html#sites"><video class="caso__pc" src="img/pv-riccardo.mp4" poster="img/p-riccardo.webp" muted loop playsinline preload="none" data-auto aria-label="3D city navigation: a route flying through the city"></video></a>
-        </figure>
-        <div class="caso__txt">
-          <p class="etiquetas"><span>Motion</span><span>3D</span><span>Code</span></p>
-          <h3>3D city navigation</h3>
-          <p>A route flying through a 3D city with street names and buildings, built in code. <a href="projects.html#sites">More of our sites →</a></p>
         </div>
       </article>
 
@@ -528,11 +390,5 @@
   </div>
 </footer>
 <script>document.querySelector("[data-rolar-dica]").addEventListener("click", (e) => { e.preventDefault(); scrollBy({ top: innerHeight, behavior: "smooth" }); });</script>
-<script>/* the two videos play only while on screen */
-(() => { const vs = [...document.querySelectorAll(".vivo__ecra video, video[data-auto]")];
-  if (!("IntersectionObserver" in window)) return;
-  const io = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting && getComputedStyle(v.closest(".beat") || v).visibility !== "hidden") v.play().catch(() => {}); else v.pause(); }), { threshold: 0.25 });
-  vs.forEach((v) => io.observe(v));
-  addEventListener("scroll", () => { const h = document.querySelector(".vivo__ecra video"); if (h) (scrollY > innerHeight * 0.6 ? h.pause() : h.play().catch(() => {})); }, { passive: true }); })();</script>
 </body>
 </html>
