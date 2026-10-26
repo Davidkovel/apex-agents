@@ -87,7 +87,7 @@ const CONTACTO = {
     const falta = [...f.querySelectorAll('[required]')].filter((i) => { const v = !i.value.trim(); i.setAttribute('aria-invalid', String(v)); return v; });
     if (falta.length) { evento('form_missing_fields: ' + (f.id || 'form')); estado.textContent = 'Fill in the marked fields so we can answer you.'; falta[0].focus(); return; }
     const d = new FormData(f);
-    const linhas = [f.dataset.assunto || 'New project request — Apex Agents'];
+    const linhas = [f.dataset.assunto || 'New project request — Ten Fold'];
     for (const [k, r] of Object.entries(ROTULOS)) if (d.get(k)) linhas.push(r + ': ' + d.get(k).trim());
     if (d.getAll('servico').length) linhas.push((f.dataset.rotulo || 'Needs') + ': ' + d.getAll('servico').join(', '));
     if ((d.get('mensagem') || '').trim()) linhas.push('', d.get('mensagem').trim());
@@ -96,7 +96,7 @@ const CONTACTO = {
 
     // 1) the request goes straight to the team's email (FormSubmit, no own server); 2) if that fails, the chat or email app opens
     estado.textContent = 'Sending…'; evento('form_submit: ' + (f.id || 'form'));
-    const corpo = { _subject: (f.dataset.assunto || 'New project request — Apex Agents') + (quem ? ' — ' + quem : ''), _template: 'table', _captcha: 'false', Request: texto };
+    const corpo = { _subject: (f.dataset.assunto || 'New project request — Ten Fold') + (quem ? ' — ' + quem : ''), _template: 'table', _captcha: 'false', Request: texto };
     if (CONTACTO.emailCopia) corpo._cc = CONTACTO.emailCopia;
     fetch('https://formsubmit.co/ajax/' + CONTACTO.email, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(corpo) })
       .then((r) => r.json()).then((j) => {

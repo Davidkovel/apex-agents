@@ -1,4 +1,4 @@
-/* Opening (~2 s): the Apex mark draws itself, frames rush past as the tunnel opens,
+/* Opening (~2 s): the Ten Fold mark draws itself, frames rush past as the tunnel opens,
    then the mark flies into the header (FLIP) and the scroll is released.
    Reduced motion or any error: straight to the final state. Safety release at 6 s. */
 (function () {
@@ -16,7 +16,7 @@
   const seguro = setTimeout(fim, 6000);
 
   setTimeout(() => {
-    const marca = ab.querySelector('.abertura__a'), alvo = document.querySelector('.topo .marca svg');
+    const marca = ab.querySelector('.abertura__a'), alvo = document.querySelector('.topo .marca img');
     const de = marca.getBoundingClientRect(), para = alvo && alvo.getBoundingClientRect();
     ab.classList.add('voa');
     if (para) {
