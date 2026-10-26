@@ -613,3 +613,14 @@ img, svg, canvas { display: block; max-width: 100%; }
 /* the project pictures are now real screens, not laptop photos: a thin edge so the dark ones keep their shape */
 .projeto__img--foto .caso__pc, .caso figure .caso__pc { box-shadow: 0 0 0 1px rgb(243 235 221 / .12), 0 40px 80px -40px rgb(0 0 0 / .9); }
 .caso figure:has(img[src*="/s-"]) { aspect-ratio: 1536 / 1032; background: #0b0b0c; }
+
+/* ---------- 95 Real products: a wide card is picture + text side by side, so the picture fits the screen and the words sit next to it ---------- */
+.caso__desc { opacity: .78; max-width: 46ch; }
+@media (min-width: 861px) {
+  .caso--largo { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: center; gap: clamp(1.5rem, 3.5vw, 3.5rem); }
+  .caso--largo:nth-of-type(4n + 2), .caso--largo.caso--escuro { grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); }
+  .caso--largo:nth-of-type(4n + 2) figure, .caso--largo.caso--escuro figure { order: 2; }
+  .caso--largo .caso__txt { gap: .8rem; }
+  .caso--largo h3 { font-size: clamp(1.6rem, 1.1rem + 1.4vw, 2.4rem); }
+  .caso--largo .caso__desc { font-size: var(--t-2); }
+}
