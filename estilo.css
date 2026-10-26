@@ -610,3 +610,4 @@ img, svg, canvas { display: block; max-width: 100%; }
 }
 .outro__img--video { aspect-ratio: 4 / 3; background: #0b0b0c; }
 .outro__img--video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.caso--clip { aspect-ratio: 1536 / 1032; background: #0b0b0c; }
