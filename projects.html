@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=38">
+<link rel="stylesheet" href="estilo.css?v=39">
 <link rel="stylesheet" href="botoes.css?v=1">
 <script defer src="js/botoes.js?v=1"></script>
 <script defer src="js/contacto.js?v=25"></script>
@@ -175,7 +175,7 @@
     <p class="linha">Designers and creators we work with. Each project below was made together with them.</p>
     <div class="outros">
       <article class="outro">
-        <figure class="outro__img"><img src="img/p-lesia.webp" alt="VELLÉ — evening wear store" width="960" height="720" loading="lazy"></figure>
+        <figure class="outro__img outro__img--video"><video src="img/pv-lesia.mp4" poster="img/p-lesia.webp" muted loop playsinline preload="none" data-auto aria-label="VELLÉ — evening wear store"></video></figure>
         <p class="chapeu">Fashion e-commerce</p>
         <h3>VELLÉ — evening wear store</h3>
         <p>A store where the dresses hang on the giant brand name and swing as you scroll.</p>
@@ -183,7 +183,7 @@
         <p class="etiquetas"><span>E-commerce</span><span>Fashion</span><span>Motion</span></p>
       </article>
       <article class="outro">
-        <figure class="outro__img"><img src="img/p-ronliner.webp" alt="Live Above — luxury residences" width="960" height="720" loading="lazy"></figure>
+        <figure class="outro__img outro__img--video"><video src="img/pv-ronliner.mp4" poster="img/p-ronliner.webp" muted loop playsinline preload="none" data-auto aria-label="Live Above — luxury residences"></video></figure>
         <p class="chapeu">Real estate · premium</p>
         <h3>Live Above — luxury residences</h3>
         <p>A site for a high-rise residence: the tower rises out of the clouds, then apartments, interiors and the view.</p>
@@ -191,7 +191,7 @@
         <p class="etiquetas"><span>Real estate</span><span>Video</span><span>Editorial</span></p>
       </article>
       <article class="outro">
-        <figure class="outro__img"><img src="img/p-alesya.webp" alt="Temptation in every drop — wine" width="960" height="720" loading="lazy"></figure>
+        <figure class="outro__img outro__img--video"><video src="img/pv-alesya.mp4" poster="img/p-alesya.webp" muted loop playsinline preload="none" data-auto aria-label="Temptation in every drop — wine"></video></figure>
         <p class="chapeu">Wine brand · scroll film</p>
         <h3>Temptation in every drop — wine</h3>
         <p>A scroll-driven film: the bottle, the glass and a serpent made of leather, all moving as you scroll.</p>
@@ -199,7 +199,7 @@
         <p class="etiquetas"><span>Scroll animation</span><span>AI video</span><span>Brand</span></p>
       </article>
       <article class="outro">
-        <figure class="outro__img"><img src="img/p-alina.webp" alt="Engineered outerwear store" width="960" height="720" loading="lazy"></figure>
+        <figure class="outro__img outro__img--video"><video src="img/pv-alina.mp4" poster="img/p-alina.webp" muted loop playsinline preload="none" data-auto aria-label="Engineered outerwear store"></video></figure>
         <p class="chapeu">Fashion e-commerce · 3D</p>
         <h3>Engineered outerwear store</h3>
         <p>3D jackets that turn on the hero, a collections grid and a technology section with layered materials.</p>
@@ -207,7 +207,7 @@
         <p class="etiquetas"><span>3D</span><span>E-commerce</span><span>AI</span></p>
       </article>
       <article class="outro">
-        <figure class="outro__img"><img src="img/p-riccardo.webp" alt="3D city navigation" width="960" height="720" loading="lazy"></figure>
+        <figure class="outro__img outro__img--video"><video src="img/pv-riccardo.mp4" poster="img/p-riccardo.webp" muted loop playsinline preload="none" data-auto aria-label="3D city navigation"></video></figure>
         <p class="chapeu">Motion design · map</p>
         <h3>3D city navigation</h3>
         <p>A navigation route flying through a 3D city, built in code with Claude: street names, buildings and the route line.</p>
@@ -330,5 +330,9 @@
     <a href="index.html#viagem">Back to the top ↑</a>
   </div>
 </footer>
+<script>/* partner clips play only while on screen */
+(() => { const vs = [...document.querySelectorAll("video[data-auto]")]; if (!("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: 0.3 });
+  vs.forEach((v) => io.observe(v)); })();</script>
 </body>
 </html>
