@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=37">
+<link rel="stylesheet" href="estilo.css?v=38">
 <link rel="stylesheet" href="botoes.css?v=2">
 <link rel="stylesheet" href="capa.css?v=2">
 <script defer src="js/capa.js?v=1"></script>
@@ -69,8 +69,18 @@
       </div>
       <div class="veu" aria-hidden="true"></div>
 
-      <div class="beat beat--hero beat--capa" data-beat data-de="0" data-ate=".07">
-        <h1 class="so-leitor">TEN FOLD — Scaling Partners</h1>
+      <div class="beat beat--hero beat--capa beat--vivo" data-beat data-de="0" data-ate=".07">
+        <div class="vivo__txt">
+          <p class="chapeu">Strategy / Systems / Growth</p>
+          <h1>Scale your business ten&nbsp;fold.</h1>
+          <p class="linha">Sites, systems and brands that move. The one on the screen is live.</p>
+          <p class="acoes"><a class="botao" href="#contacto">Let’s scale</a><a class="botao botao--vazio" href="projects.html#parceiros">See our projects</a></p>
+        </div>
+        <figure class="vivo__pc">
+          <div class="vivo__ecra"><video src="img/v-jacket.mp4" poster="img/v-jacket.jpg" autoplay muted loop playsinline preload="auto" aria-label="An online store with 3D jackets scrolling: one of our projects"></video></div>
+          <i class="vivo__base" aria-hidden="true"></i>
+          <figcaption><b>Live project</b> · outerwear store with 3D, made with our partner Alina</figcaption>
+        </figure>
         <a class="rolar-dica" href="#ciclo" data-rolar-dica><i class="rolar-dica__rato" aria-hidden="true"></i><span>Scroll to see our work</span><i class="rolar-dica__seta" aria-hidden="true"></i></a>
       </div>
       <div class="beat beat--dir" data-beat data-de="0.127" data-ate="0.254">
@@ -163,6 +173,16 @@
     </div>
 
     <div class="casos">
+      <article class="caso caso--largo">
+        <figure class="caso--video">
+          <a href="projects.html#parceiros"><video class="caso__pc" src="img/v-wine.mp4" poster="img/v-wine.jpg" muted loop playsinline preload="none" data-auto aria-label="Cerastes wine website: the bottle and a leather serpent move as you scroll"></video></a>
+        </figure>
+        <div class="caso__txt">
+          <p class="etiquetas"><span>Scroll animation</span><span>AI video</span><span>Wine brand</span></p>
+          <h3>Cerastes — temptation in every drop</h3>
+          <p>A wine site where the page is a film: as you scroll, the bottle, the glass and a leather serpent come alive. Made with our partner Alesya Kutuzova. <a href="projects.html#parceiros">More partner projects →</a></p>
+        </div>
+      </article>
       <article class="caso caso--largo">
         <figure>
           <a href="work/maison-verde/" target="_blank" rel="noopener"><img class="caso__pc" src="img/m-maisonverde.webp" alt="Maison Verde jewellery website on a laptop" width="1536" height="1032" loading="lazy"></a>
@@ -391,5 +411,11 @@
   </div>
 </footer>
 <script>document.querySelector("[data-rolar-dica]").addEventListener("click", (e) => { e.preventDefault(); scrollBy({ top: innerHeight, behavior: "smooth" }); });</script>
+<script>/* the two videos play only while on screen */
+(() => { const vs = [...document.querySelectorAll(".vivo__ecra video, video[data-auto]")];
+  if (!("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting && getComputedStyle(v.closest(".beat") || v).visibility !== "hidden") v.play().catch(() => {}); else v.pause(); }), { threshold: 0.25 });
+  vs.forEach((v) => io.observe(v));
+  addEventListener("scroll", () => { const h = document.querySelector(".vivo__ecra video"); if (h) (scrollY > innerHeight * 0.6 ? h.pause() : h.play().catch(() => {})); }, { passive: true }); })();</script>
 </body>
 </html>
