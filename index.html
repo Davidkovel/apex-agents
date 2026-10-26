@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=32">
+<link rel="stylesheet" href="estilo.css?v=34">
 <script>document.documentElement.classList.add("js-abertura")</script>
 <script defer src="js/abertura.js?v=5"></script>
 <script defer src="js/scroll.js?v=21"></script>
@@ -83,6 +83,7 @@
           <li>Strategy</li><li>Websites &amp; stores</li><li>Software &amp; automation</li><li>Branding</li><li>Growth ads</li>
         </ul>
         <p class="acoes"><a class="botao" href="#contacto">Let’s scale</a><a class="botao botao--vazio" href="#auditoria">Free scaling audit</a></p>
+        <a class="rolar-dica" href="#ciclo" data-rolar-dica><i class="rolar-dica__rato" aria-hidden="true"></i><span>Scroll to see our work</span><i class="rolar-dica__seta" aria-hidden="true"></i></a>
       </div>
       <div class="beat beat--dir" data-beat data-de="0.127" data-ate="0.254">
         <p class="chapeu">01 · Luxury marketing agency, Barcelona</p>
@@ -217,7 +218,7 @@
         </div>
       </article>
 
-      <article class="caso">
+      <article class="caso caso--largo">
         <figure>
           <img class="caso__pc" src="img/m-baredesk.webp" alt="BareDesk store: small desk, big mess, desk kits with prices" width="1536" height="1032" loading="lazy">
         </figure>
@@ -225,6 +226,28 @@
           <p class="etiquetas"><span>E-commerce</span><span>Brand</span></p>
           <h3>BareDesk — desk kits</h3>
           <p>Brand, store theme and product pages. Kits instead of single items, so every order is bigger.</p>
+        </div>
+      </article>
+
+      <article class="caso">
+        <figure>
+          <a href="projects.html#gatopreto"><img class="caso__pc" src="img/m-gatopreto.webp" alt="Gato Preto driving school façade at night with the black cat logo lit up" width="1536" height="1032" loading="lazy"></a>
+        </figure>
+        <div class="caso__txt">
+          <p class="etiquetas"><span>Brand identity</span><span>Logo</span><span>72-page manual</span></p>
+          <h3>Gato Preto — driving school, Portugal</h3>
+          <p>A black cat that brings luck at the wheel: logo, black and amber, and 51 applications from the car door to Instagram. <a href="projects.html#gatopreto">See the brand →</a></p>
+        </div>
+      </article>
+
+      <article class="caso">
+        <figure>
+          <a href="projects.html#viadinamica"><img class="caso__pc" src="img/m-viadinamica.webp" alt="Via Dinâmica training car on a night road with light trails" width="1536" height="1032" loading="lazy"></a>
+        </figure>
+        <div class="caso__txt">
+          <p class="etiquetas"><span>Brand identity</span><span>Logo</span><span>71-page manual</span></p>
+          <h3>Via Dinâmica — driving school, Portugal</h3>
+          <p>The road draws the letters V and D in one line: night blue, electric blue and 50 applications ready for print. <a href="projects.html#viadinamica">See the brand →</a></p>
         </div>
       </article>
 
@@ -378,5 +401,6 @@
     <a href="#viagem">Back to the top ↑</a>
   </div>
 </footer>
+<script>document.querySelector("[data-rolar-dica]").addEventListener("click", (e) => { e.preventDefault(); scrollBy({ top: innerHeight, behavior: "smooth" }); });</script>
 </body>
 </html>

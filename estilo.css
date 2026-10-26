@@ -527,7 +527,7 @@ img, svg, canvas { display: block; max-width: 100%; }
 
 /* ---------- 90 Ten Fold: hero photo, gold rules, city band ---------- */
 .beat--hero { place-content: center start; justify-items: start; text-align: left; padding: 0 var(--g); }
-.beat--hero > :not(.heroi-foto) { position: relative; z-index: 1; max-width: 40rem; }
+.beat--hero > :not(.heroi-foto):not(.rolar-dica) { position: relative; z-index: 1; max-width: 40rem; }
 .beat--hero .linha { margin-inline: 0; }
 .beat--hero .acoes { justify-content: flex-start; }
 .beat--hero h1 { font-size: clamp(3rem, 1.6rem + 5.4vw, 7rem); line-height: .98; background: var(--ouro); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: none; filter: drop-shadow(0 4px 24px rgb(0 0 0 / .55)); }
@@ -545,3 +545,23 @@ img, svg, canvas { display: block; max-width: 100%; }
 .titulo-secao::before { content: ""; display: block; width: 56px; height: 1px; background: var(--acento); margin-bottom: 1.4rem; }
 .chamada { background: linear-gradient(rgb(11 12 15 / .55), rgb(11 12 15 / .85)), url(img/tf-city.webp) center / cover no-repeat; }
 .rodape { border-top-color: rgb(212 171 67 / .25) !important; }
+
+/* "scroll" cue: the hero says plainly that the page goes on below */
+.rolar-dica { position: absolute; left: 50%; bottom: 2.4rem; z-index: 2; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: .7rem;
+  color: var(--champanhe); font: 600 .72rem/1 var(--letra); letter-spacing: .3em; text-transform: uppercase; text-decoration: none; text-shadow: none; white-space: nowrap; }
+.rolar-dica__rato { position: relative; width: 26px; height: 42px; border: 1.5px solid var(--acento); border-radius: 14px; }
+.rolar-dica__rato::before { content: ""; position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--acento); animation: dica-roda 1.8s var(--curva) infinite; }
+.rolar-dica__seta { width: 10px; height: 10px; margin-top: -.2rem; border-right: 1.5px solid var(--acento); border-bottom: 1.5px solid var(--acento); rotate: 45deg; animation: dica-seta 1.8s ease-in-out infinite; }
+.rolar-dica:hover span { color: var(--acento); }
+@keyframes dica-roda { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 70% { transform: translateY(15px); opacity: 0; } 100% { opacity: 0; } }
+@keyframes dica-seta { 50% { translate: 0 6px; opacity: .35; } }
+.rolar-dica { font-size: .8rem; gap: .8rem; bottom: 2rem; }
+.rolar-dica__rato { width: 30px; height: 48px; border-radius: 16px; box-shadow: 0 0 24px rgb(212 171 67 / .25); }
+.rolar__txt { display: none; }
+@media (max-width: 760px) {
+  .rolar-dica { left: var(--g); bottom: 6rem; transform: none; flex-direction: row; gap: .7rem; font-size: .6rem; }
+  .rolar-dica__rato { width: 22px; height: 36px; border-radius: 12px; }
+  .rolar-dica__seta { display: none; }
+}
+@media (max-height: 700px) and (min-width: 761px) { .rolar-dica span { display: none; } }
+@media (prefers-reduced-motion: reduce) { .rolar-dica__rato::before, .rolar-dica__seta { animation: none; } }
