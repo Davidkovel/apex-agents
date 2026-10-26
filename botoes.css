@@ -1,0 +1,111 @@
+/* Buttons in the iPhone / MacBook style: capsules, glass, a light that follows the pointer and a press you can feel.
+   Loaded after estilo.css so it wins over the older button rules without touching them.
+   js/botoes.js feeds --mx/--my (where the pointer is) and adds .premido while a button is held. */
+
+:root {
+  --mola: cubic-bezier(.34, 1.4, .64, 1);      /* the release: a small overshoot, like iOS */
+  --vidro: rgb(255 255 255 / .07);
+  --vidro-borda: rgb(255 255 255 / .14);
+  --vidro-blur: blur(22px) saturate(170%);
+}
+
+/* ---------- every button: capsule, sentence case, a sheen that follows the pointer ---------- */
+.botao, .pilula, .doca a, .oferta__faixa i, .sub__indice a, .chips span {
+  position: relative; isolation: isolate; overflow: hidden;
+  -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+.botao::before, .pilula::before, .doca a::before, .sub__indice a::before, .chips span::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / .28), transparent 70%);
+  opacity: 0; transition: opacity 260ms var(--curva);
+}
+@media (hover: hover) and (pointer: fine) {
+  .botao:hover::before, .pilula:hover::before, .doca a:hover::before, .sub__indice a:hover::before, .chips span:hover::before { opacity: 1; }
+}
+.premido::before { opacity: 1 !important; }
+
+.botao {
+  min-height: 52px; padding: 0 1.55rem; gap: .55em; border-radius: 999px;
+  font: 600 .98rem/1 var(--letra); letter-spacing: -.005em; text-transform: none;
+  background: linear-gradient(180deg, #ecd391 0%, #d4ab43 55%, #c0952f 100%); color: #15120c;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / .55),     /* the lit top edge */
+    inset 0 -1px 0 rgb(0 0 0 / .18),          /* the shaded bottom edge */
+    0 1px 2px rgb(0 0 0 / .35),
+    0 10px 28px -12px rgb(212 171 67 / .65);
+  transition: transform 420ms var(--mola), box-shadow 300ms var(--curva), filter 200ms var(--curva), background-color 200ms;
+}
+.botao::after { content: "→"; font-size: 1.1em; transition: transform 420ms var(--mola); }
+@media (hover: hover) and (pointer: fine) {
+  .botao:hover { transform: translateY(-1px); filter: brightness(1.05); box-shadow: inset 0 1px 0 rgb(255 255 255 / .6), inset 0 -1px 0 rgb(0 0 0 / .18), 0 2px 4px rgb(0 0 0 / .3), 0 16px 36px -14px rgb(212 171 67 / .8); }
+  .botao:hover::after { transform: translateX(3px); }
+}
+/* the press: quick in, springy out (the transition above handles the way back) */
+.botao.premido, .botao:active {
+  transform: scale(.955); filter: brightness(.94); transition-duration: 110ms, 110ms, 110ms, 110ms;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .35), inset 0 -1px 0 rgb(0 0 0 / .12), 0 1px 2px rgb(0 0 0 / .3), 0 4px 12px -8px rgb(212 171 67 / .6);
+}
+.botao.premido::after, .botao:active::after { transform: translateX(5px); transition-duration: 110ms; }
+
+/* secondary: frosted glass, like a macOS control */
+.botao--vazio {
+  background: var(--vidro); color: var(--tinta); backdrop-filter: var(--vidro-blur); -webkit-backdrop-filter: var(--vidro-blur);
+  box-shadow: inset 0 0 0 1px var(--vidro-borda), inset 0 1px 0 rgb(255 255 255 / .12), 0 8px 24px -14px rgb(0 0 0 / .7);
+}
+@media (hover: hover) and (pointer: fine) {
+  .botao--vazio:hover { background: rgb(255 255 255 / .11); filter: none; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .22), inset 0 1px 0 rgb(255 255 255 / .16), 0 12px 30px -14px rgb(0 0 0 / .8); }
+}
+.botao--vazio.premido, .botao--vazio:active { background: rgb(255 255 255 / .16); filter: none; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .2); }
+.botao--vazio::before { background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / .16), transparent 70%); }
+
+/* dark button on a light card */
+.botao--escuro { background: linear-gradient(180deg, #2a2b30, #111215); color: var(--claro); box-shadow: inset 0 1px 0 rgb(255 255 255 / .14), 0 1px 2px rgb(0 0 0 / .4), 0 10px 24px -12px rgb(0 0 0 / .7); }
+.botao--escuro::before { background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / .14), transparent 70%); }
+
+/* ---------- header capsule ---------- */
+.topo .pilula {
+  padding: .7em 1.2em; border-radius: 999px; font: 600 .82rem/1 var(--letra); letter-spacing: 0; text-transform: none;
+  transition: transform 420ms var(--mola), background-color 200ms;
+}
+.topo .pilula.premido, .topo .pilula:active { transform: scale(.94); transition-duration: 110ms; }
+
+/* ---------- dock: Telegram + Call, like the iOS control centre ---------- */
+.doca a {
+  height: 52px; border-radius: 999px; font: 600 .92rem/1 var(--letra); letter-spacing: -.005em;
+  transition: transform 420ms var(--mola), filter 200ms, background-color 200ms;
+  backdrop-filter: var(--vidro-blur); -webkit-backdrop-filter: var(--vidro-blur);
+}
+.doca__tg { background: linear-gradient(180deg, #ecd391, #d4ab43 55%, #c0952f); color: #15120c; box-shadow: inset 0 1px 0 rgb(255 255 255 / .55), 0 12px 30px -10px rgb(0 0 0 / .6); }
+.doca__tel { background: rgb(28 29 33 / .62); color: var(--tinta); box-shadow: inset 0 0 0 1px var(--vidro-borda), inset 0 1px 0 rgb(255 255 255 / .12), 0 12px 30px -10px rgb(0 0 0 / .6); }
+.doca a.premido, .doca a:active { transform: scale(.92); filter: brightness(.95); transition-duration: 110ms; }
+
+/* ---------- small controls: chips, index links, the offer's button ---------- */
+.chips span {
+  border-radius: 999px; background: var(--vidro); box-shadow: inset 0 0 0 1px var(--vidro-borda);
+  transition: transform 420ms var(--mola), background-color 200ms var(--curva), color 200ms var(--curva), box-shadow 200ms;
+}
+.chips input:checked + span {
+  background: linear-gradient(180deg, #ecd391, #d4ab43 55%, #c0952f); color: #15120c;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .5), 0 6px 16px -8px rgb(212 171 67 / .7);
+  animation: chip-liga 420ms var(--mola);
+}
+.chips label:active span { transform: scale(.94); transition-duration: 110ms; }
+@keyframes chip-liga { 0% { transform: scale(.9); } 100% { transform: scale(1); } }
+
+.sub__indice a {
+  border-radius: 999px; background: var(--vidro); box-shadow: inset 0 0 0 1px var(--vidro-borda);
+  transition: transform 420ms var(--mola), background-color 200ms, color 200ms;
+}
+.sub__indice a:active { transform: scale(.94); transition-duration: 110ms; }
+
+.oferta__faixa i { border-radius: 999px; background: linear-gradient(180deg, #ecd391, #d4ab43 55%, #c0952f); color: #15120c; box-shadow: inset 0 1px 0 rgb(255 255 255 / .55); transition: transform 420ms var(--mola); }
+.oferta__faixa:active i { transform: scale(.94); transition-duration: 110ms; }
+
+/* the focus ring: macOS keyboard focus, a soft halo instead of a hard outline */
+.botao:focus-visible, .pilula:focus-visible, .doca a:focus-visible, .sub__indice a:focus-visible {
+  outline: 0; box-shadow: 0 0 0 3px var(--fundo), 0 0 0 5px rgb(212 171 67 / .75);
+}
+
+@media (max-width: 600px) {
+  .botao { min-height: 50px; padding: 0 1.35rem; font-size: .95rem; }
+}

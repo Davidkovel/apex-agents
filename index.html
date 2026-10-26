@@ -15,6 +15,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="estilo.css?v=36">
+<link rel="stylesheet" href="botoes.css?v=2">
+<link rel="stylesheet" href="capa.css?v=2">
+<script defer src="js/capa.js?v=1"></script>
+<script defer src="js/botoes.js?v=1"></script>
 <script defer src="js/scroll.js?v=21"></script>
 <script defer src="js/contacto.js?v=25"></script>
 </head>
@@ -43,16 +47,63 @@
 
 <main id="conteudo">
 
-  <!-- 1. HERO: light on purpose — no intro, no pinned scroll, one glow and the mark -->
-  <section class="heroi" id="viagem" data-cor="#0b0c0f" data-tinta="#f3ebdd" aria-label="Ten Fold">
-    <div class="heroi__luz" aria-hidden="true"><img class="heroi__s" src="img/tf-mark.png" alt="" width="148" height="196"></div>
-    <div class="heroi__txt">
-      <p class="chapeu">Strategy / Systems / Growth</p>
-      <h1>Scale your business ten&nbsp;fold.</h1>
-      <p class="linha">One team for the strategy, the systems and the growth.</p>
-      <p class="acoes"><a class="botao" href="#contacto">Let’s scale</a><a class="botao botao--vazio" href="#auditoria">Free scaling audit</a></p>
+  <!-- 1. THE JOURNEY: it opens on the TEN FOLD logo filling the screen (the brand picture itself, layer z=1);
+       the first scroll flies the camera into it, the gold letters pass by, and behind them hangs the gallery of our real projects. -->
+  <section class="cena" id="viagem" data-cena data-cor="#0b0c0f" data-tinta="#f3ebdd" style="--ecras:7" aria-label="Our work, one flight">
+    <div class="palco">
+      <div class="ceu" aria-hidden="true"><i class="brilho brilho--a"></i><i class="brilho brilho--b"></i><i class="grelha"></i></div>
+
+      <div class="mundo" data-viagem="6.4">
+        <div class="camada capa" data-z="1" data-longe="9" data-perto=".42"><img src="img/tf-logo-capa.webp" srcset="img/tf-logo-capa-1600.webp 1600w, img/tf-logo-capa.webp 2720w" sizes="(max-width: 640px) 140vw, 100vw" alt="" width="2720" height="1536" fetchpriority="high" decoding="async"></div>
+        <div class="camada poeira" data-z="1.4" data-longe="3"></div>
+        <div class="camada poeira poeira--b" data-z="2.9" data-longe="3.4"></div>
+        <div class="camada poeira" data-z="4.4" data-longe="3.4"></div>
+        <div class="camada poeira poeira--b" data-z="5.9" data-longe="3.4"></div>
+
+        <div class="camada tela" data-z="2.2" data-x="-.27" data-y="-.06" data-longe="1.6"><img src="img/ferreras-800.webp" alt="" width="800" height="500"></div>
+        <div class="camada tela" data-z="3.2" data-x=".27" data-y="-.04" data-longe="2.5"><img src="img/alche-800.webp" alt="" width="800" height="500"></div>
+        <div class="camada tela" data-z="4.2" data-x="-.27" data-y="-.06"><img src="img/nfinite-800.webp" alt="" width="800" height="500"></div>
+        <div class="camada tela" data-z="5.2" data-x=".27" data-y="-.04"><img src="img/baredesk-800.webp" alt="" width="800" height="500"></div>
+        <div class="camada tela" data-z="6.2" data-x="-.27" data-y="-.06"><img src="img/hub-home-800.webp" alt="" width="800" height="500"></div>
+        <div class="camada tela tela--tua" data-z="7.9" data-y=".1" data-longe="3.6"><span>your&nbsp;project</span></div>
+      </div>
+      <div class="veu" aria-hidden="true"></div>
+
+      <div class="beat beat--hero beat--capa" data-beat data-de="0" data-ate=".07">
+        <h1 class="so-leitor">TEN FOLD — Scaling Partners</h1>
+        <a class="rolar-dica" href="#ciclo" data-rolar-dica><i class="rolar-dica__rato" aria-hidden="true"></i><span>Scroll to see our work</span><i class="rolar-dica__seta" aria-hidden="true"></i></a>
+      </div>
+      <div class="beat beat--dir" data-beat data-de="0.127" data-ate="0.254">
+        <p class="chapeu">01 · Luxury marketing agency, Barcelona</p>
+        <h2>Ferreras</h2>
+        <p class="linha">A full rebuild into an editorial site: a watch that tells the 24 hours of the agency, video first, one hook per screen.</p>
+      </div>
+      <div class="beat beat--esq" data-beat data-de="0.283" data-ate="0.410">
+        <p class="chapeu">02 · Immersive entertainment studio, Tokyo</p>
+        <h2>ALCHE</h2>
+        <p class="linha">A 3D gallery you fly through: every work hangs in space, the logo turns like a gyroscope, sound on.</p>
+      </div>
+      <div class="beat beat--dir" data-beat data-de="0.440" data-ate="0.567">
+        <p class="chapeu">03 · Materials tech, Canada</p>
+        <h2>Nfinite</h2>
+        <p class="linha">Paper that replaces plastic, told with particles: the coating builds up layer by layer as you scroll.</p>
+      </div>
+      <div class="beat beat--esq" data-beat data-de="0.596" data-ate="0.723">
+        <p class="chapeu">04 · E-commerce, Europe</p>
+        <h2>BareDesk</h2>
+        <p class="linha">A store that sells desk kits instead of single items: the kit builds itself on the photo as you choose.</p>
+      </div>
+      <div class="beat beat--dir" data-beat data-de="0.752" data-ate="0.879">
+        <p class="chapeu">05 · Software · CRM automation</p>
+        <h2>Our own CRM</h2>
+        <p class="linha">Every request becomes a task with an owner and a deadline, moves between departments on its own and stays in sync on every PC.</p>
+      </div>
+      <div class="beat beat--fim" data-beat data-de=".884" data-ate="1">
+        <p class="chapeu">06 · Next</p>
+        <h2>Your project<br>goes here.</h2>
+        <p class="acoes"><a class="botao" href="#contacto">Tell us about it</a></p>
+      </div>
     </div>
-    <a class="rolar-dica" href="#ciclo" data-rolar-dica><i class="rolar-dica__rato" aria-hidden="true"></i><span>Scroll down</span><i class="rolar-dica__seta" aria-hidden="true"></i></a>
   </section>
 
   <!-- 1b. BRANDS: who we built for. Only real ones: add a client here when the work is done

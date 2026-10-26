@@ -1,0 +1,33 @@
+/* The cover of the journey: the TEN FOLD brand picture fills the screen as the first layer of the world (z = 1).
+   The first scroll flies the camera into it: it grows past the screen and fades, and the project gallery is behind it.
+   The picture's own black (#0b0b0f in the corners) is the page's black, and the edges are feathered, so it has no frame. */
+
+.capa {
+  --w: min(100vw, 177.08svh); --h: calc(var(--w) * .5647);
+  -webkit-mask: linear-gradient(transparent, #000 16%, #000 84%, transparent); mask: linear-gradient(transparent, #000 16%, #000 84%, transparent);
+}
+.capa img { width: 100%; height: 100%; object-fit: cover; }
+/* on arrival the picture comes up from black, slowly, like a lit sign */
+.capa img { animation: capa-acende 1.6s cubic-bezier(.16, 1, .3, 1) both; }
+@keyframes capa-acende { from { opacity: 0; transform: scale(1.04); filter: brightness(.4); } }
+
+/* the gallery of screens stays behind the logo until the logo has opened */
+.beat--capa { pointer-events: none; }
+.beat--capa .rolar-dica { pointer-events: auto; }
+
+.so-leitor { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* the header: while the logo fills the screen the bar is bare and its small logo waits; it comes in as the big one opens */
+.topo, .topo .marca { transition: background-color .6s cubic-bezier(.16, 1, .3, 1), border-color .6s cubic-bezier(.16, 1, .3, 1), opacity .6s cubic-bezier(.16, 1, .3, 1), transform .6s cubic-bezier(.16, 1, .3, 1); }
+.capa-no-topo .topo { background-color: transparent; border-bottom-color: transparent; }
+.capa-no-topo .topo .marca { opacity: 0; transform: translateY(6px); pointer-events: none; }
+
+/* the brand strip comes up into the last half-empty screen of the flight again (the light hero had set it to 0) */
+#viagem + .marcas { margin-top: -24svh; padding-top: 6svh; background: linear-gradient(transparent, #0b0c0f 45%); }
+.quieto #viagem + .marcas { margin-top: 0; background: none; }
+.quieto .capa { display: none; }
+
+@media (max-width: 640px) {
+  /* the lockup takes ~74% of the picture's width: 118vw makes it fill the phone almost edge to edge */
+  .capa { --w: 118vw; }
+}
