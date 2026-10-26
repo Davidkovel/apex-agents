@@ -153,13 +153,14 @@
         const r = c.z - cam;
         const o = r <= c.perto ? 0 : clamp((r - c.perto) / 0.3) * clamp((c.longe - r) / 1.1);
         // a layer about to come in is already on the GPU (visible at opacity 0), so its first frame costs nothing
-        const quase = r > c.perto && r < c.longe + 1.4;
+        // and one just behind the camera stays ready too (at its last size), so scrolling back up has no blank frame either
+        const quase = (r > c.perto && r < c.longe + 1.4) || (r <= c.perto && r > c.perto - 0.9);
         if (o < 0.003 && !quase) {
           if (c.viva) { c.viva = false; c.ant = ''; c.el.classList.remove('viva'); }
           continue;
         }
         if (!c.viva) { c.viva = true; c.el.classList.add('viva'); }
-        const s = 1 / r;
+        const s = 1 / Math.max(r, c.perto);
         const chave = s.toFixed(4) + '|' + o.toFixed(3);
         if (chave === c.ant) continue;
         c.ant = chave;
