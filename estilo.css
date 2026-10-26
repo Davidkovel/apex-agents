@@ -308,7 +308,6 @@ img, svg, canvas { display: block; max-width: 100%; }
 .wm--ferreras { font: 400 1.35rem/1 Georgia, "Times New Roman", serif; letter-spacing: .32em; }
 .wm--bare { font: 600 1.6rem/1 Georgia, serif; letter-spacing: -.03em; }
 .wm--bare i { font-weight: 400; opacity: .7; }
-.wm--davisst { font: 700 1.15rem/1 var(--letra); text-transform: uppercase; letter-spacing: .16em; }
 .wm--dip { font: 700 1.5rem/1 var(--letra); letter-spacing: -.03em; display: flex; gap: .45rem; }
 .wm--dip b { color: #ffd23d; }
 .wm--fm { font: 800 1.05rem/1 var(--letra); letter-spacing: .26em; }
