@@ -611,3 +611,21 @@ img, svg, canvas { display: block; max-width: 100%; }
 .outro__img--video { aspect-ratio: 4 / 3; background: #0b0b0c; }
 .outro__img--video video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .caso--clip { aspect-ratio: 1536 / 1032; background: #0b0b0c; }
+
+/* ---------- 93 hero = the work: one line, the live project big in the middle, no buttons (2-second hook) ---------- */
+.beat--vivo { grid-template-columns: 1fr; justify-items: center; align-content: center; gap: clamp(1rem, 2.4vh, 1.8rem); padding: 5.5rem var(--g) 5.5rem; text-align: center; }
+.beat--vivo .vivo__h1 { position: relative; z-index: 1; max-width: none; background: none; filter: none; -webkit-text-fill-color: currentColor; font-size: clamp(2rem, 1.2rem + 3vw, 4.2rem); line-height: 1; letter-spacing: -.015em; color: var(--tinta); text-shadow: 0 4px 30px rgb(0 0 0 / .6); }
+.beat--vivo .vivo__h1 em { display: inline; -webkit-text-fill-color: transparent; }
+.beat--vivo .vivo__pc { width: min(68vw, calc((100svh - 24rem) * 1.6)); animation: vivo-entra 1.1s cubic-bezier(.16, 1, .3, 1) .15s both; }
+.vivo__ecra { box-shadow: 0 0 0 1px rgb(233 215 171 / .25), 0 60px 110px -40px rgb(0 0 0 / .95), 0 0 160px -30px rgb(212 171 67 / .5); }
+@keyframes vivo-entra { from { opacity: 0; transform: translateY(26px) scale(.94); } }
+.capa-no-topo .capa img { opacity: 0; }
+.beat--vivo .rolar-dica { bottom: 1.4rem; }
+@media (max-width: 860px) {
+  .beat--vivo { padding-top: 5rem; align-content: center; }
+  .beat--vivo .vivo__pc { width: 100%; }
+  .beat--vivo .vivo__h1 { font-size: clamp(2.1rem, 9vw, 2.8rem); }
+}
+@media (prefers-reduced-motion: reduce) { .beat--vivo .vivo__pc { animation: none; } }
+/* the big logo cover is hidden behind the live hero, so the header keeps its own logo at the top */
+html.capa-no-topo .topo .marca { opacity: 1; transform: none; pointer-events: auto; }
