@@ -99,6 +99,81 @@ p { margin: 0; }
 .rodape { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding: 2rem var(--g) calc(2.5rem + env(safe-area-inset-bottom, 0px)); font-size: .8rem; opacity: .7; }
 .rodape a { text-decoration: underline; text-underline-offset: 3px; }
 
+/* shop */
+.loja { max-width: 1150px; margin: 0 auto; }
+.barra { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.6rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chips button, .ordem { font: 400 .85rem/1 var(--sans); padding: .65rem 1.1rem; border-radius: 99px; border: 1px solid rgb(16 20 15 / .18); background: transparent; color: var(--tinta); cursor: pointer; transition: background-color .3s, color .3s; }
+.chips button[aria-pressed="true"] { background: var(--verde); border-color: var(--verde); color: var(--creme); }
+.produtos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.8rem, 2vw, 1.6rem); }
+.prod { position: relative; border-radius: 26px; overflow: hidden; background: linear-gradient(160deg, #fbfaf7, #e8e5dc); box-shadow: 0 1px 0 #fff inset, 0 24px 50px -30px rgb(16 20 15 / .35); transition: transform .5s var(--curva); }
+.prod:hover { transform: translateY(-6px); }
+.prod figure { margin: 0; aspect-ratio: 1; overflow: hidden; cursor: zoom-in; }
+.prod img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--curva); }
+.prod:hover img { transform: scale(1.06); }
+.prod__info { display: flex; justify-content: space-between; align-items: end; gap: .6rem; padding: 1rem 1.2rem 1.2rem; }
+.prod__info h3 { font-size: 1.35rem; }
+.prod__info small { display: block; margin-top: .3rem; opacity: .6; font-size: .78rem; }
+.prod__info b { font-weight: 500; white-space: nowrap; }
+.prod__add { position: absolute; left: 1rem; right: 1rem; top: calc(100% - 9.2rem); padding: .8rem; border: 0; border-radius: 99px; background: var(--ouro); color: var(--verde); font: 500 .88rem/1 var(--sans); cursor: pointer; opacity: 0; translate: 0 10px; transition: opacity .4s var(--curva), translate .4s var(--curva), background-color .3s; }
+.prod:hover .prod__add, .prod__add:focus-visible { opacity: 1; translate: 0 0; }
+.prod__add:hover { background: var(--ouro-2); }
+.coracao { position: absolute; top: .9rem; right: .9rem; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgb(255 255 255 / .8); backdrop-filter: blur(6px); cursor: pointer; font-size: 1.1rem; color: var(--verde-2); }
+.coracao[aria-pressed="true"] { background: var(--verde); color: var(--ouro-2); }
+.selo { position: absolute; top: 1rem; left: 1rem; padding: .35rem .7rem; border-radius: 99px; background: var(--verde); color: var(--ouro-2); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 900px) { .produtos { grid-template-columns: 1fr 1fr; } }
+@media (hover: none) { .prod__add { opacity: 1; translate: 0 0; } }
+@media (max-width: 520px) { .prod__info { flex-direction: column; align-items: start; } .prod__add { top: auto; bottom: 6.6rem; font-size: .8rem; } }
+
+.saco { position: relative; cursor: pointer; border: 0; display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ouro); color: var(--verde); font: 500 .82rem/1 var(--sans); }
+.saco.pula { animation: pula .5s var(--curva); }
+@keyframes pula { 40% { scale: 1.3; } }
+
+/* drawer + modal */
+.fundo { position: fixed; inset: 0; z-index: 20; background: rgb(6 32 15 / .45); backdrop-filter: blur(3px); opacity: 0; pointer-events: none; transition: opacity .4s; }
+.fundo.aberto { opacity: 1; pointer-events: auto; }
+.gaveta { position: fixed; z-index: 21; top: 0; right: 0; bottom: 0; width: min(420px, 100vw); display: flex; flex-direction: column; background: var(--creme); translate: 100% 0; transition: translate .5s var(--curva); padding-top: env(safe-area-inset-top, 0px); }
+.gaveta.aberta { translate: 0 0; }
+.gaveta header, .gaveta footer { padding: 1.4rem 1.5rem; }
+.gaveta header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgb(16 20 15 / .1); }
+.gaveta h2 { font-size: 2rem; }
+.fechar { border: 0; background: none; font-size: 1.6rem; cursor: pointer; color: var(--tinta); }
+.itens { flex: 1; overflow: auto; list-style: none; margin: 0; padding: .5rem 1.5rem; }
+.itens li { display: grid; grid-template-columns: 72px 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgb(16 20 15 / .08); }
+.itens img { width: 72px; height: 72px; border-radius: 14px; object-fit: cover; }
+.itens h3 { font-size: 1.15rem; }
+.itens small { opacity: .6; font-size: .78rem; }
+.qtd { display: inline-flex; align-items: center; gap: .6rem; margin-top: .4rem; }
+.qtd button, .tirar { border: 1px solid rgb(16 20 15 / .2); background: none; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; color: var(--tinta); }
+.tirar { border: 0; opacity: .5; font-size: .75rem; width: auto; text-decoration: underline; }
+.vazio { padding: 3rem 0; text-align: center; opacity: .6; }
+.envio { font-size: .8rem; margin-bottom: 1rem; }
+.envio i { display: block; height: 4px; margin-top: .5rem; border-radius: 4px; background: rgb(16 20 15 / .1); overflow: hidden; }
+.envio i::after { content: ""; display: block; height: 100%; width: var(--p, 0%); background: var(--verde-3); transition: width .5s var(--curva); }
+.total { display: flex; justify-content: space-between; font: 400 1.4rem/1 var(--serif); margin-bottom: 1rem; }
+.gaveta footer { border-top: 1px solid rgb(16 20 15 / .1); padding-bottom: calc(1.4rem + env(safe-area-inset-bottom, 0px)); }
+.gaveta .botao, .modal .botao { width: 100%; justify-content: center; margin-top: 0; border: 0; cursor: pointer; }
+.botao:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+.form { display: grid; gap: .7rem; }
+.form input, .form select { width: 100%; padding: .85rem 1rem; border-radius: 14px; border: 1px solid rgb(16 20 15 / .18); background: #fff; font: 300 .95rem/1.2 var(--sans); }
+.ok { text-align: center; padding: 2.5rem 0; }
+.ok b { display: block; font: 400 2rem/1.1 var(--serif); color: var(--verde-2); margin-bottom: .6rem; }
+
+.modal { position: fixed; z-index: 21; left: 50%; top: 50%; width: min(860px, calc(100vw - 32px)); max-height: calc(100svh - 32px); overflow: auto; translate: -50% -46%; opacity: 0; pointer-events: none; display: grid; grid-template-columns: 1fr 1fr; border-radius: 28px; background: var(--creme); transition: opacity .4s, translate .5s var(--curva); }
+.modal.aberto { opacity: 1; pointer-events: auto; translate: -50% -50%; }
+.modal figure { margin: 0; aspect-ratio: 1; }
+.modal figure img { width: 100%; height: 100%; object-fit: cover; }
+.modal__txt { position: relative; padding: 2rem; display: grid; gap: 1rem; align-content: start; }
+.modal__txt h2 { font-size: 2.4rem; }
+.modal__txt .fechar { position: absolute; top: 1rem; right: 1rem; }
+.opcoes { display: flex; flex-wrap: wrap; gap: .4rem; }
+.opcoes button { padding: .55rem .9rem; border-radius: 99px; border: 1px solid rgb(16 20 15 / .2); background: none; cursor: pointer; font: 400 .82rem/1 var(--sans); color: var(--tinta); }
+.opcoes button[aria-pressed="true"] { border-color: var(--verde); background: var(--verde); color: var(--creme); }
+.modal__txt label { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; opacity: .6; }
+@media (max-width: 700px) { .modal { grid-template-columns: 1fr; } }
+.aviso { position: fixed; z-index: 30; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); translate: -50% 20px; opacity: 0; padding: .8rem 1.3rem; border-radius: 99px; background: var(--verde); color: var(--creme); font-size: .88rem; transition: opacity .3s, translate .4s var(--curva); pointer-events: none; }
+.aviso.visto { opacity: 1; translate: -50% 0; }
+
 /* reveal */
 .aparece { opacity: 0; translate: 0 30px; transition: opacity 1s var(--curva), translate 1s var(--curva); }
 .aparece.visto { opacity: 1; translate: 0 0; }
@@ -108,7 +183,7 @@ p { margin: 0; }
 <header class="topo">
   <nav aria-label="Main"><a href="#criacoes">Creations</a><a href="#historia">The house</a><a href="#visita">Private viewing</a></nav>
   <a class="logo" href="#"><small>Maison</small>Verde</a>
-  <div class="topo__dir"><a href="#visita" style="text-decoration:none">Book a viewing</a><span aria-hidden="true">2</span></div>
+  <div class="topo__dir"><a href="#visita" style="text-decoration:none">Book a viewing</a><button class="saco" type="button" data-abrir-saco aria-label="Open bag"><span data-conta>0</span></button></div>
 </header>
 
 <main>
@@ -127,15 +202,22 @@ p { margin: 0; }
   <div class="corrente" aria-hidden="true"></div>
 
   <section class="secao" id="criacoes">
-    <div class="cabeca aparece"><h2>Our creations</h2><p>Discover the pieces of the house.</p></div>
-    <ul class="criacoes">
-      <li class="aparece"><a href="#visita"><figure><img src="img/bracelet.webp" alt="Bracelet" loading="lazy"></figure><span>Bracelets</span></a></li>
-      <li class="aparece"><a href="#visita"><figure><img src="img/earrings.webp" alt="Earrings" loading="lazy"></figure><span>Earrings</span></a></li>
-      <li class="aparece"><a href="#visita"><figure><img src="img/necklace.webp" alt="Necklace" loading="lazy"></figure><span>Necklaces</span></a></li>
-      <li class="aparece"><a href="#visita"><figure><img src="img/pendant.webp" alt="Pendant" loading="lazy"></figure><span>Pendants</span></a></li>
-      <li class="aparece"><a href="#visita"><figure><img src="img/drops.webp" alt="Drop earrings" loading="lazy"></figure><span>Drops</span></a></li>
-      <li class="aparece"><a href="#visita"><figure><img src="img/chain.webp" alt="Chain" loading="lazy"></figure><span>Chains</span></a></li>
-    </ul>
+    <div class="cabeca aparece"><h2>Our creations</h2><p>Every piece ships insured, boxed and engraved for free.</p></div>
+    <div class="loja">
+      <div class="barra">
+        <div class="chips" data-filtros>
+          <button type="button" data-cat="all" aria-pressed="true">All</button>
+          <button type="button" data-cat="bracelet" aria-pressed="false">Bracelets</button>
+          <button type="button" data-cat="earrings" aria-pressed="false">Earrings</button>
+          <button type="button" data-cat="necklace" aria-pressed="false">Necklaces</button>
+          <button type="button" data-cat="fav" aria-pressed="false">♥ Saved</button>
+        </div>
+        <select class="ordem" data-ordem aria-label="Sort">
+          <option value="dest">Featured</option><option value="asc">Price: low to high</option><option value="desc">Price: high to low</option>
+        </select>
+      </div>
+      <ul class="produtos" data-produtos></ul>
+    </div>
   </section>
 
   <section class="secao" id="historia" style="padding-top:0">
@@ -156,9 +238,22 @@ p { margin: 0; }
   <section class="visita aparece" id="visita">
     <h2>A private <em>viewing</em></h2>
     <p>See the pieces in person, with time to choose. Leave your number and we will call to arrange it.</p>
-    <a class="botao" href="#">Book a viewing →</a>
+    <form class="form" data-visita style="max-width:420px;margin:1.6rem auto 0">
+      <input name="nome" required placeholder="Your name" autocomplete="name">
+      <input name="tel" required type="tel" placeholder="Phone" autocomplete="tel">
+      <button class="botao" type="submit" style="justify-content:center;border:0;cursor:pointer;margin-top:.3rem">Book a viewing →</button>
+    </form>
   </section>
 </main>
+
+<div class="fundo" data-fundo></div>
+<aside class="gaveta" data-gaveta aria-label="Shopping bag" aria-hidden="true">
+  <header><h2 data-gaveta-titulo>Your bag</h2><button class="fechar" type="button" data-fechar aria-label="Close">×</button></header>
+  <ul class="itens" data-itens></ul>
+  <footer data-rodape-saco></footer>
+</aside>
+<div class="modal" data-modal role="dialog" aria-modal="true" aria-label="Product"></div>
+<p class="aviso" data-aviso role="status"></p>
 
 <footer class="rodape">
   <span>Maison Verde is a concept website designed and built by <a href="../../index.html">Apex Agents</a>.</span>
@@ -167,6 +262,149 @@ p { margin: 0; }
 <script>
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.aparece').forEach((el) => io.observe(el));
+
+  // shop: catalogue, filters, quick view, bag, checkout (demo, no payment)
+  const PRODUTOS = [
+    { id: 'byz', nome: 'Byzantine Cuff', cat: 'bracelet', preco: 4800, img: 'bracelet', nota: '18k gold · emeralds · pearls', selo: 'Bestseller' },
+    { id: 'rain', nome: 'Emerald Rain', cat: 'earrings', preco: 2650, img: 'drops', nota: 'Drop earrings · 18k gold', selo: 'New' },
+    { id: 'lune', nome: 'Demi-Lune', cat: 'earrings', preco: 1900, img: 'earrings', nota: 'Pearls · emerald cabochons' },
+    { id: 'col', nome: 'Collier Verde', cat: 'necklace', preco: 6900, img: 'necklace', nota: 'Statement necklace · 22 stones' },
+    { id: 'med', nome: 'Médaillon', cat: 'necklace', preco: 3200, img: 'pendant', nota: 'Pendant on a fine chain' },
+    { id: 'cad', nome: 'Cadena 45', cat: 'necklace', preco: 1250, img: 'chain', nota: 'Hand-linked chain · 45 cm' },
+  ];
+  const METAIS = ['Yellow gold', 'Rose gold', 'White gold'];
+  const TAMANHOS = { bracelet: ['S', 'M', 'L'], necklace: ['40 cm', '45 cm', '50 cm'], earrings: ['One size'] };
+  const ENVIO_GRATIS = 3000;
+  const eur = (n) => '€' + n.toLocaleString('en-GB');
+  const $ = (s) => document.querySelector(s);
+
+  const ler = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) || d; } catch (e) { return d; } };
+  const gravar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  let saco = ler('mv-saco', []);
+  let favs = ler('mv-favs', []);
+  let filtro = 'all', ordem = 'dest';
+
+  function aviso(txt) {
+    const a = $('[data-aviso]'); a.textContent = txt; a.classList.add('visto');
+    clearTimeout(aviso.t); aviso.t = setTimeout(() => a.classList.remove('visto'), 2200);
+  }
+
+  function desenharLista() {
+    let lista = PRODUTOS.filter((p) => filtro === 'all' || (filtro === 'fav' ? favs.includes(p.id) : p.cat === filtro));
+    if (ordem === 'asc') lista = [...lista].sort((a, b) => a.preco - b.preco);
+    if (ordem === 'desc') lista = [...lista].sort((a, b) => b.preco - a.preco);
+    $('[data-produtos]').innerHTML = lista.length ? lista.map((p) => `
+      <li class="prod">
+        <figure data-ver="${p.id}"><img src="img/${p.img}.webp" alt="${p.nome}" loading="lazy"></figure>
+        ${p.selo ? `<span class="selo">${p.selo}</span>` : ''}
+        <button class="coracao" type="button" data-fav="${p.id}" aria-pressed="${favs.includes(p.id)}" aria-label="Save ${p.nome}">♥</button>
+        <button class="prod__add" type="button" data-add="${p.id}">Add to bag · ${eur(p.preco)}</button>
+        <div class="prod__info"><div><h3>${p.nome}</h3><small>${p.nota}</small></div><b>${eur(p.preco)}</b></div>
+      </li>`).join('') : '<li class="vazio">Nothing saved yet. Tap ♥ on a piece.</li>';
+  }
+
+  function juntar(id, metal, tamanho) {
+    const p = PRODUTOS.find((x) => x.id === id);
+    metal = metal || METAIS[0]; tamanho = tamanho || TAMANHOS[p.cat][1] || TAMANHOS[p.cat][0];
+    const linha = saco.find((l) => l.id === id && l.metal === metal && l.tamanho === tamanho);
+    if (linha) linha.q += 1; else saco.push({ id, metal, tamanho, q: 1 });
+    gravar('mv-saco', saco); desenharSaco();
+    const b = $('.saco'); b.classList.remove('pula'); void b.offsetWidth; b.classList.add('pula');
+    aviso(`${p.nome} added to your bag`);
+  }
+
+  function desenharSaco() {
+    const n = saco.reduce((s, l) => s + l.q, 0);
+    const total = saco.reduce((s, l) => s + l.q * PRODUTOS.find((p) => p.id === l.id).preco, 0);
+    $('[data-conta]').textContent = n;
+    $('[data-gaveta-titulo]').textContent = 'Your bag' + (n ? ` (${n})` : '');
+    $('[data-itens]').innerHTML = saco.length ? saco.map((l, i) => {
+      const p = PRODUTOS.find((x) => x.id === l.id);
+      return `<li><img src="img/${p.img}.webp" alt=""><div><h3>${p.nome}</h3><small>${l.metal} · ${l.tamanho}</small><br>
+        <span class="qtd"><button type="button" data-menos="${i}" aria-label="Less">−</button>${l.q}<button type="button" data-mais="${i}" aria-label="More">+</button></span>
+        <button class="tirar" type="button" data-tirar="${i}">Remove</button></div><b>${eur(p.preco * l.q)}</b></li>`;
+    }).join('') : '<li class="vazio" style="display:block">Your bag is empty.</li>';
+    const falta = ENVIO_GRATIS - total;
+    $('[data-rodape-saco]').innerHTML = `
+      <p class="envio" style="--p:${Math.min(100, total / ENVIO_GRATIS * 100)}%">${falta > 0 ? `${eur(falta)} away from free insured delivery` : 'Free insured delivery ✓'}<i></i></p>
+      <p class="total"><span>Total</span><span>${eur(total)}</span></p>
+      <button class="botao" type="button" data-checkout ${n ? '' : 'disabled'}>Checkout →</button>`;
+  }
+
+  function checkout() {
+    $('[data-gaveta-titulo]').textContent = 'Delivery';
+    $('[data-itens]').innerHTML = `<li style="display:block;border:0"><form class="form" data-pedido>
+      <input name="nome" required placeholder="Full name" autocomplete="name">
+      <input name="email" required type="email" placeholder="Email" autocomplete="email">
+      <input name="morada" required placeholder="Address" autocomplete="street-address">
+      <select name="entrega"><option>Insured courier · 2–3 days</option><option>Collect at the boutique</option></select>
+      <button class="botao" type="submit">Place order →</button>
+      <small style="opacity:.6;text-align:center">Demo store: no payment is taken.</small></form></li>`;
+    $('[data-rodape-saco]').innerHTML = '';
+  }
+
+  function abrirSaco() {
+    desenharSaco();
+    $('[data-gaveta]').classList.add('aberta'); $('[data-gaveta]').setAttribute('aria-hidden', 'false');
+    $('[data-fundo]').classList.add('aberto');
+  }
+  function fecharTudo() {
+    $('[data-gaveta]').classList.remove('aberta'); $('[data-gaveta]').setAttribute('aria-hidden', 'true');
+    $('[data-modal]').classList.remove('aberto'); $('[data-fundo]').classList.remove('aberto');
+  }
+
+  function verProduto(id) {
+    const p = PRODUTOS.find((x) => x.id === id);
+    const m = $('[data-modal]');
+    const escolha = { metal: METAIS[0], tamanho: TAMANHOS[p.cat][1] || TAMANHOS[p.cat][0] };
+    const opcoes = (nome, lista, atual) => lista.map((v) => `<button type="button" data-op="${nome}" data-v="${v}" aria-pressed="${v === atual}">${v}</button>`).join('');
+    const desenhar = () => {
+      m.innerHTML = `<figure><img src="img/${p.img}.webp" alt="${p.nome}"></figure><div class="modal__txt">
+        <button class="fechar" type="button" data-fechar aria-label="Close">×</button>
+        <small style="opacity:.6">${p.nota}</small><h2>${p.nome}</h2><b style="font-size:1.3rem;font-weight:500">${eur(p.preco)}</b>
+        <label>Metal</label><div class="opcoes">${opcoes('metal', METAIS, escolha.metal)}</div>
+        <label>Size</label><div class="opcoes">${opcoes('tamanho', TAMANHOS[p.cat], escolha.tamanho)}</div>
+        <p style="opacity:.75">Set by hand in our atelier. Free engraving, gift box and insured delivery. 30-day returns.</p>
+        <button class="botao" type="button" data-add-modal>Add to bag · ${eur(p.preco)}</button></div>`;
+    };
+    desenhar();
+    m.onclick = (e) => {
+      const op = e.target.closest('[data-op]');
+      if (op) { escolha[op.dataset.op] = op.dataset.v; desenhar(); }
+      if (e.target.closest('[data-add-modal]')) { juntar(p.id, escolha.metal, escolha.tamanho); fecharTudo(); }
+    };
+    m.classList.add('aberto'); $('[data-fundo]').classList.add('aberto');
+  }
+
+  document.addEventListener('click', (e) => {
+    const t = e.target;
+    const f = t.closest('[data-cat]');
+    if (f) { filtro = f.dataset.cat; document.querySelectorAll('[data-cat]').forEach((b) => b.setAttribute('aria-pressed', b === f)); desenharLista(); }
+    if (t.closest('[data-add]')) juntar(t.closest('[data-add]').dataset.add);
+    if (t.closest('[data-ver]')) verProduto(t.closest('[data-ver]').dataset.ver);
+    const fv = t.closest('[data-fav]');
+    if (fv) { const id = fv.dataset.fav; favs = favs.includes(id) ? favs.filter((x) => x !== id) : [...favs, id]; gravar('mv-favs', favs); desenharLista(); }
+    if (t.closest('[data-abrir-saco]')) abrirSaco();
+    if (t.closest('[data-fechar]') || t.closest('[data-fundo]')) fecharTudo();
+    const i = (k) => t.closest(`[data-${k}]`) && +t.closest(`[data-${k}]`).dataset[k];
+    if (t.closest('[data-mais]')) { saco[i('mais')].q += 1; gravar('mv-saco', saco); desenharSaco(); }
+    if (t.closest('[data-menos]')) { const k = i('menos'); saco[k].q -= 1; if (!saco[k].q) saco.splice(k, 1); gravar('mv-saco', saco); desenharSaco(); }
+    if (t.closest('[data-tirar]')) { saco.splice(i('tirar'), 1); gravar('mv-saco', saco); desenharSaco(); }
+    if (t.closest('[data-checkout]')) checkout();
+  });
+  document.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (e.target.matches('[data-pedido]')) {
+      const nome = e.target.nome.value.split(' ')[0];
+      saco = []; gravar('mv-saco', saco); $('[data-conta]').textContent = 0;
+      $('[data-gaveta-titulo]').textContent = 'Thank you';
+      $('[data-itens]').innerHTML = `<li class="ok" style="display:block"><b>Order received, ${nome}.</b>Order MV-${Math.floor(1000 + Math.random() * 9000)}. We will email you when your piece leaves the atelier.</li>`;
+    }
+    if (e.target.matches('[data-visita]')) { e.target.outerHTML = '<p style="margin-top:1.6rem;opacity:1">Thank you. We will call you today to arrange your viewing.</p>'; }
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fecharTudo(); });
+  $('[data-ordem]').addEventListener('change', (e) => { ordem = e.target.value; desenharLista(); });
+  desenharLista(); desenharSaco();
 </script>
 </body>
 </html>
