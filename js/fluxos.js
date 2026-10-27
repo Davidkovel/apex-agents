@@ -97,7 +97,7 @@
     atual = f;
     titulo.textContent = f.titulo;
     estado.textContent = 'Ready';
-    estado.className = 'tela__estado';
+    estado.className = 'fx__estado';
     correr.disabled = false;
     nos.innerHTML = f.nos.map(function (n) {
       return '<li class="no' + (n.gatilho ? ' no--gatilho' : '') + '">' +
@@ -117,7 +117,7 @@
     itens.forEach(function (li) { li.classList.remove('corre', 'feito'); });
     correr.disabled = true;
     estado.textContent = 'Running…';
-    estado.className = 'tela__estado';
+    estado.className = 'fx__estado';
     var passo = 900;
     itens.forEach(function (li, k) {
       relogios.push(setTimeout(function () { li.classList.add('corre'); }, k * passo));
@@ -125,7 +125,7 @@
     });
     relogios.push(setTimeout(function () {
       estado.textContent = '✓ Done in ' + (1 + Math.round(itens.length * .6)) + ' sec';
-      estado.className = 'tela__estado ok';
+      estado.className = 'fx__estado ok';
       correr.disabled = false;
     }, itens.length * passo));
   }

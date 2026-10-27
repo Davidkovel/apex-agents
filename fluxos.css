@@ -4,17 +4,17 @@
 .fluxos__abas button { cursor: pointer; padding: .75rem 1.2rem; border: 0; border-radius: 99px; background: transparent; color: var(--champanhe); font: 500 var(--t-1)/1 var(--letra); box-shadow: inset 0 0 0 1px rgb(176 128 84 / .35); transition: background-color var(--t-toque), color var(--t-toque); }
 .fluxos__abas button[aria-selected="true"] { background: var(--ouro); color: #1a120b; box-shadow: none; }
 
-.tela { position: relative; margin-top: 1.2rem; border-radius: 18px; overflow: hidden; background: #111215; box-shadow: inset 0 0 0 1px rgb(176 128 84 / .22), 0 40px 80px -40px rgb(0 0 0 / .9); }
-.tela__barra { display: flex; align-items: center; gap: .8rem; padding: .8rem 1.1rem; border-bottom: 1px solid rgb(176 128 84 / .15); font: 500 .8rem/1 var(--letra); }
-.tela__barra i { width: 9px; height: 9px; border-radius: 50%; background: #2c2d33; }
-.tela__barra b { margin-left: .4rem; font-weight: 600; color: var(--tinta); }
-.tela__estado { margin-left: auto; color: var(--acento); }
-.tela__estado.ok { color: #9fe0b4; }
-.tela__correr { cursor: pointer; padding: .55rem 1rem; border: 0; border-radius: 8px; background: #e8754a; color: #fff; font: 600 .78rem/1 var(--letra); letter-spacing: .02em; }
-.tela__correr:disabled { opacity: .5; cursor: default; }
+.fx { position: relative; margin-top: 1.2rem; border-radius: 18px; overflow: hidden; background: #111215; box-shadow: inset 0 0 0 1px rgb(176 128 84 / .22), 0 40px 80px -40px rgb(0 0 0 / .9); }
+.fx__barra { display: flex; align-items: center; gap: .8rem; padding: .8rem 1.1rem; border-bottom: 1px solid rgb(176 128 84 / .15); font: 500 .8rem/1 var(--letra); }
+.fx__barra i { width: 9px; height: 9px; border-radius: 50%; background: #2c2d33; }
+.fx__barra b { margin-left: .4rem; font-weight: 600; color: var(--tinta); }
+.fx__estado { margin-left: auto; color: var(--acento); }
+.fx__estado.ok { color: #9fe0b4; }
+.fx__correr { cursor: pointer; padding: .55rem 1rem; border: 0; border-radius: 8px; background: #e8754a; color: #fff; font: 600 .78rem/1 var(--letra); letter-spacing: .02em; }
+.fx__correr:disabled { opacity: .5; cursor: default; }
 
 /* canvas: dotted grid like n8n */
-.tela__area { padding: clamp(1.6rem, 4vw, 3rem) clamp(1rem, 3vw, 2.2rem); background-image: radial-gradient(rgb(255 255 255 / .07) 1px, transparent 1px); background-size: 18px 18px; overflow-x: auto; }
+.fx__area { padding: clamp(1.6rem, 4vw, 3rem) clamp(1rem, 3vw, 2.2rem); background-image: radial-gradient(rgb(255 255 255 / .07) 1px, transparent 1px); background-size: 18px 18px; overflow-x: auto; }
 .nos { list-style: none; margin: 0 auto; padding: 0; display: flex; align-items: flex-start; width: max-content; }
 .no { position: relative; width: 132px; display: grid; justify-items: center; text-align: center; gap: .55rem; }
 .no + .no { margin-left: 46px; }
@@ -33,10 +33,10 @@
 .no__saida { min-height: 3.6em; padding: .45rem .6rem; border-radius: 8px; background: rgb(111 207 151 / .08); color: #bfe9cf; font: 500 .72rem/1.35 var(--letra); opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s var(--curva); }
 .no.feito .no__saida { opacity: 1; transform: none; }
 
-.tela__fim { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: 1.2rem clamp(1rem, 3vw, 2.2rem) 1.5rem; border-top: 1px solid rgb(176 128 84 / .15); }
+.fx__fim { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: 1.2rem clamp(1rem, 3vw, 2.2rem) 1.5rem; border-top: 1px solid rgb(176 128 84 / .15); }
 .ganho { margin: 0; font: 700 clamp(1.9rem, 1.5rem + 1.5vw, 2.6rem)/1 var(--letra-titulo); background: linear-gradient(100deg, #d8c2a3, #f3ebdd 45%, #c99a6b); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .ganho small { display: block; margin-top: .4rem; font: 400 .8rem/1.4 var(--letra); -webkit-text-fill-color: var(--champanhe); opacity: .7; }
-.tela__fim .acoes { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; }
+.fx__fim .acoes { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; }
 .fluxos__ferramentas { margin-top: 1.2rem; font-size: var(--t-1); opacity: .6; }
 
 @media (max-width: 760px) {
