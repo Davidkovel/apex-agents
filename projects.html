@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="estilo.css?v=53">
 <link rel="stylesheet" href="botoes.css?v=4">
 <link rel="stylesheet" href="tema.css?v=1">
-<link rel="stylesheet" href="escolha.css?v=4">
+<link rel="stylesheet" href="fluxos.css?v=1">
+<script defer src="js/fluxos.js?v=1"></script>
 <script defer src="js/botoes.js?v=1"></script>
 <script defer src="js/contacto.js?v=25"></script>
 </head>
@@ -198,52 +199,17 @@
       </article>
     </div>
   </section>
-  <section class="sub__secao" id="automacao">
-    <p class="chapeu">Business automation</p>
-    <h2 class="titulo-secao">Automation that adds profit to your business.</h2>
-    <p class="autos__sub">AI takes over replies, posts, reports and tasks. You get more orders and fewer paid hours of routine.</p>
-    <div class="autos">
-      <article class="auto">
-        <div class="auto__cena" aria-hidden="true">
-          <div class="chat">
-            <p class="cli">Hi! Do you have it in size M?</p>
-            <p class="digita"><i></i><i></i><i></i></p>
-            <p class="bot">Yes, €48 with delivery tomorrow. Shall I reserve one for you?</p>
-            <small>answered in 4 sec · 03:12 at night</small>
-          </div>
-        </div>
-        <div class="auto__txt"><p class="auto__ganho">≈ €450 <small>a month back</small></p><p class="auto__conta">30 messages a day × 3 min = 45 hours a month at €10/h</p><h3>AI assistant for your clients</h3><p>Answers in Telegram, WhatsApp, Instagram and VK day and night, and sends you only the hot leads.</p></div>
-      </article>
-      <article class="auto">
-        <div class="auto__cena" aria-hidden="true">
-          <div class="redes--esq"><span>Ideas</span><span>Video</span></div>
-          <div class="feed"><div class="feed__fita">
-            <img src="img/f-maison.webp" alt=""><img src="img/f-alche.webp" alt=""><img src="img/f-nfinite.webp" alt=""><img src="img/f-ferreras.webp" alt=""><img src="img/f-maison.webp" alt="">
-          </div></div>
-          <div class="redes"><span>VK</span><span>TikTok</span><span>Reels</span></div>
-        </div>
-        <div class="auto__txt"><p class="auto__ganho">≈ €300 <small>a month back</small></p><p class="auto__conta">30 posts a month × 1 hour each = 30 hours at €10/h</p><h3>Content on autopilot</h3><p>Comes up with ideas, makes short videos from your photos and posts them on schedule.</p></div>
-      </article>
-      <article class="auto">
-        <div class="auto__cena" aria-hidden="true">
-          <div class="tg">
-            <b>☀ Yesterday in your store</b>
-            <ul>
-              <li style="--w:92%"><span>Profit</span><em>+€840</em><i></i></li>
-              <li style="--w:64%"><span>Best product</span><em>+€310</em><i></i></li>
-              <li class="menos" style="--w:22%"><span>Ad that lost money</span><em>−€42</em><i></i></li>
-            </ul>
-            <small>example · 09:00</small>
-          </div>
-        </div>
-        <div class="auto__txt"><p class="auto__ganho">≈ €120 <small>saved on every bad ad</small></p><p class="auto__conta">An ad losing €20 a day, stopped on day 1 instead of day 7</p><h3>Profit report every morning</h3><p>Takes yesterday’s sales from your store and Excel and sends the profit per product to Telegram.</p></div>
-      </article>
-      <article class="auto">
-        <div class="auto__cena"><span class="auto__selo">● Runs our own company</span><img src="img/m-hub-crm.webp" alt="AMG Hub: today's tasks, the team and progress" loading="lazy"></div>
-        <div class="auto__txt"><p class="auto__ganho">≈ €800 <small>a month kept</small></p><p class="auto__conta">1 forgotten request a week × a €200 order</p><h3>CRM that runs the office</h3><p>Every request becomes a task with an owner and a deadline, on every PC and phone. <a href="#hub-empresa">See it →</a></p></div>
-      </article>
+  <section class="sub__secao" id="automacao" data-fluxos>
+    <p class="chapeu">Business automation · n8n</p>
+    <h2 class="titulo-secao">See exactly what runs for you.</h2>
+    <p class="fluxos__sub">Pick a task and press Run. Every step lights up and shows what it did: where the data comes from, what the AI decides, where the result goes.</p>
+    <div class="fluxos__abas" role="tablist" data-abas></div>
+    <div class="tela">
+      <div class="tela__barra"><i></i><i></i><i></i><b data-titulo></b><span class="tela__estado" data-estado>Ready</span><button class="tela__correr" type="button" data-correr>▶ Run</button></div>
+      <div class="tela__area"><ol class="nos" data-nos></ol></div>
+      <div class="tela__fim"><p class="ganho" data-ganho></p><p class="acoes" data-acoes></p></div>
     </div>
-    <p class="autos__fim"><a class="botao" href="index.html#contacto">Automate my business</a><span>Figures are worked examples. On a free call we count yours.</span></p>
+    <p class="fluxos__ferramentas">Built in n8n, Make or our own code. Connects Telegram, WhatsApp, Instagram, VK, TikTok, Shopify, Excel, Google Sheets, Meta Ads, your CRM and Claude AI. Data in each step is a sample.</p>
   </section>
 
   <section class="sub__secao">

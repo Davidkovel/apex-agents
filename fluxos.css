@@ -1,0 +1,51 @@
+/* automation on projects.html: an n8n-style workflow the visitor can run step by step */
+.fluxos__sub { margin: .8rem 0 0; max-width: 52ch; font-size: var(--t-2); line-height: 1.55; opacity: .8; }
+.fluxos__abas { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+.fluxos__abas button { cursor: pointer; padding: .75rem 1.2rem; border: 0; border-radius: 99px; background: transparent; color: var(--champanhe); font: 500 var(--t-1)/1 var(--letra); box-shadow: inset 0 0 0 1px rgb(176 128 84 / .35); transition: background-color var(--t-toque), color var(--t-toque); }
+.fluxos__abas button[aria-selected="true"] { background: var(--ouro); color: #1a120b; box-shadow: none; }
+
+.tela { position: relative; margin-top: 1.2rem; border-radius: 18px; overflow: hidden; background: #111215; box-shadow: inset 0 0 0 1px rgb(176 128 84 / .22), 0 40px 80px -40px rgb(0 0 0 / .9); }
+.tela__barra { display: flex; align-items: center; gap: .8rem; padding: .8rem 1.1rem; border-bottom: 1px solid rgb(176 128 84 / .15); font: 500 .8rem/1 var(--letra); }
+.tela__barra i { width: 9px; height: 9px; border-radius: 50%; background: #2c2d33; }
+.tela__barra b { margin-left: .4rem; font-weight: 600; color: var(--tinta); }
+.tela__estado { margin-left: auto; color: var(--acento); }
+.tela__estado.ok { color: #9fe0b4; }
+.tela__correr { cursor: pointer; padding: .55rem 1rem; border: 0; border-radius: 8px; background: #e8754a; color: #fff; font: 600 .78rem/1 var(--letra); letter-spacing: .02em; }
+.tela__correr:disabled { opacity: .5; cursor: default; }
+
+/* canvas: dotted grid like n8n */
+.tela__area { padding: clamp(1.6rem, 4vw, 3rem) clamp(1rem, 3vw, 2.2rem); background-image: radial-gradient(rgb(255 255 255 / .07) 1px, transparent 1px); background-size: 18px 18px; overflow-x: auto; }
+.nos { list-style: none; margin: 0 auto; padding: 0; display: flex; align-items: flex-start; width: max-content; }
+.no { position: relative; width: 132px; display: grid; justify-items: center; text-align: center; gap: .55rem; }
+.no + .no { margin-left: 46px; }
+.no + .no::before { content: ""; position: absolute; top: 33px; right: calc(100% - 4px); width: 54px; height: 2px; background: #3a3b42; }
+.no + .no::after { content: ""; position: absolute; top: 29px; right: calc(100% + 46px); width: 10px; height: 10px; border-radius: 50%; background: var(--champanhe); opacity: 0; }
+.no.corre + .no::after, .no.feito + .no.corre::after { animation: pacote .6s linear; }
+.no.feito + .no::before { background: linear-gradient(90deg, #9fe0b4, #9fe0b4); }
+@keyframes pacote { 0% { opacity: 1; transform: translateX(0); } 100% { opacity: 1; transform: translateX(46px); } }
+.no__caixa { position: relative; width: 68px; height: 68px; display: grid; place-items: center; border-radius: 16px; background: #24252b; box-shadow: inset 0 0 0 2px #3a3b42; font-size: 1.6rem; transition: box-shadow .3s, transform .3s var(--salta); }
+.no--gatilho .no__caixa { border-radius: 34px 16px 16px 34px; }
+.no.corre .no__caixa { box-shadow: inset 0 0 0 2px #e8754a, 0 0 0 6px rgb(232 117 74 / .15); transform: scale(1.06); }
+.no.feito .no__caixa { box-shadow: inset 0 0 0 2px #6fcf97; }
+.no.feito .no__caixa::after { content: "✓"; position: absolute; right: -7px; bottom: -7px; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; background: #6fcf97; color: #0b0c0f; font: 700 .7rem/1 var(--letra); }
+.no__nome { font: 600 .82rem/1.25 var(--letra); color: var(--tinta); }
+.no__app { font: 500 .68rem/1 var(--letra); letter-spacing: .06em; text-transform: uppercase; color: var(--acento); }
+.no__saida { min-height: 3.6em; padding: .45rem .6rem; border-radius: 8px; background: rgb(111 207 151 / .08); color: #bfe9cf; font: 500 .72rem/1.35 var(--letra); opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s var(--curva); }
+.no.feito .no__saida { opacity: 1; transform: none; }
+
+.tela__fim { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: 1.2rem clamp(1rem, 3vw, 2.2rem) 1.5rem; border-top: 1px solid rgb(176 128 84 / .15); }
+.ganho { margin: 0; font: 700 clamp(1.9rem, 1.5rem + 1.5vw, 2.6rem)/1 var(--letra-titulo); background: linear-gradient(100deg, #d8c2a3, #f3ebdd 45%, #c99a6b); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ganho small { display: block; margin-top: .4rem; font: 400 .8rem/1.4 var(--letra); -webkit-text-fill-color: var(--champanhe); opacity: .7; }
+.tela__fim .acoes { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; }
+.fluxos__ferramentas { margin-top: 1.2rem; font-size: var(--t-1); opacity: .6; }
+
+@media (max-width: 760px) {
+  .nos { flex-direction: column; width: auto; }
+  .no { width: 100%; grid-template-columns: 56px 1fr; justify-items: start; text-align: left; column-gap: 1rem; row-gap: .3rem; }
+  .no + .no { margin: 34px 0 0; }
+  .no + .no::before { top: -30px; left: 27px; right: auto; width: 2px; height: 26px; }
+  .no + .no::after { display: none; }
+  .no__caixa { width: 56px; height: 56px; grid-row: span 3; font-size: 1.3rem; }
+  .no__saida { min-height: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .no + .no::after { display: none; } }
