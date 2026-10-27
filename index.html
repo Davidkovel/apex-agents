@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="estilo.css?v=53">
 <link rel="stylesheet" href="botoes.css?v=4">
 <link rel="stylesheet" href="tema.css?v=1">
+<link rel="stylesheet" href="menu.css?v=1">
+<script defer src="js/menu.js?v=1"></script>
 <link rel="stylesheet" href="capa.css?v=2">
 <link rel="stylesheet" href="fluxos.css?v=3">
 <script defer src="js/fluxos.js?v=3"></script>
@@ -32,14 +34,16 @@
   <a class="marca" href="#viagem" aria-label="Ten Fold, home">
     <img class="marca__s" src="img/tf-mark.png" alt="" width="148" height="196"><span>Ten Fold<em>Scaling Partners</em></span>
   </a>
-  <nav aria-label="Main">
-    <a href="#ciclo">How it works</a>
+  <nav aria-label="Main" id="menu-principal">
     <a href="projects.html">Projects</a>
+    <a href="projects.html#automacao">Automation</a>
     <a href="#servicos">Services</a>
+    <a href="#processo">Process</a>
     <a href="career.html">Career</a>
     <a class="topo__tel" href="#contactos" data-tel>+380 68 418 55 76</a>
     <a class="pilula" href="#contacto">Book a call</a>
   </nav>
+  <button class="menu-botao" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Open menu"><i></i><i></i></button>
 </header>
 
 <div class="rolar" aria-hidden="true">
