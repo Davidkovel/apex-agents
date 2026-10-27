@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="estilo.css?v=53">
 <link rel="stylesheet" href="botoes.css?v=4">
 <link rel="stylesheet" href="tema.css?v=1">
+<link rel="stylesheet" href="escolha.css?v=1">
+<script defer src="js/escolha.js?v=1"></script>
 <script defer src="js/botoes.js?v=1"></script>
 <script defer src="js/contacto.js?v=25"></script>
 </head>
@@ -197,6 +199,37 @@
       </article>
     </div>
   </section>
+  <section class="sub__secao" id="automacao" data-escolha>
+    <p class="chapeu">Automation</p>
+    <h2 class="titulo-secao">Which automation pays back first for you?</h2>
+    <div class="escolha">
+      <form onsubmit="return false">
+        <fieldset>
+          <legend><b>1</b>Your business</legend>
+          <div class="opcoes-esc">
+            <label><input type="radio" name="tipo" value="loja" checked><span>Online store</span></label>
+            <label><input type="radio" name="tipo" value="servicos"><span>Services &amp; bookings</span></label>
+            <label><input type="radio" name="tipo" value="trading"><span>Trading &amp; crypto</span></label>
+            <label><input type="radio" name="tipo" value="equipa"><span>Agency or team</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><b>2</b>Where your time goes</legend>
+          <div class="opcoes-esc">
+            <label><input type="radio" name="dor" value="respostas" checked><span>Answering clients</span></label>
+            <label><input type="radio" name="dor" value="conteudo"><span>Posts &amp; videos</span></label>
+            <label><input type="radio" name="dor" value="numeros"><span>Counting profit</span></label>
+            <label><input type="radio" name="dor" value="clientes"><span>Finding clients</span></label>
+            <label><input type="radio" name="dor" value="ads"><span>Running ads</span></label>
+            <label><input type="radio" name="dor" value="rotina"><span>Tasks slip through</span></label>
+          </div>
+        </fieldset>
+        <p class="escolha__regra">How we pick: the automation that closes your biggest time leak, fits your business and goes live soonest. Green means it already runs for us or a client today.</p>
+      </form>
+      <div class="resultado" data-resultado></div>
+    </div>
+  </section>
+
   <section class="sub__secao">
     <p class="chapeu">More projects</p>
     <h2 class="titulo-secao">Apps, bots and platforms for businesses</h2>
@@ -208,21 +241,21 @@
         <p>The same coin often costs a little less on one exchange than on another. The parser watches dozens of exchanges at once, draws the spread on a chart and shows both order books side by side — so you buy where it is cheaper and sell where it is dearer, at the same moment. That gap is the profit. Then came the bot that makes both trades by itself, faster than a person can click: on the best day one user earned <b>over $7,000</b>.</p>
         <p class="etiquetas"><span>Arbitrage</span><span>Real-time data</span><span>Automation</span></p>
       </article>
-      <article class="outro">
+      <article class="outro" id="trading">
         <figure class="outro__img"><img src="img/hub-trading-800.webp" alt="Trading automation platform: prices, news and trading accounts on one screen" width="800" height="500" loading="lazy"></figure>
         <p class="chapeu">Exchange trading automation</p>
         <h3>Trading automation platform</h3>
         <p>Bots that open and close trades on the exchange by the trader’s rules: entry, take-profit, stop-loss and position size are calculated for every trade, with limits that protect the deposit.</p>
         <p class="etiquetas"><span>Trading bots</span><span>Risk control</span></p>
       </article>
-      <article class="outro">
+      <article class="outro" id="sinais">
         <figure class="outro__img"><img src="img/c-sinais.webp" alt="Crypto signals: six charts that look like the current one, with what happened next" width="1560" height="1016" loading="lazy"></figure>
         <p class="chapeu">Telegram bot</p>
         <h3>Crypto signals bot</h3>
         <p>Every day it finds charts that look like today’s and shows what happened next. The trader gets the picture in Telegram and decides in seconds.</p>
         <p class="etiquetas"><span>Telegram</span><span>Pattern search</span></p>
       </article>
-      <article class="outro">
+      <article class="outro" id="olx">
         <p class="chapeu">Sales automation</p>
         <h3>OLX auto-posting</h3>
         <p>Kept a client’s listings at the top of OLX all day, every day, without paying for promotion. More views, more calls.</p>
