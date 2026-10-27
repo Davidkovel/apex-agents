@@ -1,11 +1,9 @@
-// Automation workflows on projects.html, drawn like an n8n canvas.
-// Pick a use case, press Run: every node lights up in turn and shows what it produced.
-// The outputs are sample data; the steps are the ones we set up for a client.
+// Workflows drawn like an n8n canvas: automation use cases on projects.html, our process on index.html.
+// Pick a tab, press Run: every node lights up in turn and shows what it produced.
+// The outputs are sample data; the steps are the ones we really go through.
 (function () {
-  var raiz = document.querySelector('[data-fluxos]');
-  if (!raiz) return;
-
-  var FLUXOS = [
+  var CONJUNTOS = {};
+  CONJUNTOS.automacao = [
     { id: 'assistente', aba: 'AI assistant', titulo: 'Reply to every client in seconds',
       nos: [
         { i: '💬', nome: 'New message', app: 'Telegram · WhatsApp · Instagram', saida: '“Do you have it in size M?”', gatilho: true },
@@ -53,6 +51,26 @@
       ],
       ganho: '≈ €800 a month kept', conta: '1 forgotten request a week × a €200 order', prova: '#hub-empresa' }
   ];
+  CONJUNTOS.processo = [
+    { id: 'processo', titulo: 'From your first message to a site that brings clients',
+      nos: [
+        { i: '✉', nome: 'Your message', app: 'Telegram · form · call', saida: 'We reply within 2 hours', gatilho: true },
+        { i: '✎', nome: 'Brief & plan', app: '30-min call', saida: 'Goals, pages, budget and dates on one page' },
+        { i: '☺', nome: 'One person in charge', app: 'Your manager', saida: 'One contact from start to finish' },
+        { i: '▢', nome: 'Prototype early', app: 'Clickable design', saida: 'You see the site before it is built' },
+        { i: '⇪', nome: 'Launch', app: 'Your domain', saida: 'Fast on every device, found on Google' },
+        { i: '↗', nome: 'Grow', app: 'Ads · SEO · automation', saida: 'Requests, measured in money' }
+      ],
+      ganho: 'One team, one manager, one channel', conta: 'Design, build, launch and ads in one place', semNota: true,
+      cta: 'Start with a free brief', ctaHref: '#contacto' }
+  ];
+
+  document.querySelectorAll('[data-fluxos]').forEach(function (raiz) {
+    var lista = CONJUNTOS[raiz.getAttribute('data-fluxos')];
+    if (lista) iniciar(raiz, lista);
+  });
+
+  function iniciar(raiz, FLUXOS) {
 
   var abas = raiz.querySelector('[data-abas]');
   var nos = raiz.querySelector('[data-nos]');
@@ -64,6 +82,7 @@
   var atual = FLUXOS[0];
   var relogios = [];
 
+  if (FLUXOS.length < 2) abas.hidden = true;
   abas.innerHTML = FLUXOS.map(function (f, k) {
     return '<button type="button" role="tab" data-aba="' + k + '" aria-selected="' + (k === 0) + '">' + f.aba + '</button>';
   }).join('');
@@ -87,8 +106,8 @@
         '<span class="no__app">' + n.app + '</span>' +
         '<span class="no__saida">' + n.saida + '</span></li>';
     }).join('');
-    ganho.innerHTML = f.ganho + '<small>' + f.conta + ' · worked example</small>';
-    acoes.innerHTML = '<a class="botao" href="index.html#contacto">I want this flow</a>' +
+    ganho.innerHTML = f.ganho + '<small>' + f.conta + (f.semNota ? '' : ' · worked example') + '</small>';
+    acoes.innerHTML = '<a class="botao" href="' + (f.ctaHref || 'index.html#contacto') + '">' + (f.cta || 'I want this flow') + '</a>' +
       (f.prova ? '<a class="botao botao--vazio" href="' + f.prova + '">See it in our CRM</a>' : '');
   }
 
@@ -126,4 +145,5 @@
     if (es[0].isIntersecting) { executar(); io.disconnect(); }
   }, { threshold: .4 });
   io.observe(nos);
+  }
 })();
