@@ -1,44 +1,52 @@
-/* automation picker on projects.html: two questions, one best automation to start with */
-.escolha { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: center; margin-top: 2rem; }
-.escolha fieldset { border: 0; margin: 0 0 1.8rem; padding: 0; }
-.escolha legend { padding: 0; margin-bottom: .9rem; font: 600 var(--t-1)/1.2 var(--letra); letter-spacing: .14em; text-transform: uppercase; color: var(--acento); }
-.escolha legend b { color: var(--champanhe); margin-right: .5rem; }
-.opcoes-esc { display: flex; flex-direction: column; align-items: flex-start; gap: .6rem; }
-.opcoes-esc label { position: relative; cursor: pointer; }
-.opcoes-esc input { position: absolute; opacity: 0; pointer-events: none; }
-.opcoes-esc span { display: inline-block; padding: .9rem 1.4rem; font-size: var(--t-2) !important; border-radius: 99px; font: 500 var(--t-1)/1 var(--letra); color: var(--champanhe); box-shadow: inset 0 0 0 1px rgb(176 128 84 / .35); transition: background-color var(--t-toque), color var(--t-toque), transform var(--t-toque) var(--salta); }
-.opcoes-esc label:hover span { transform: translateY(-2px); }
-.opcoes-esc input:checked + span { background: var(--ouro); color: #1a120b; box-shadow: none; }
-.opcoes-esc input:focus-visible + span { outline: 2px solid var(--champanhe); outline-offset: 3px; }
-.escolha__regra { margin-top: .4rem; font-size: var(--t-1); line-height: 1.6; opacity: .65; max-width: 44ch; }
+/* automation block on projects.html: four cards, each with a small looping scene instead of text */
+.autos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 1.6rem); margin-top: 2rem; }
+.auto { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; background: #1c1d21; box-shadow: inset 0 0 0 1px rgb(176 128 84 / .2); }
+.auto__cena { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: radial-gradient(80% 90% at 50% 0%, rgb(176 128 84 / .2), transparent 70%), #121316; }
+.auto__cena > img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.auto__txt { display: grid; gap: .5rem; padding: 1.3rem 1.5rem 1.6rem; }
+.auto h3 { margin: 0; font: 700 var(--t-3)/1.1 var(--letra-titulo); letter-spacing: -.02em; }
+.auto p { margin: 0; line-height: 1.55; opacity: .8; }
+.auto__selo { position: absolute; left: 1rem; bottom: 1rem; z-index: 2; padding: .4rem .75rem; border-radius: 99px; background: rgb(11 12 15 / .8); backdrop-filter: blur(6px); color: #9fe0b4; font: 600 .7rem/1 var(--letra); letter-spacing: .08em; }
+.autos__fim { margin-top: 1.6rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.autos__fim span { opacity: .7; }
 
-.resultado { position: sticky; top: 6rem; display: grid; gap: 1rem; }
-.melhor { position: relative; overflow: hidden; border-radius: 16px; background: #1c1d21; box-shadow: inset 0 0 0 1px rgb(176 128 84 / .45), 0 30px 60px -30px rgb(0 0 0 / .8); animation: entra-esc .6s var(--curva); }
-.melhor figure { margin: 0; aspect-ratio: 16 / 9; overflow: hidden; background: #111215; }
-.melhor figure img { width: 100%; height: 100%; object-fit: cover; }
-.melhor figure:has(.fluxo) { aspect-ratio: auto; }
-.fluxo { list-style: none; margin: 0; padding: 1.6rem 1.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; counter-reset: f; background: radial-gradient(70% 120% at 50% 0%, rgb(176 128 84 / .22), transparent 70%); }
-.fluxo li { position: relative; counter-increment: f; padding: .9rem; border-radius: 12px; background: rgb(255 255 255 / .04); box-shadow: inset 0 0 0 1px rgb(176 128 84 / .3); font: 500 .8rem/1.35 var(--letra); color: var(--champanhe); }
-.fluxo li::before { content: counter(f, decimal-leading-zero); display: block; margin-bottom: .4rem; font: 600 .68rem/1 var(--letra); letter-spacing: .12em; color: var(--acento); }
-.fluxo li + li::after { content: "→"; position: absolute; left: -1.25rem; top: 50%; translate: 0 -50%; color: var(--acento); }
-@media (max-width: 480px) { .fluxo { grid-template-columns: 1fr; gap: 1.3rem; } .fluxo li + li::after { content: "↓"; left: 50%; top: -1.15rem; translate: -50% 0; } }
-.melhor__sem-foto { display: grid; place-items: center; height: 100%; padding: 1.5rem; text-align: center; font: 600 var(--t-3)/1.2 var(--letra-titulo); color: var(--champanhe); background: radial-gradient(70% 90% at 50% 0%, rgb(176 128 84 / .25), transparent 70%); }
-.melhor__txt { display: grid; gap: .8rem; padding: 1.4rem 1.5rem 1.6rem; }
-.melhor__selo { justify-self: start; padding: .4rem .8rem; border-radius: 99px; background: var(--ouro); color: #1a120b; font: 600 .7rem/1 var(--letra); letter-spacing: .12em; text-transform: uppercase; }
-.melhor h3 { margin: 0; font: 700 var(--t-3)/1.1 var(--letra-titulo); letter-spacing: -.02em; }
-.melhor p { margin: 0; line-height: 1.6; }
-.melhor__porque { font-size: var(--t-1); color: var(--champanhe); }
-.melhor ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .35rem; font-size: var(--t-1); line-height: 1.5; }
-.melhor__meta { display: flex; flex-wrap: wrap; gap: .5rem; font-size: .78rem; }
-.melhor__meta span { padding: .35rem .7rem; border-radius: 99px; box-shadow: inset 0 0 0 1px rgb(176 128 84 / .3); }
-.melhor__meta .real { color: #9fe0b4; box-shadow: inset 0 0 0 1px rgb(120 200 150 / .4); }
-.melhor .acoes { display: flex; flex-wrap: wrap; gap: .6rem; margin: .3rem 0 0; }
-.tambem { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
-.tambem button { text-align: left; cursor: pointer; padding: 1rem 1.1rem; border: 0; border-radius: 12px; background: #16171a; color: var(--tinta); box-shadow: inset 0 0 0 1px rgb(176 128 84 / .18); font: 400 var(--t-1)/1.4 var(--letra); transition: box-shadow var(--t-toque); }
-.tambem button:hover { box-shadow: inset 0 0 0 1px var(--acento); }
-.tambem small { display: block; margin-bottom: .3rem; color: var(--acento); letter-spacing: .1em; text-transform: uppercase; font-size: .68rem; }
-.tambem b { display: block; font: 700 1.15rem/1.15 var(--letra-titulo); }
-@keyframes entra-esc { from { opacity: 0; transform: translateY(14px); } }
-@media (max-width: 860px) { .escolha { grid-template-columns: 1fr; } .resultado { position: static; } }
-@media (max-width: 480px) { .tambem { grid-template-columns: 1fr; } }
-@media (prefers-reduced-motion: reduce) { .melhor { animation: none; } }
+/* 1 chat: client asks, bot types, bot answers */
+.chat { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: .7rem; padding: 1.5rem clamp(1rem, 6%, 2.5rem); font: 500 .9rem/1.4 var(--letra); }
+.chat p { max-width: 78%; margin: 0; padding: .7rem 1rem; border-radius: 16px; opacity: 0; animation: 9s var(--curva) infinite; }
+.chat .cli { align-self: flex-start; background: #2a2b30; color: var(--tinta); border-bottom-left-radius: 4px; animation-name: msg1; }
+.chat .bot { align-self: flex-end; background: var(--ouro); color: #1a120b; border-bottom-right-radius: 4px; animation-name: msg3; }
+.chat .digita { position: absolute; right: clamp(1rem, 6%, 2.5rem); top: 50%; background: #2a2b30; animation-name: msg2; }
+.chat .digita i { display: inline-block; width: 6px; height: 6px; margin: 0 2px; border-radius: 50%; background: var(--champanhe); animation: ponto 1s infinite; }
+.chat .digita i:nth-child(2) { animation-delay: .15s; }
+.chat .digita i:nth-child(3) { animation-delay: .3s; }
+.chat small { align-self: flex-end; font-size: .7rem; color: var(--acento); opacity: 0; animation: msg3 9s infinite; }
+@keyframes msg1 { 0%, 4% { opacity: 0; transform: translateY(10px); } 9%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes msg2 { 0%, 16% { opacity: 0; } 20%, 40% { opacity: 1; } 43%, 100% { opacity: 0; } }
+@keyframes msg3 { 0%, 42% { opacity: 0; transform: translateY(10px); } 48%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes ponto { 50% { transform: translateY(-4px); opacity: .5; } }
+
+/* 2 feed: posts scroll inside a phone, network pills on the sides */
+.feed { position: absolute; left: 50%; top: 8%; width: 34%; height: 120%; translate: -50% 0; border-radius: 26px; padding: 8px; background: #0b0c0f; box-shadow: 0 0 0 1px rgb(176 128 84 / .35), 0 30px 60px -20px rgb(0 0 0 / .8); overflow: hidden; }
+.feed__fita { display: grid; gap: 8px; animation: rola 12s cubic-bezier(.65, 0, .35, 1) infinite; }
+.feed__fita img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 16px; }
+.redes, .redes--esq { position: absolute; top: 50%; translate: 0 -50%; display: grid; gap: .5rem; }
+.redes { right: 6%; }
+.redes--esq { left: 6%; }
+.redes span, .redes--esq span { padding: .45rem .8rem; border-radius: 99px; background: #2a2b30; font: 600 .72rem/1 var(--letra); color: var(--champanhe); }
+@keyframes rola { 0%, 18% { transform: translateY(0); } 25%, 43% { transform: translateY(-20%); } 50%, 68% { transform: translateY(-40%); } 75%, 93% { transform: translateY(-60%); } 100% { transform: translateY(0); } }
+
+/* 3 profit: a Telegram message whose bars fill up */
+.tg { position: absolute; left: 50%; top: 50%; width: min(82%, 340px); translate: -50% -50%; padding: 1rem 1.1rem; border-radius: 16px 16px 16px 4px; background: #2a2b30; font: 500 .82rem/1.4 var(--letra); box-shadow: 0 20px 40px -20px rgb(0 0 0 / .8); }
+.tg b { display: block; margin-bottom: .6rem; color: var(--champanhe); }
+.tg ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.tg li { display: grid; grid-template-columns: 1fr auto; gap: .3rem .8rem; }
+.tg li i { grid-column: 1 / -1; height: 5px; border-radius: 5px; background: rgb(255 255 255 / .08); overflow: hidden; }
+.tg li i::after { content: ""; display: block; height: 100%; width: var(--w); border-radius: 5px; background: var(--ouro); animation: barra 6s var(--curva) infinite; }
+.tg li.menos i::after { background: #c0634f; }
+.tg em { font-style: normal; color: #9fe0b4; }
+.tg li.menos em { color: #e48b77; }
+.tg small { display: block; margin-top: .6rem; text-align: right; font-size: .7rem; opacity: .5; }
+@keyframes barra { 0%, 8% { width: 0; } 30%, 92% { width: var(--w); } 100% { width: 0; } }
+
+@media (max-width: 760px) { .autos { grid-template-columns: 1fr; } .feed { width: 42%; } }
+@media (prefers-reduced-motion: reduce) { .chat p, .chat small, .feed__fita, .tg li i::after { animation: none; opacity: 1; } .chat .digita { display: none; } }

@@ -17,8 +17,7 @@
 <link rel="stylesheet" href="estilo.css?v=53">
 <link rel="stylesheet" href="botoes.css?v=4">
 <link rel="stylesheet" href="tema.css?v=1">
-<link rel="stylesheet" href="escolha.css?v=2">
-<script defer src="js/escolha.js?v=2"></script>
+<link rel="stylesheet" href="escolha.css?v=3">
 <script defer src="js/botoes.js?v=1"></script>
 <script defer src="js/contacto.js?v=25"></script>
 </head>
@@ -199,24 +198,51 @@
       </article>
     </div>
   </section>
-  <section class="sub__secao" id="automacao" data-escolha>
+  <section class="sub__secao" id="automacao">
     <p class="chapeu">Automation</p>
     <h2 class="titulo-secao">Let a robot do the boring part.</h2>
-    <div class="escolha">
-      <form onsubmit="return false">
-        <fieldset>
-          <legend>Where does your time go?</legend>
-          <div class="opcoes-esc">
-            <label><input type="radio" name="dor" value="respostas" checked><span>Answering clients</span></label>
-            <label><input type="radio" name="dor" value="conteudo"><span>Posts &amp; videos</span></label>
-            <label><input type="radio" name="dor" value="numeros"><span>Counting profit</span></label>
-            <label><input type="radio" name="dor" value="rotina"><span>Tasks slip through</span></label>
+    <div class="autos">
+      <article class="auto">
+        <div class="auto__cena" aria-hidden="true">
+          <div class="chat">
+            <p class="cli">Hi! Do you have it in size M?</p>
+            <p class="digita"><i></i><i></i><i></i></p>
+            <p class="bot">Yes, €48 with delivery tomorrow. Shall I reserve one for you?</p>
+            <small>answered in 4 sec · 03:12 at night</small>
           </div>
-        </fieldset>
-        <p class="escolha__regra">Pick one. We start with the automation that gives you back the most hours.</p>
-      </form>
-      <div class="resultado" data-resultado></div>
+        </div>
+        <div class="auto__txt"><h3>AI assistant for your clients</h3><p>Answers in Telegram, WhatsApp, Instagram and VK day and night, and sends you only the hot leads.</p></div>
+      </article>
+      <article class="auto">
+        <div class="auto__cena" aria-hidden="true">
+          <div class="redes--esq"><span>Ideas</span><span>Video</span></div>
+          <div class="feed"><div class="feed__fita">
+            <img src="img/f-maison.webp" alt=""><img src="img/f-alche.webp" alt=""><img src="img/f-nfinite.webp" alt=""><img src="img/f-ferreras.webp" alt=""><img src="img/f-maison.webp" alt="">
+          </div></div>
+          <div class="redes"><span>VK</span><span>TikTok</span><span>Reels</span></div>
+        </div>
+        <div class="auto__txt"><h3>Content on autopilot</h3><p>Comes up with ideas, makes short videos from your photos and posts them on schedule.</p></div>
+      </article>
+      <article class="auto">
+        <div class="auto__cena" aria-hidden="true">
+          <div class="tg">
+            <b>☀ Yesterday in your store</b>
+            <ul>
+              <li style="--w:92%"><span>Profit</span><em>+€840</em><i></i></li>
+              <li style="--w:64%"><span>Best product</span><em>+€310</em><i></i></li>
+              <li class="menos" style="--w:22%"><span>Ad that lost money</span><em>−€42</em><i></i></li>
+            </ul>
+            <small>example · 09:00</small>
+          </div>
+        </div>
+        <div class="auto__txt"><h3>Profit report every morning</h3><p>Takes yesterday’s sales from your store and Excel and sends the profit per product to Telegram.</p></div>
+      </article>
+      <article class="auto">
+        <div class="auto__cena"><span class="auto__selo">● Runs our own company</span><img src="img/m-hub-crm.webp" alt="AMG Hub: today's tasks, the team and progress" loading="lazy"></div>
+        <div class="auto__txt"><h3>CRM that runs the office</h3><p>Every request becomes a task with an owner and a deadline, on every PC and phone. <a href="#hub-empresa">See it →</a></p></div>
+      </article>
     </div>
+    <p class="autos__fim"><a class="botao" href="index.html#contacto">Automate my business</a><span>Not sure where to start? We look for free.</span></p>
   </section>
 
   <section class="sub__secao">
