@@ -174,6 +174,26 @@ p { margin: 0; }
 .aviso { position: fixed; z-index: 30; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); translate: -50% 20px; opacity: 0; padding: .8rem 1.3rem; border-radius: 99px; background: var(--verde); color: var(--creme); font-size: .88rem; transition: opacity .3s, translate .4s var(--curva); pointer-events: none; }
 .aviso.visto { opacity: 1; translate: -50% 0; }
 
+/* trust strip, engraving, gift, upsell, phone bag bar */
+.confianca { list-style: none; margin: 0; padding: 1.4rem var(--g); display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem 2.6rem; background: var(--verde); color: var(--creme); font-size: .85rem; letter-spacing: .04em; }
+.confianca li::before { content: "◆"; margin-right: .6rem; color: var(--ouro); font-size: .6rem; vertical-align: .15em; }
+.gravura { position: relative; }
+.gravura input { width: 100%; padding: .8rem 1rem; border-radius: 14px; border: 1px solid rgb(16 20 15 / .18); background: #fff; font: italic 400 1.15rem/1.2 var(--serif); letter-spacing: .06em; color: var(--verde-2); }
+.gravura small { position: absolute; right: .9rem; top: 50%; translate: 0 -50%; opacity: .45; font-size: .72rem; }
+.presente { display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; font-size: .85rem; cursor: pointer; }
+.presente input { width: 18px; height: 18px; accent-color: var(--verde-2); }
+.sugestao { display: grid; grid-template-columns: 56px 1fr auto; gap: .8rem; align-items: center; margin: .5rem 0 1rem; padding: .8rem; border-radius: 16px; background: #fff; box-shadow: 0 10px 30px -20px rgb(16 20 15 / .4); }
+.sugestao img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; }
+.sugestao small { display: block; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--verde-2); }
+.sugestao b { font: 400 1.1rem/1.1 var(--serif); }
+.sugestao button { border: 0; border-radius: 99px; padding: .55rem .9rem; background: var(--verde); color: var(--creme); font: 500 .78rem/1 var(--sans); cursor: pointer; }
+.barra-saco { display: none; }
+@media (max-width: 760px) {
+  .barra-saco:not([hidden]) { position: fixed; z-index: 15; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.3rem; border: 0; border-radius: 99px; background: var(--verde); color: var(--creme); font: 500 .95rem/1 var(--sans); box-shadow: 0 20px 40px -15px rgb(6 32 15 / .7); cursor: pointer; }
+  .barra-saco b { color: var(--ouro-2); font-weight: 500; }
+  .aviso { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); white-space: nowrap; }
+}
+
 /* reveal */
 .aparece { opacity: 0; translate: 0 30px; transition: opacity 1s var(--curva), translate 1s var(--curva); }
 .aparece.visto { opacity: 1; translate: 0 0; }
@@ -200,6 +220,7 @@ p { margin: 0; }
     <div class="vidro vidro--c">Gold, pearls and emeralds, made to be worn every day and kept for a lifetime.</div>
   </section>
   <div class="corrente" aria-hidden="true"></div>
+  <ul class="confianca"><li>Free insured delivery</li><li>Free engraving</li><li>30-day returns</li><li>Lifetime care in our atelier</li></ul>
 
   <section class="secao" id="criacoes">
     <div class="cabeca aparece"><h2>Our creations</h2><p>Every piece ships insured, boxed and engraved for free.</p></div>
@@ -254,6 +275,7 @@ p { margin: 0; }
 </aside>
 <div class="modal" data-modal role="dialog" aria-modal="true" aria-label="Product"></div>
 <p class="aviso" data-aviso role="status"></p>
+<button class="barra-saco" type="button" data-abrir-saco data-barra hidden><span>Your bag · <span data-barra-n>0</span></span><b data-barra-total></b></button>
 
 <footer class="rodape">
   <span>Maison Verde is a concept website designed and built by <a href="../../index.html">Apex Agents</a>.</span>
@@ -282,6 +304,7 @@ p { margin: 0; }
   const gravar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
   let saco = ler('mv-saco', []);
   let favs = ler('mv-favs', []);
+  let presente = ler('mv-presente', false);
   let filtro = 'all', ordem = 'dest';
 
   function aviso(txt) {
@@ -303,11 +326,11 @@ p { margin: 0; }
       </li>`).join('') : '<li class="vazio">Nothing saved yet. Tap ♥ on a piece.</li>';
   }
 
-  function juntar(id, metal, tamanho) {
+  function juntar(id, metal, tamanho, gravura) {
     const p = PRODUTOS.find((x) => x.id === id);
-    metal = metal || METAIS[0]; tamanho = tamanho || TAMANHOS[p.cat][1] || TAMANHOS[p.cat][0];
-    const linha = saco.find((l) => l.id === id && l.metal === metal && l.tamanho === tamanho);
-    if (linha) linha.q += 1; else saco.push({ id, metal, tamanho, q: 1 });
+    metal = metal || METAIS[0]; tamanho = tamanho || TAMANHOS[p.cat][1] || TAMANHOS[p.cat][0]; gravura = gravura || '';
+    const linha = saco.find((l) => l.id === id && l.metal === metal && l.tamanho === tamanho && (l.gravura || '') === gravura);
+    if (linha) linha.q += 1; else saco.push({ id, metal, tamanho, gravura, q: 1 });
     gravar('mv-saco', saco); desenharSaco();
     const b = $('.saco'); b.classList.remove('pula'); void b.offsetWidth; b.classList.add('pula');
     aviso(`${p.nome} added to your bag`);
@@ -320,12 +343,18 @@ p { margin: 0; }
     $('[data-gaveta-titulo]').textContent = 'Your bag' + (n ? ` (${n})` : '');
     $('[data-itens]').innerHTML = saco.length ? saco.map((l, i) => {
       const p = PRODUTOS.find((x) => x.id === l.id);
-      return `<li><img src="img/${p.img}.webp" alt=""><div><h3>${p.nome}</h3><small>${l.metal} · ${l.tamanho}</small><br>
+      return `<li><img src="img/${p.img}.webp" alt=""><div><h3>${p.nome}</h3><small>${l.metal} · ${l.tamanho}${l.gravura ? ` · engraved “${l.gravura}”` : ''}</small><br>
         <span class="qtd"><button type="button" data-menos="${i}" aria-label="Less">−</button>${l.q}<button type="button" data-mais="${i}" aria-label="More">+</button></span>
         <button class="tirar" type="button" data-tirar="${i}">Remove</button></div><b>${eur(p.preco * l.q)}</b></li>`;
     }).join('') : '<li class="vazio" style="display:block">Your bag is empty.</li>';
     const falta = ENVIO_GRATIS - total;
+    const sug = PRODUTOS.find((p) => !saco.some((l) => l.id === p.id) && (!saco.length || p.cat !== PRODUTOS.find((x) => x.id === saco[0].id).cat)) || PRODUTOS.find((p) => !saco.some((l) => l.id === p.id));
+    const barra = $('[data-barra]');
+    barra.hidden = !n || $('[data-gaveta]').classList.contains('aberta');
+    $('[data-barra-n]').textContent = n; $('[data-barra-total]').textContent = eur(total);
     $('[data-rodape-saco]').innerHTML = `
+      ${n && sug ? `<div class="sugestao"><img src="img/${sug.img}.webp" alt=""><div><small>Complete the look</small><b>${sug.nome}</b></div><button type="button" data-add="${sug.id}">+ ${eur(sug.preco)}</button></div>` : ''}
+      ${n ? `<label class="presente"><input type="checkbox" data-presente ${presente ? 'checked' : ''}> Gift box with a handwritten note — free</label>` : ''}
       <p class="envio" style="--p:${Math.min(100, total / ENVIO_GRATIS * 100)}%">${falta > 0 ? `${eur(falta)} away from free insured delivery` : 'Free insured delivery ✓'}<i></i></p>
       <p class="total"><span>Total</span><span>${eur(total)}</span></p>
       <button class="botao" type="button" data-checkout ${n ? '' : 'disabled'}>Checkout →</button>`;
@@ -344,19 +373,20 @@ p { margin: 0; }
   }
 
   function abrirSaco() {
-    desenharSaco();
     $('[data-gaveta]').classList.add('aberta'); $('[data-gaveta]').setAttribute('aria-hidden', 'false');
     $('[data-fundo]').classList.add('aberto');
+    desenharSaco();
   }
   function fecharTudo() {
     $('[data-gaveta]').classList.remove('aberta'); $('[data-gaveta]').setAttribute('aria-hidden', 'true');
     $('[data-modal]').classList.remove('aberto'); $('[data-fundo]').classList.remove('aberto');
+    desenharSaco();
   }
 
   function verProduto(id) {
     const p = PRODUTOS.find((x) => x.id === id);
     const m = $('[data-modal]');
-    const escolha = { metal: METAIS[0], tamanho: TAMANHOS[p.cat][1] || TAMANHOS[p.cat][0] };
+    const escolha = { metal: METAIS[0], tamanho: TAMANHOS[p.cat][1] || TAMANHOS[p.cat][0], gravura: '' };
     const opcoes = (nome, lista, atual) => lista.map((v) => `<button type="button" data-op="${nome}" data-v="${v}" aria-pressed="${v === atual}">${v}</button>`).join('');
     const desenhar = () => {
       m.innerHTML = `<figure><img src="img/${p.img}.webp" alt="${p.nome}"></figure><div class="modal__txt">
@@ -364,14 +394,16 @@ p { margin: 0; }
         <small style="opacity:.6">${p.nota}</small><h2>${p.nome}</h2><b style="font-size:1.3rem;font-weight:500">${eur(p.preco)}</b>
         <label>Metal</label><div class="opcoes">${opcoes('metal', METAIS, escolha.metal)}</div>
         <label>Size</label><div class="opcoes">${opcoes('tamanho', TAMANHOS[p.cat], escolha.tamanho)}</div>
+        <label for="mv-gravura">Engraving · free</label><div class="gravura"><input id="mv-gravura" data-gravura maxlength="12" placeholder="Initials or a date" value="${escolha.gravura}"><small>12 max</small></div>
         <p style="opacity:.75">Set by hand in our atelier. Free engraving, gift box and insured delivery. 30-day returns.</p>
         <button class="botao" type="button" data-add-modal>Add to bag · ${eur(p.preco)}</button></div>`;
     };
     desenhar();
+    m.oninput = (e) => { if (e.target.matches('[data-gravura]')) escolha.gravura = e.target.value.replace(/[<>"&`]/g, '').trim(); };
     m.onclick = (e) => {
       const op = e.target.closest('[data-op]');
       if (op) { escolha[op.dataset.op] = op.dataset.v; desenhar(); }
-      if (e.target.closest('[data-add-modal]')) { juntar(p.id, escolha.metal, escolha.tamanho); fecharTudo(); }
+      if (e.target.closest('[data-add-modal]')) { juntar(p.id, escolha.metal, escolha.tamanho, escolha.gravura); fecharTudo(); }
     };
     m.classList.add('aberto'); $('[data-fundo]').classList.add('aberto');
   }
@@ -404,6 +436,7 @@ p { margin: 0; }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fecharTudo(); });
   $('[data-ordem]').addEventListener('change', (e) => { ordem = e.target.value; desenharLista(); });
+  document.addEventListener('change', (e) => { if (e.target.matches('[data-presente]')) { presente = e.target.checked; gravar('mv-presente', presente); } });
   desenharLista(); desenharSaco();
 </script>
 </body>
